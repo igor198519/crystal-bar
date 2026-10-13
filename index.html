@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Crystal Bar · Просеко-зона з крана у Львові</title>
+<meta name="description" content="Барний кейтеринг Crystal Bar: просеко-зона з краном, коктейль-бар і гірка з шампанського. Львів і Західна Україна. 068 681 83 56">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crystal Bar · Просеко з крана">
+<meta property="og:description" content="Просеко-зона, коктейль-бар і гірка з шампанського для подій у Львові та Західній Україні.">
+<meta property="og:image" content="img/stand.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b0b0c'/%3E%3Cg fill='none' stroke-width='5' stroke-linejoin='round'%3E%3Cpath d='M47 7 A44 44 0 0 0 45 96' stroke='%23c49a6c'/%3E%3Cpath d='M68 13 A44 44 0 0 1 52 96' stroke='%23d9d6cf'/%3E%3Cpath d='M50 10 L64 38 L50 94 L36 38 Z' stroke='%23c49a6c'/%3E%3C/g%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: black lacquer page, silver-foil type like the logo on the stand; one tall photo per idea, wide margins, nothing crowded. */
+:root{
+  --ink:#0b0b0c;          /* matte black of the stand */
+  --ink-2:#141416;        /* panel black */
+  --line:#2a2a2e;         /* hairline */
+  --foil:#d9d6cf;         /* silver foil type */
+  --muted:#8f8c86;        /* secondary text */
+  --champagne:#c49a6c;    /* bronze-gold from the logo, used sparingly */
+  --f-display:"Josefin Sans","Futura","Century Gothic",system-ui,sans-serif;
+  --f-accent:"Cormorant Garamond","Cormorant",Georgia,serif;
+  --f-body:"Jost","Futura","Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(16px,5vw,64px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ink);color:var(--foil);font-family:var(--f-body);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--champagne);outline-offset:4px}
+
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-family:var(--f-display);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:var(--f-display);font-weight:200;text-transform:uppercase;letter-spacing:.18em;line-height:1.15;text-wrap:balance;margin:0}
+.accent{font-family:var(--f-accent);font-style:italic;font-weight:400;color:var(--champagne);letter-spacing:0;text-transform:none}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:34px;height:34px}
+.brand span{font-family:var(--f-display);font-weight:300;font-size:14px;letter-spacing:.42em;text-transform:uppercase}
+nav{display:flex;gap:28px}
+nav a{font-family:var(--f-display);font-size:12px;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .3s}
+nav a:hover{color:var(--foil)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 30px;border:1px solid var(--foil);font-family:var(--f-display);font-size:12px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:var(--foil);background:transparent;cursor:pointer;transition:background .35s,color .35s}
+.btn:hover{background:var(--foil);color:var(--ink)}
+.btn.small{padding:10px 18px;font-size:11px}
+
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,96px);align-items:center;padding-block:clamp(40px,8vw,110px)}
+.hero h1{font-size:clamp(40px,6.4vw,86px);letter-spacing:.2em}
+.hero h1 .accent{display:block;font-size:.62em;margin-top:.35em}
+.hero p.lead{max-width:30em;color:var(--muted);margin:28px 0 40px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.hero .cta small{color:var(--muted);font-size:14px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 40%}
+.hero figure::after{content:"";position:absolute;inset:14px;border:1px solid rgba(217,214,207,.35);pointer-events:none}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero figure{order:-1}.hero figure img{aspect-ratio:4/3.4}}
+
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+.facts div{padding:28px 24px;border-left:1px solid var(--line);min-width:0}
+.facts div:first-child{border-left:0;padding-left:0}
+.facts b{display:block;font-family:var(--f-display);font-weight:300;font-size:15px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.facts span{color:var(--muted);font-size:15px}
+@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){border-left:0;padding-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}.facts div{border-left:0;padding-left:0}.facts div+div{border-top:1px solid var(--line)}}
+
+section{padding-block:clamp(72px,11vw,150px)}
+.head{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.head h2{font-size:clamp(30px,4vw,52px)}
+.head p{color:var(--muted);margin:0;max-width:34em}
+@media (max-width:860px){.head{grid-template-columns:1fr}}
+
+/* concept */
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:stretch}
+.concept .tall img{width:100%;height:100%;object-fit:cover;min-height:420px}
+.concept .text{display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-width:0}
+.concept blockquote{margin:0;font-family:var(--f-accent);font-style:italic;font-size:clamp(26px,3vw,38px);line-height:1.3;color:var(--foil);text-wrap:balance}
+.concept .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.concept .pair img{width:100%;aspect-ratio:3/4;object-fit:cover}
+@media (max-width:860px){.concept{grid-template-columns:1fr}.concept .tall img{min-height:0;aspect-ratio:4/5}}
+
+/* included */
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.item{padding:36px 32px 40px 0;border-bottom:1px solid var(--line);min-width:0}
+.item:not(:nth-child(3n+1)){padding-left:32px;border-left:1px solid var(--line)}
+.item h3{font-family:var(--f-display);font-weight:300;font-size:16px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 12px}
+.item p{margin:0;color:var(--muted);font-size:16px}
+.item svg{width:28px;height:28px;margin-bottom:22px;stroke:var(--champagne);fill:none;stroke-width:1}
+@media (max-width:860px){.items{grid-template-columns:1fr 1fr}.item{padding-left:0!important;border-left:0!important;padding-right:24px}.item:nth-child(2n){padding-left:24px!important;border-left:1px solid var(--line)!important}}
+@media (max-width:520px){.items{grid-template-columns:1fr}.item:nth-child(2n){padding-left:0!important;border-left:0!important}}
+
+/* shine video band */
+.shine{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:center;background:var(--ink-2);border-block:1px solid var(--line)}
+.shine video{width:100%;max-width:380px;aspect-ratio:9/16;object-fit:cover;margin-inline:auto}
+.shine h2{font-size:clamp(28px,3.6vw,46px);margin-bottom:24px}
+.shine p{color:var(--muted);max-width:32em}
+@media (max-width:760px){.shine{grid-template-columns:1fr}.shine video{max-width:300px}}
+
+/* occasions */
+.occasions{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--line)}
+.occasions li{padding:22px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-family:var(--f-display);font-weight:300;letter-spacing:.18em;text-transform:uppercase;font-size:15px;padding-right:24px}
+.occasions li span{font-family:var(--f-accent);font-style:italic;text-transform:none;letter-spacing:0;color:var(--champagne);font-size:18px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.gallery figure{margin:0;overflow:hidden;min-width:0}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.9)}
+.gallery figure:hover img{transform:scale(1.04);filter:saturate(1)}
+.g1{grid-column:span 7;aspect-ratio:3/2}
+.g2{grid-column:span 5;aspect-ratio:auto}
+.g3{grid-column:span 4;aspect-ratio:2/3}
+.g4{grid-column:span 4;aspect-ratio:2/3}
+.g5{grid-column:span 4;aspect-ratio:2/3}
+@media (max-width:760px){.g1,.g2{grid-column:span 12}.g2{aspect-ratio:3/4}.g3,.g4{grid-column:span 6}.g5{grid-column:span 12;aspect-ratio:4/3}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);counter-reset:s}
+.step{border-top:1px solid var(--foil);padding-top:22px;min-width:0}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--f-display);font-weight:200;font-size:13px;letter-spacing:.3em;color:var(--champagne);display:block;margin-bottom:18px}
+.step h3{font-family:var(--f-display);font-weight:300;font-size:15px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 10px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* geography */
+.geo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.geo h2{font-size:clamp(30px,4vw,52px)}
+.cities{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.cities span{border:1px solid var(--line);padding:9px 16px;font-family:var(--f-display);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.cities span.home{border-color:var(--champagne);color:var(--foil)}
+@media (max-width:860px){.geo{grid-template-columns:1fr}}
+
+/* contact */
+.contact{text-align:center;border-top:1px solid var(--line)}
+.contact .mark{width:84px;height:84px;margin:0 auto 32px}
+.contact h2{font-size:clamp(32px,5vw,64px);margin-bottom:20px}
+.contact p{color:var(--muted);max-width:34em;margin:0 auto 44px}
+.channels{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:28px}
+.phone{font-family:var(--f-display);font-weight:200;font-size:clamp(24px,3.4vw,36px);letter-spacing:.14em;margin:0 0 36px;user-select:all}
+.todo{display:inline-block;margin-top:8px;font-size:13px;color:var(--champagne);border:1px dashed var(--champagne);padding:6px 12px}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer span{font-family:var(--f-display);letter-spacing:.28em;text-transform:uppercase;font-size:11px}
+
+/* gentle entrance, visible at rest */
+@keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero > *{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+.hero > *:nth-child(2){animation-delay:.15s}
+
+/* views (hash-routed pages) */
+.view[hidden]{display:none!important}
+nav a[aria-current="page"]{color:var(--foil)}
+
+/* price block */
+.price{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start;border:1px solid var(--line);padding:clamp(28px,5vw,64px)}
+.price .sum{font-family:var(--f-display);font-weight:200;font-size:clamp(48px,7vw,96px);letter-spacing:.06em;line-height:1;font-variant-numeric:tabular-nums;margin:18px 0 10px}
+.price .sum small{font-size:.32em;letter-spacing:.24em;margin-left:.3em;color:var(--muted)}
+.price .per{color:var(--champagne);font-family:var(--f-accent);font-style:italic;font-size:22px}
+.price ul{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.price li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);min-width:0}
+.price li b{font-weight:400}
+.price li span{color:var(--muted);text-align:right}
+.price .addon{margin-top:28px;padding:22px 24px;background:var(--ink-2);border-left:1px solid var(--champagne)}
+.price .addon h3{font-family:var(--f-display);font-weight:300;font-size:14px;letter-spacing:.24em;text-transform:uppercase;margin:0 0 8px}
+.price .addon p{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:860px){.price{grid-template-columns:1fr}}
+
+/* service teaser cards (other services) */
+.others{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.other{display:block;text-decoration:none;border:1px solid var(--line);padding:clamp(28px,4vw,48px);transition:border-color .4s,background .4s;min-width:0}
+.other:hover{border-color:var(--foil);background:var(--ink-2)}
+.other h3{font-family:var(--f-display);font-weight:200;font-size:clamp(24px,3vw,36px);letter-spacing:.16em;text-transform:uppercase;margin:14px 0 12px}
+.other p{color:var(--muted);margin:0 0 24px}
+.other .go{font-family:var(--f-display);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--champagne)}
+@media (max-width:700px){.others{grid-template-columns:1fr}}
+
+/* sub-page hero */
+.subhero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,96px);align-items:center;padding-block:clamp(48px,9vw,120px)}
+.subhero h1{font-size:clamp(36px,5.6vw,76px);letter-spacing:.16em}
+.subhero h1 .accent{display:block;font-size:.6em;margin-top:.35em}
+.subhero p.lead{max-width:30em;color:var(--muted);margin:28px 0 40px}
+.art{aspect-ratio:4/5;border:1px solid var(--line);background:radial-gradient(120% 80% at 50% 100%,rgba(201,180,138,.16),transparent 60%),var(--ink-2);display:grid;place-items:center;padding:8%;position:relative}
+.art::after{content:"";position:absolute;inset:14px;border:1px solid rgba(217,214,207,.18);pointer-events:none}
+.art svg{width:100%;height:auto;max-height:100%}
+@media (max-width:860px){.subhero{grid-template-columns:1fr}.art{order:-1;aspect-ratio:4/3}}
+
+/* request modal */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(5,5,6,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sheet{width:min(620px,100%);max-height:calc(100% - 32px);overflow:auto;background:var(--ink);border:1px solid var(--line);padding:clamp(24px,4vw,44px);position:relative}
+.sheet h2{font-size:clamp(22px,3vw,30px);margin-bottom:6px}
+.sheet .sub{color:var(--muted);margin:0 0 28px;font-size:15px}
+.close{position:absolute;top:14px;right:14px;width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--foil);font-size:20px;cursor:pointer}
+.close:hover{border-color:var(--foil)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field > label,.field > .lbl{font-family:var(--f-display);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--ink-2);border:1px solid var(--line);color:var(--foil);font:inherit;font-size:16px;padding:13px 14px;border-radius:0;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--champagne)}
+.field input:disabled{opacity:.35}
+.unk{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);cursor:pointer;user-select:none}
+.unk input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1px solid var(--muted);background:transparent;display:grid;place-items:center;margin:0;cursor:pointer;flex:none}
+.unk input:checked{border-color:var(--champagne);background:var(--champagne)}
+.unk input:checked::after{content:"";width:8px;height:4px;border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(-45deg) translate(1px,-1px)}
+.form{display:grid;gap:22px}
+.err{color:#e0a089;font-size:14px;margin:0}
+.done{display:grid;gap:18px}
+.done pre{white-space:pre-wrap;font-family:var(--f-body);font-size:15px;background:var(--ink-2);border:1px solid var(--line);padding:16px;margin:0;user-select:all;max-height:220px;overflow:auto}
+.done .row{display:flex;flex-wrap:wrap;gap:12px}
+.hint{color:var(--muted);font-size:14px;margin:0}
+.btn.solid{background:var(--foil);color:var(--ink)}
+.btn.solid:hover{background:transparent;color:var(--foil)}
+@media (max-width:860px){.bar{flex-wrap:wrap;row-gap:10px}nav{display:flex;order:3;width:100%;overflow-x:auto;gap:22px;padding-bottom:2px;scrollbar-width:none}nav a{white-space:nowrap}}
+.gold{font-style:normal;color:var(--champagne)}
+.logo-band{margin:0;border-block:1px solid var(--line);background:#0e0d0c}
+.logo-band img{width:100%;max-width:1180px;margin-inline:auto;aspect-ratio:1179/541;object-fit:cover}
+
+/* ===== responsive pass ===== */
+.hero figure img{height:auto}
+.brand span,.btn{white-space:nowrap}
+.brand{flex:none}
+.display{overflow-wrap:break-word}
+nav a{white-space:nowrap}
+nav::-webkit-scrollbar{display:none}
+@media (max-width:1180px){
+  .bar{flex-wrap:wrap;row-gap:10px}
+  nav{display:flex;order:3;width:100%;overflow-x:auto;gap:24px;padding-bottom:2px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+}
+@media (max-width:860px){
+  .hero{padding-block:28px 48px}
+  .hero figure{order:0}
+  .hero figure img{aspect-ratio:4/5;max-height:75vh;object-position:50% 55%}
+  .hero p.lead{margin:20px 0 28px}
+  .shine > div{padding:48px var(--gutter) 0!important}
+  .shine > div + div{padding:32px var(--gutter) 56px!important}
+  section{padding-block:64px}
+}
+@media (max-width:600px){
+  header .btn.small{display:none}
+  .bar{padding-block:12px 10px}
+  .hero h1{font-size:40px;letter-spacing:.12em}
+  .subhero h1{font-size:30px;letter-spacing:.08em}
+  .head h2,.geo h2,.contact h2{letter-spacing:.1em}
+  .hero .cta .btn,.subhero .cta .btn{flex:1 1 100%}
+  .channels .btn{flex:1 1 100%}
+  .price{padding:24px 20px}
+  .price li{flex-wrap:wrap}
+  .phone{font-size:26px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  body .mbar{display:grid}
+}
+.mbar{display:none;grid-template-columns:1fr 1.5fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--ink) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.mbar .btn{padding:14px 10px}
+/* modal checkboxes + phone sheet */
+.field .unk input{width:18px;height:18px;padding:0;background:transparent;border:1px solid var(--muted)}
+.field .unk input:checked{background:var(--champagne);border-color:var(--champagne)}
+.sheet h2{padding-right:48px}
+@media (max-width:600px){
+  .modal{padding:0;place-items:stretch}
+  .sheet{width:100%;max-height:none;height:100%;border:0;padding:20px 16px calc(28px + env(safe-area-inset-bottom,0px))}
+  .close{top:12px;right:12px}
+  .form .btn.solid,.done .btn{width:100%}
+}
+@media (hover:none){.btn:hover{background:transparent;color:var(--foil)}.btn.solid:hover{background:var(--foil);color:var(--ink)}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1efe9"/><stop offset=".45" stop-color="#a9a59c"/><stop offset=".7" stop-color="#e6dcc6"/><stop offset="1" stop-color="#8d897f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c29a"/><stop offset=".5" stop-color="#b8875a"/><stop offset="1" stop-color="#d9b48a"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f4f2"/><stop offset=".55" stop-color="#9c9c9a"/><stop offset="1" stop-color="#dcdcda"/>
+    </linearGradient>
+    <symbol id="mark" viewBox="-4 -2 108 104">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M47 7 A44 44 0 0 0 45 96" stroke="url(#gold)" stroke-width="2"/>
+        <path d="M68 13 A44 44 0 0 1 52 96" stroke="url(#silver)" stroke-width="2"/>
+        <path d="M50 1 V12" stroke="url(#silver)" stroke-width="1.2"/>
+        <g stroke="url(#gold)" stroke-width="1.3">
+          <path d="M50 10 L64 38 L50 94 L36 38 Z"/>
+          <path d="M50 22 L58 38 L50 58 L42 38 Z"/>
+          <path d="M36 38 H64 M42 38 L50 94 M58 38 L50 94 M50 10 L50 22"/>
+        </g>
+        <path d="M50 58 L49 94" stroke="url(#silver)" stroke-width=".9"/>
+      </g>
+    </symbol>
+    <symbol id="coupe" viewBox="0 0 40 40">
+      <g fill="none" stroke="url(#foil)" stroke-width="1" stroke-linecap="round">
+        <path d="M5 6 H35 Q34 19 20 19 Q6 19 5 6 Z" fill="rgba(201,180,138,.18)"/>
+        <path d="M9 11 H31" stroke-opacity=".45"/>
+        <path d="M20 19 V34"/>
+        <path d="M13 37 Q20 33 27 37"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#prosecco" aria-label="Crystal Bar, на головну">
+      <svg><use href="#mark"/></svg><span>Crystal <em class="gold">Bar</em></span>
+    </a>
+    <nav aria-label="Послуги">
+      <a href="#prosecco" data-nav="prosecco">Просеко-зона</a>
+      <a href="#cocktail" data-nav="cocktail">Коктейль-бар</a>
+      <a href="#tower" data-nav="tower">Гірка з шампанського</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <button class="btn small" type="button" data-request>Залишити заявку</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ PROSECCO ============ -->
+<div class="view" data-view="prosecco">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="label">Барний кейтеринг · Львів</div>
+        <h1 class="display" style="margin-top:22px">Crystal Bar<span class="accent">Просеко, що ллється з крана</span></h1>
+        <p class="lead">Просеко-зона для подій, на які приходять у вечірньому. Дзеркальна арка з підсвіткою, кришталеві купе на чорних стелажах, крани над льодом і бармени, які наливають ігристе просто на очах у гостей.</p>
+        <div class="cta">
+          <button class="btn" type="button" data-request="Просеко-зона">Залишити заявку</button>
+          <a class="btn" href="#price" style="border-color:var(--line)">Вартість</a>
+        </div>
+      </div>
+      <figure>
+        <img src="img/pour-close.jpg" alt="Ігристе ллється з чорного крана в кришталевий келих над чашею з льодом" width="1400" height="2100">
+      </figure>
+    </div>
+
+    <div class="facts">
+      <div><b>44 900 грн</b><span>Під ключ по Львову</span></div>
+      <div><b>25 літрів</b><span>Просеко, приблизно 100 келихів</span></div>
+      <div><b>Два крани</b><span>Другий для апероль шприцу чи негроні</span></div>
+      <div><b>Захід України</b><span>Виїжджаємо по Львову та областях</span></div>
+    </div>
+  </div>
+
+  <section id="concept">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Концепція</h2>
+        <p>Кран, з якого замість води тече ігристе, гості помічають першим. Біля стійки збираються, знімають сторіз і повертаються за другим келихом. Зона працює і як бар, і як фотолокація.</p>
+      </div>
+      <div class="concept">
+        <figure class="tall" style="margin:0"><img src="img/barista.jpg" alt="Барменка Crystal Bar наливає ігристе з крана, позаду дзеркальна арка" style="object-position:30% 50%"></figure>
+        <div class="text">
+          <blockquote>Без пляшок на стійці. Холодне ігристе, кришталевий келих і подача, схожа на маленьку виставу.</blockquote>
+          <div class="pair">
+            <img src="img/ice.jpg" alt="Чорна чаша, повна льоду, під краном">
+            <img src="img/glasses.jpg" alt="Кришталеві келихи-купе на чорному стелажі">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Вартість</h2>
+        <p>Одна ціна, в яку входить усе необхідне. Без доплат за монтаж чи бармена.</p>
+      </div>
+      <div class="price">
+        <div>
+          <div class="label">Просеко-зона · базовий пакет</div>
+          <div class="sum">44 900<small>грн</small></div>
+          <div class="per">25 літрів просеко, це приблизно 100 келихів</div>
+          <div style="margin-top:32px"><button class="btn" type="button" data-request="Просеко-зона">Залишити заявку</button></div>
+        </div>
+        <div>
+          <ul>
+            <li><b>Просеко</b><span>25 л</span></li>
+            <li><b>Монтаж і демонтаж</b><span>входить</span></li>
+            <li><b>Робота бармена</b><span>входить</span></li>
+            <li><b>Кришталеві келихи, лід, стелажі</b><span>входить</span></li>
+            <li><b>Брендування під клієнта</b><span>за потреби, входить</span></li>
+          </ul>
+          <div class="addon">
+            <h3>Другий кран</h3>
+            <p>У стійці два крани. З другого можна подавати інший напій, наприклад апероль шприц чи негроні. Вартість рахуємо індивідуально.</p>
+          </div>
+          <p style="color:var(--muted);font-size:14px;margin:18px 0 0">Ціна вказана для Львова. Для виїзду в інші міста розрахуємо доставку окремо.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="included" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Що входить</h2>
+        <p>Привозимо готову зону цілком: від келихів до бармена.</p>
+      </div>
+      <div class="items">
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M8 26V10a6 6 0 0 1 12 0v16"/><path d="M5 26h18"/></svg>
+          <h3>Дзеркальна арка</h3>
+          <p>Центральна колона з дзеркалом в арці і теплою LED-підсвіткою по контуру.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 12h12a3 3 0 0 1 3 3v3"/><path d="M8 9v3M14 9v3M6 9h4M12 9h4"/><path d="M19 21v2"/></svg>
+          <h3>Два крани</h3>
+          <p>Чорні крани з хрестовими вентилями. Просеко охолоджене і подається одразу в келих.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M5 9l4-4 4 4-4 4zM15 13l4-4 4 4-4 4zM8 19l4-4 4 4-4 4z"/></svg>
+          <h3>Чаші з льодом</h3>
+          <p>Матові чорні тумби, наповнені льодом, під кожним краном.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M6 4h16l-1 6a7 7 0 0 1-14 0z"/><path d="M14 17v8M9 25h10"/></svg>
+          <h3>Кришталеві купе</h3>
+          <p>Гранені келихи на двох арочних стелажах. Їх ставлять і на полиці, і догори дном під полицями.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><circle cx="14" cy="8" r="4"/><path d="M6 26v-4a8 8 0 0 1 16 0v4"/></svg>
+          <h3>Бармен</h3>
+          <p>Працює в строгій чорній формі. Наливає, подає і стежить, щоб на стійці був порядок.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 6h20v16H4z"/><path d="M9 14h10"/></svg>
+          <h3>Брендування</h3>
+          <p>За потреби оформлюємо стійку під ваш бренд або подію.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="shine">
+    <div style="padding:clamp(48px,8vw,96px) 0 clamp(48px,8vw,96px) var(--gutter)">
+      <video src="img/logo-shine.mp4" poster="img/logo-shine.jpg" autoplay muted loop playsinline aria-label="Логотип Crystal Bar на чорній тумбі"></video>
+    </div>
+    <div style="padding:clamp(48px,8vw,96px) var(--gutter)">
+      <div class="label" style="margin-bottom:20px">Деталі</div>
+      <h2 class="display">Срібло на матовому чорному</h2>
+      <p>Логотип на тумбі зроблено дзеркальною фольгою. Під світлом він виблискує так само, як кришталь на стелажах поруч. Стійка однаково добре вписується в зал ресторану, у виставковий павільйон і на весільний майданчик.</p>
+    </div>
+  </div>
+
+  <section id="occasions">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Для яких подій</h2>
+        <p>Ми працюємо з подіями, де важливо справити враження з першої хвилини.</p>
+      </div>
+      <ul class="occasions">
+        <li>Весілля <span>welcome-зона</span></li>
+        <li>Корпоративи <span>свята команди</span></li>
+        <li>Форуми і виставки <span>стенд бренду</span></li>
+        <li>Презентації <span>запуск продукту</span></li>
+        <li>Дні народження <span>ювілеї</span></li>
+        <li>Приватні вечори <span>вдома чи на віллі</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="gallery" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Галерея</h2>
+        <p>Crystal Bar на бізнес-форумі.</p>
+      </div>
+      <div class="gallery">
+        <figure class="g1"><img src="img/stand.jpg" alt="Повна просеко-зона: два арочні стелажі з келихами і дзеркальна колона з логотипом" loading="lazy"></figure>
+        <figure class="g2"><img src="img/event.jpg" alt="Гості з келихами біля стійки Crystal Bar" loading="lazy"></figure>
+        <figure class="g3"><img src="img/barista-v.jpg" alt="Барменка тримає келих під краном" loading="lazy"></figure>
+        <figure class="g4"><img src="img/logo.jpg" alt="Логотип Crystal Bar зблизька" loading="lazy"></figure>
+        <figure class="g5"><img src="img/pour-guest.jpg" alt="Ігристе наливають у келих, на фоні гості" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Інші послуги</h2>
+        <p>Для подій, де потрібно більше, ніж ігристе.</p>
+      </div>
+      <div class="others">
+        <a class="other" href="#cocktail">
+          <div class="label">Послуга</div>
+          <h3>Коктейль-бар</h3>
+          <p>Виїзний бар з барменами і коктейльною картою під вашу подію.</p>
+          <span class="go">Детальніше →</span>
+        </a>
+        <a class="other" href="#tower">
+          <div class="label">Послуга</div>
+          <h3>Гірка з шампанського</h3>
+          <p>Піраміда з келихів, у яку ігристе наливають згори на очах у гостей.</p>
+          <span class="go">Детальніше →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ COCKTAIL BAR ============ -->
+<div class="view" data-view="cocktail" hidden>
+  <div class="wrap">
+    <div class="subhero">
+      <div>
+        <div class="label">Crystal Bar · Послуга</div>
+        <h1 class="display" style="margin-top:22px">Коктейль-бар<span class="accent">Виїзний бар для вашої події</span></h1>
+        <p class="lead">Бармени Crystal Bar готують коктейлі просто на вашій події. Карту напоїв складаємо разом з вами під формат, кількість гостей і настрій вечора.</p>
+        <div class="cta" style="display:flex;flex-wrap:wrap;gap:16px">
+          <button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button>
+        </div>
+      </div>
+      <div class="art">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Коктейльні келихи">
+          <g fill="none" stroke="url(#foil)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M28 70 H78 L53 102 Z" fill="rgba(201,180,138,.16)"/><path d="M53 102 V150"/><path d="M38 152 H68"/>
+            <path d="M70 62 l14 -16"/><circle cx="66" cy="78" r="4"/>
+            <path d="M86 104 H134 L130 152 H90 Z" fill="rgba(201,180,138,.10)"/><path d="M96 118 h10 v10 h-10z M112 124 h10 v10 h-10z" stroke-opacity=".6"/>
+            <path d="M140 76 H180 Q179 96 160 96 Q141 96 140 76 Z" fill="rgba(201,180,138,.16)"/><path d="M160 96 V150"/><path d="M148 152 H172"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>Під ключ</b><span>Барна стійка, посуд, лід, бармени</span></div>
+      <div><b>Карта</b><span>Складаємо під вашу подію</span></div>
+      <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
+      <div><b>Захід України</b><span>Львів і області</span></div>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Як це працює</h2>
+        <p>Розкажіть про подію, і ми запропонуємо карту коктейлів та формат бару.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Заявка</h3><p>Дата, кількість гостей, тематика і локація. Якщо щось ще не відомо, так і вкажіть.</p></div>
+        <div class="step"><h3>Карта</h3><p>Підбираємо коктейлі під ваш смак і формат події.</p></div>
+        <div class="step"><h3>Кошторис</h3><p>Надсилаємо розрахунок під вашу кількість гостей.</p></div>
+        <div class="step"><h3>Подія</h3><p>Привозимо бар, працюємо весь вечір, після події все прибираємо.</p></div>
+      </div>
+      <div style="margin-top:56px;text-align:center"><button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CHAMPAGNE TOWER ============ -->
+<div class="view" data-view="tower" hidden>
+  <div class="wrap">
+    <div class="subhero">
+      <div>
+        <div class="label">Crystal Bar · Послуга</div>
+        <h1 class="display" style="margin-top:22px">Гірка з шампанського<span class="accent">Ігристе, що стікає келихами</span></h1>
+        <p class="lead">Піраміда з кришталевих келихів-купе. Ігристе наливають у верхній келих, і воно переливається вниз ярус за ярусом. Найкраще працює як момент вечора: відкриття весілля, тост на ювілеї, старт корпоративу.</p>
+        <div class="cta" style="display:flex;flex-wrap:wrap;gap:16px">
+          <button class="btn" type="button" data-request="Гірка з шампанського">Залишити заявку</button>
+        </div>
+      </div>
+      <div class="art">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Гірка з келихів-купе"><use href="#coupe" x="0" y="160" width="40" height="40"/><use href="#coupe" x="40" y="160" width="40" height="40"/><use href="#coupe" x="80" y="160" width="40" height="40"/><use href="#coupe" x="120" y="160" width="40" height="40"/><use href="#coupe" x="160" y="160" width="40" height="40"/><use href="#coupe" x="20" y="126" width="40" height="40"/><use href="#coupe" x="60" y="126" width="40" height="40"/><use href="#coupe" x="100" y="126" width="40" height="40"/><use href="#coupe" x="140" y="126" width="40" height="40"/><use href="#coupe" x="40" y="92" width="40" height="40"/><use href="#coupe" x="80" y="92" width="40" height="40"/><use href="#coupe" x="120" y="92" width="40" height="40"/><use href="#coupe" x="60" y="58" width="40" height="40"/><use href="#coupe" x="100" y="58" width="40" height="40"/><use href="#coupe" x="80" y="24" width="40" height="40"/><path d="M100 8 v8" stroke="var(--champagne)" stroke-width=".8"/></svg>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>Кришталь</b><span>Ті самі гранені купе, що й у просеко-зоні</span></div>
+      <div><b>Розмір</b><span>Кількість ярусів під ваших гостей</span></div>
+      <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
+      <div><b>Поєднання</b><span>Можна разом із просеко-зоною</span></div>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Як це працює</h2>
+        <p>Ми збираємо гірку на вашій локації і готуємо момент наливання разом з ведучим чи організатором.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Заявка</h3><p>Дата, кількість гостей, тематика і локація. Якщо щось ще не відомо, так і вкажіть.</p></div>
+        <div class="step"><h3>Розмір</h3><p>Підбираємо кількість ярусів і келихів.</p></div>
+        <div class="step"><h3>Монтаж</h3><p>Збираємо гірку на стійкій основі до початку події.</p></div>
+        <div class="step"><h3>Момент</h3><p>Наливаємо ігристе в потрібну хвилину, гості отримують келихи.</p></div>
+      </div>
+      <div style="margin-top:56px;text-align:center"><button class="btn" type="button" data-request="Гірка з шампанського">Залишити заявку</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SHARED: geography + contact ============ -->
+  <section style="padding-top:0">
+    <div class="wrap geo">
+      <div>
+        <div class="label" style="margin-bottom:20px">Географія</div>
+        <h2 class="display">Львів <span class="accent" style="display:block;font-size:.7em;margin-top:.3em">і вся Західна Україна</span></h2>
+      </div>
+      <div>
+        <p style="color:var(--muted);margin-top:0">База у Львові. Виїжджаємо на події в інші міста регіону. Вартість доставки залежить від відстані, тож назвемо її разом із кошторисом.</p>
+        <div class="cities">
+          <span class="home">Львів</span><span>Івано-Франківськ</span><span>Тернопіль</span><span>Луцьк</span><span>Рівне</span><span>Ужгород</span><span>Чернівці</span><span>Мукачево</span><span>Трускавець</span><span>Буковель</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="logo-band"><img src="img/logo-wall.jpg" alt="Логотип Crystal Bar: кристал у півколах, золото і срібло на темній стіні" loading="lazy" width="1179" height="541"></figure>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <svg class="mark"><use href="#mark"/></svg>
+      <h2 class="display">Забронювати дату</h2>
+      <p>Залиште заявку або напишіть нам напряму. У відповідь надішлемо кошторис.</p>
+      <div class="phone"><a href="tel:+380686818356" style="text-decoration:none">068 681 83 56</a></div>
+      <div class="channels">
+        <button class="btn solid" type="button" data-request>Залишити заявку</button>
+        <a class="btn" href="https://instagram.com/crystal_bar.lviv" target="_blank" rel="noopener">Instagram · @crystal_bar.lviv</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Crystal <em class="gold">Bar</em> · Prosecco on tap</span>
+    <div>Львів · Західна Україна · 068 681 83 56</div>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Швидкі дії">
+  <a class="btn" href="https://instagram.com/crystal_bar.lviv" target="_blank" rel="noopener">Instagram</a>
+  <button class="btn solid" type="button" data-request>Залишити заявку</button>
+</div>
+
+<!-- ============ REQUEST MODAL ============ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="sheet">
+    <button class="close" type="button" id="m-close" aria-label="Закрити">×</button>
+    <div id="m-form-wrap">
+      <h2 class="display" id="m-title">Залишити заявку</h2>
+      <p class="sub">Якщо дата чи місце ще не визначені, позначте «Ще не відомо». Ми все одно зорієнтуємо по вартості.</p>
+      <form class="form" id="req" novalidate>
+        <div class="field">
+          <label for="f-service">Послуга</label>
+          <select id="f-service">
+            <option>Просеко-зона</option>
+            <option>Коктейль-бар</option>
+            <option>Гірка з шампанського</option>
+          </select>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="f-date">Дата івенту</label>
+            <input id="f-date" type="date" lang="uk">
+            <label class="unk"><input type="checkbox" id="f-date-unk" data-for="f-date"> Ще не відомо</label>
+          </div>
+          <div class="field">
+            <label for="f-guests">Кількість гостей</label>
+            <input id="f-guests" type="number" min="1" inputmode="numeric" placeholder="Наприклад, 80">
+            <label class="unk"><input type="checkbox" id="f-guests-unk" data-for="f-guests"> Ще не відомо</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-theme">Тематика</label>
+          <select id="f-theme">
+            <option value="">Оберіть</option>
+            <option>Весілля</option>
+            <option>Корпоратив</option>
+            <option>День народження чи ювілей</option>
+            <option>Форум, виставка, презентація</option>
+            <option>Приватна вечірка</option>
+            <option>Інше</option>
+            <option>Ще не відомо</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-place">Локація</label>
+          <input id="f-place" type="text" placeholder="Місто, ресторан або адреса">
+          <label class="unk"><input type="checkbox" id="f-place-unk" data-for="f-place"> Ще не відомо</label>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="f-name">Ваше ім'я</label>
+            <input id="f-name" type="text" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" type="tel" autocomplete="tel" placeholder="+380">
+          </div>
+        </div>
+        <p class="err" id="f-err" hidden></p>
+        <button class="btn solid" type="submit">Сформувати заявку</button>
+      </form>
+    </div>
+    <div class="done" id="m-done" hidden>
+      <h2 class="display">Заявка готова</h2>
+      <p class="hint">Надішліть цей текст нам в Instagram або зателефонуйте за номером 068 681 83 56.</p>
+      <pre id="m-text"></pre>
+      <div class="row">
+        <button class="btn solid" type="button" id="m-copy">Скопіювати текст</button>
+        <a class="btn" href="https://ig.me/m/crystal_bar.lviv" target="_blank" rel="noopener">Відкрити Instagram</a>
+      </div>
+      <p class="hint" id="m-copied" hidden>Текст скопійовано. Вставте його в повідомлення.</p>
+      <button class="btn" type="button" id="m-back" style="border-color:var(--line);justify-self:start">Змінити заявку</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const views=[...document.querySelectorAll('.view')];
+  const names=views.map(v=>v.dataset.view);
+  let current='prosecco';
+
+  function show(name){
+    current=name;
+    views.forEach(v=>v.hidden=v.dataset.view!==name);
+    document.querySelectorAll('[data-nav]').forEach(a=>{
+      if(a.dataset.nav===name)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    const t={prosecco:'Crystal Bar',cocktail:'Коктейль-бар · Crystal Bar',tower:'Гірка з шампанського · Crystal Bar'};
+    document.title=t[name]||'Crystal Bar';
+  }
+  function route(){
+    const h=(location.hash||'').slice(1);
+    if(!h||names.includes(h)){show(h||'prosecco');window.scrollTo(0,0);return;}
+    const el=document.getElementById(h);
+    if(el){
+      const v=el.closest('.view');
+      if(v&&v.hidden)show(v.dataset.view);
+      requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'}));
+    }
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+  /* modal */
+  const modal=document.getElementById('modal');
+  const formWrap=document.getElementById('m-form-wrap');
+  const done=document.getElementById('m-done');
+  const svc=document.getElementById('f-service');
+  const svcByView={prosecco:'Просеко-зона',cocktail:'Коктейль-бар',tower:'Гірка з шампанського'};
+  let lastFocus=null;
+
+  function open(service){
+    lastFocus=document.activeElement;
+    svc.value=service||svcByView[current]||'Просеко-зона';
+    formWrap.hidden=false;done.hidden=true;
+    modal.hidden=false;document.body.style.overflow='hidden';
+    setTimeout(()=>document.getElementById('f-date').focus(),30);
+  }
+  function close(){
+    modal.hidden=true;document.body.style.overflow='';
+    if(lastFocus)lastFocus.focus();
+  }
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-request]');
+    if(b){e.preventDefault();open(b.dataset.request);}
+  });
+  document.getElementById('m-close').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close();});
+
+  document.querySelectorAll('.unk input').forEach(cb=>{
+    cb.addEventListener('change',()=>{
+      const f=document.getElementById(cb.dataset.for);
+      f.disabled=cb.checked;if(cb.checked)f.value='';
+    });
+  });
+
+  function fmtDate(v){
+    if(!v)return'';const[y,m,d]=v.split('-');return d+'.'+m+'.'+y;
+  }
+  const val=id=>document.getElementById(id).value.trim();
+  const unk=id=>document.getElementById(id+'-unk').checked;
+
+  document.getElementById('req').addEventListener('submit',e=>{
+    e.preventDefault();
+    const err=document.getElementById('f-err');
+    const missing=[];
+    if(!val('f-date')&&!unk('f-date'))missing.push('дату');
+    if(!val('f-guests')&&!unk('f-guests'))missing.push('кількість гостей');
+    if(!val('f-place')&&!unk('f-place'))missing.push('локацію');
+    if(!val('f-phone')&&!val('f-name'))missing.push("ім'я або телефон");
+    if(missing.length){
+      err.textContent='Вкажіть '+missing.join(', ')+' або позначте «Ще не відомо».';
+      err.hidden=false;return;
+    }
+    err.hidden=true;
+    const lines=[
+      'Заявка Crystal Bar',
+      'Послуга: '+svc.value,
+      'Дата: '+(unk('f-date')?'ще не відомо':fmtDate(val('f-date'))),
+      'Гостей: '+(unk('f-guests')?'ще не відомо':val('f-guests')),
+      'Тематика: '+(val('f-theme')||'не вказано'),
+      'Локація: '+(unk('f-place')?'ще не відомо':val('f-place')),
+    ];
+    if(val('f-name'))lines.push("Ім'я: "+val('f-name'));
+    if(val('f-phone'))lines.push('Телефон: '+val('f-phone'));
+    document.getElementById('m-text').textContent=lines.join('\n');
+    document.getElementById('m-copied').hidden=true;
+    formWrap.hidden=true;done.hidden=false;
+  });
+
+  document.getElementById('m-copy').addEventListener('click',()=>{
+    const pre=document.getElementById('m-text');
+    const ok=()=>{document.getElementById('m-copied').hidden=false;};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);ok();document.getElementById('m-copied').textContent='Текст виділено. Скопіюйте його і вставте в повідомлення.';};
+    try{navigator.clipboard.writeText(pre.textContent).then(ok,fallback);}catch(_){fallback();}
+  });
+  document.getElementById('m-back').addEventListener('click',()=>{formWrap.hidden=false;done.hidden=true;});
+})();
+</script>
+
+</body>
+</html>
