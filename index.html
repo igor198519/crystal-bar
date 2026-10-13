@@ -704,17 +704,23 @@ nav::-webkit-scrollbar{display:none}
             <input id="f-name" type="text" autocomplete="name">
           </div>
           <div class="field">
-            <label for="f-phone">Телефон</label>
+            <label for="f-phone">Телефон *</label>
             <input id="f-phone" type="tel" autocomplete="tel" placeholder="+380">
           </div>
         </div>
+        <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <p class="err" id="f-err" hidden></p>
-        <button class="btn solid" type="submit">Сформувати заявку</button>
+        <button class="btn solid" type="submit" id="f-submit">Надіслати заявку</button>
       </form>
+    </div>
+    <div class="done" id="m-sent" hidden>
+      <h2 class="display">Дякуємо!</h2>
+      <p class="hint" style="font-size:16px">Заявку надіслано. Ми зв'яжемося з вами найближчим часом, щоб уточнити деталі і надіслати кошторис.</p>
+      <button class="btn solid" type="button" id="m-ok">Закрити</button>
     </div>
     <div class="done" id="m-done" hidden>
       <h2 class="display">Заявка готова</h2>
-      <p class="hint">Надішліть цей текст нам в Instagram або зателефонуйте за номером 068 681 83 56.</p>
+      <p class="hint" id="m-done-hint">Надішліть цей текст нам в Instagram або зателефонуйте за номером 068 681 83 56.</p>
       <pre id="m-text"></pre>
       <div class="row">
         <button class="btn solid" type="button" id="m-copy">Скопіювати текст</button>
@@ -754,6 +760,10 @@ nav::-webkit-scrollbar{display:none}
   window.addEventListener('hashchange',route);
   route();
 
+  /* Адреса посередника на Cloudflare, який пересилає заявки в Telegram.
+     Поки порожня, форма показує готовий текст для Instagram. */
+  const FORM_ENDPOINT='';
+
   /* modal */
   const modal=document.getElementById('modal');
   const formWrap=document.getElementById('m-form-wrap');
@@ -765,7 +775,7 @@ nav::-webkit-scrollbar{display:none}
   function open(service){
     lastFocus=document.activeElement;
     svc.value=service||svcByView[current]||'Просеко-зона';
-    formWrap.hidden=false;done.hidden=true;
+    formWrap.hidden=false;done.hidden=true;document.getElementById('m-sent').hidden=true;
     modal.hidden=false;document.body.style.overflow='hidden';
     setTimeout(()=>document.getElementById('f-date').focus(),30);
   }
@@ -801,9 +811,12 @@ nav::-webkit-scrollbar{display:none}
     if(!val('f-date')&&!unk('f-date'))missing.push('дату');
     if(!val('f-guests')&&!unk('f-guests'))missing.push('кількість гостей');
     if(!val('f-place')&&!unk('f-place'))missing.push('локацію');
-    if(!val('f-phone')&&!val('f-name'))missing.push("ім'я або телефон");
-    if(missing.length){
-      err.textContent='Вкажіть '+missing.join(', ')+' або позначте «Ще не відомо».';
+    const phoneMissing=val('f-phone').replace(/\D/g,'').length<9;
+    if(missing.length||phoneMissing){
+      const parts=[];
+      if(missing.length)parts.push('Вкажіть '+missing.join(', ')+' або позначте «Ще не відомо».');
+      if(phoneMissing)parts.push('Вкажіть номер телефону, щоб ми могли з вами зв\'язатися.');
+      err.textContent=parts.join(' ');
       err.hidden=false;return;
     }
     err.hidden=true;
@@ -817,10 +830,34 @@ nav::-webkit-scrollbar{display:none}
     ];
     if(val('f-name'))lines.push("Ім'я: "+val('f-name'));
     if(val('f-phone'))lines.push('Телефон: '+val('f-phone'));
-    document.getElementById('m-text').textContent=lines.join('\n');
-    document.getElementById('m-copied').hidden=true;
-    formWrap.hidden=true;done.hidden=false;
+    const text=lines.join('\n');
+    const showManual=failed=>{
+      document.getElementById('m-text').textContent=text;
+      document.getElementById('m-copied').hidden=true;
+      document.getElementById('m-done-hint').textContent=failed
+        ?'Не вдалося надіслати заявку автоматично. Надішліть цей текст нам в Instagram або зателефонуйте за номером 068 681 83 56.'
+        :'Надішліть цей текст нам в Instagram або зателефонуйте за номером 068 681 83 56.';
+      formWrap.hidden=true;done.hidden=false;
+    };
+    if(!FORM_ENDPOINT){showManual(false);return;}
+    const btn=document.getElementById('f-submit');
+    btn.disabled=true;btn.textContent='Надсилаємо…';
+    const payload={
+      service:svc.value,
+      date:unk('f-date')?'ще не відомо':fmtDate(val('f-date')),
+      guests:unk('f-guests')?'ще не відомо':val('f-guests'),
+      theme:val('f-theme')||'не вказано',
+      place:unk('f-place')?'ще не відомо':val('f-place'),
+      name:val('f-name'),
+      phone:val('f-phone'),
+      website:val('f-website')
+    };
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(r=>{if(!r.ok)throw new Error(r.status);formWrap.hidden=true;document.getElementById('m-sent').hidden=false;document.getElementById('req').reset();document.querySelectorAll('.unk input').forEach(cb=>{document.getElementById(cb.dataset.for).disabled=false;});})
+      .catch(()=>showManual(true))
+      .finally(()=>{btn.disabled=false;btn.textContent='Надіслати заявку';});
   });
+  document.getElementById('m-ok').addEventListener('click',close);
 
   document.getElementById('m-copy').addEventListener('click',()=>{
     const pre=document.getElementById('m-text');
