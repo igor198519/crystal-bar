@@ -11,7 +11,11 @@
 <meta property="og:description" content="Просекко-зона, коктейль-бар і гірка з шампанського для подій у Львові та Західній Україні.">
 <meta property="og:image" content="img/stand.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b0b0c'/%3E%3Cg fill='none' stroke-width='5' stroke-linejoin='round'%3E%3Cpath d='M47 7 A44 44 0 0 0 45 96' stroke='%23c49a6c'/%3E%3Cpath d='M68 13 A44 44 0 0 1 52 96' stroke='%23d9d6cf'/%3E%3Cpath d='M50 10 L64 38 L50 94 L36 38 Z' stroke='%23c49a6c'/%3E%3C/g%3E%3C/svg%3E">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}.price .addon .taps{list-style:none;margin:14px 0;padding:0;border-top:1px solid var(--line)}
+.price .addon .taps li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.price .addon .taps b{font-weight:400;color:var(--foil)}
+.price .addon .taps span{color:var(--champagne);font-variant-numeric:tabular-nums}
+</style>
 </head>
 <body>
 
@@ -404,7 +408,12 @@ nav::-webkit-scrollbar{display:none}
           </ul>
           <div class="addon">
             <h3>Другий кран</h3>
-            <p>У стійці два крани. З другого можна подавати інший напій, наприклад Апероль Шприц чи Негроні. Вартість рахуємо індивідуально.</p>
+            <p>У стійці два крани. З другого можна подавати коктейль на вибір:</p>
+            <ul class="taps">
+              <li><b>Апероль Шприц</b><span>4 700 грн / 30 порцій</span></li>
+              <li><b>Негроні</b><span>7 900 грн / 30 порцій</span></li>
+            </ul>
+            <p>Замовляється кратно 30 порціям: 30, 60, 90 і так далі. Інші напої рахуємо індивідуально.</p>
           </div>
           <p style="color:var(--muted);font-size:14px;margin:18px 0 0">Ціна вказана для Львова. Для виїзду в інші міста розрахуємо доставку окремо.</p>
         </div>
