@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Hive League — Pitch Deck</title>
+<style>
+@font-face{font-family:M;src:url(fonts/manrope-400.ttf);font-weight:400}
+@font-face{font-family:M;src:url(fonts/manrope-500.ttf);font-weight:500}
+@font-face{font-family:M;src:url(fonts/manrope-700.ttf);font-weight:700}
+@font-face{font-family:M;src:url(fonts/manrope-800.ttf);font-weight:800}
+:root{
+  --g:#14301D; --g2:#1F4A2C; --g3:#2E6B40;
+  --h:#E3A72F; --h2:#F3C969; --hd:#B9801A;
+  --c:#F6EFE1; --c2:#ECE2CC; --ink:#0F0F0E; --mut:#6F6A5C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:1920px 1080px;margin:0}
+html,body{background:#222}
+body{font-family:M,Inter,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;page-break-after:always;break-after:page;padding:110px 130px}
+.slide:last-child{page-break-after:auto}
+.dark{background:var(--g);color:var(--c)}
+.cream{background:var(--c)}
+.black{background:#0E120F;color:var(--c)}
+.kicker{font-size:22px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--hd);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.dark .kicker,.black .kicker{color:var(--h)}
+.kicker::before{content:"";width:46px;height:3px;background:currentColor;border-radius:2px}
+h1{font-size:96px;font-weight:800;line-height:1.02;letter-spacing:-.035em;max-width:1660px}
+h1 em{font-style:normal;color:var(--h)}
+.cream h1 em{color:var(--hd)}
+.sub{font-size:32px;font-weight:500;line-height:1.4;color:var(--mut);margin-top:30px;max-width:1100px}
+.dark .sub,.black .sub{color:#C9C3B2}
+.num{position:absolute;right:130px;bottom:70px;font-size:18px;font-weight:700;letter-spacing:.15em;opacity:.45}
+.brand{position:absolute;left:130px;bottom:70px;font-size:18px;font-weight:800;letter-spacing:.06em;opacity:.55;display:flex;gap:10px;align-items:center}
+.brand svg{width:22px;height:22px}
+.src{position:absolute;left:130px;bottom:110px;font-size:17px;color:var(--mut);max-width:1500px;line-height:1.5}
+.ico{width:72px;height:72px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.hexbg{position:absolute;inset:0;opacity:.08}
+.pill{display:inline-block;padding:10px 22px;border-radius:999px;font-size:20px;font-weight:700;background:var(--h);color:var(--ink)}
+.row{display:flex;gap:40px}
+</style>
+</head>
+<body>
+
+<!-- SVG defs -->
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <pattern id="hex" width="56" height="97" patternUnits="userSpaceOnUse" patternTransform="scale(1.4)">
+   <path d="M28 0 L56 16 L56 48.5 L28 64.5 L0 48.5 L0 16 Z M28 64.5 L28 97" fill="none" stroke="#E3A72F" stroke-width="1.6"/>
+  </pattern>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+   <stop offset="0" stop-color="#F3C969" stop-opacity=".55"/><stop offset="1" stop-color="#F3C969" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="honey" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#F6CF6E"/><stop offset="1" stop-color="#D99520"/>
+  </linearGradient>
+  <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#DDEFF2" stop-opacity=".35"/>
+  </linearGradient>
+  <!-- Bee -->
+  <symbol id="bee" viewBox="0 0 200 200">
+   <ellipse cx="78" cy="62" rx="44" ry="26" transform="rotate(-28 78 62)" fill="url(#wing)" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+   <ellipse cx="118" cy="58" rx="40" ry="22" transform="rotate(22 118 58)" fill="url(#wing)" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+   <path d="M150 112 l26 8 -24 6z" fill="#111"/>
+   <ellipse cx="108" cy="112" rx="50" ry="34" fill="url(#honey)"/>
+   <clipPath id="bodyclip"><ellipse cx="108" cy="112" rx="50" ry="34"/></clipPath>
+   <g clip-path="url(#bodyclip)" fill="#121212"><rect x="92" y="70" width="14" height="90"/><rect x="118" y="70" width="14" height="90"/><rect x="143" y="70" width="20" height="90"/></g>
+   <circle cx="56" cy="110" r="22" fill="#151515"/>
+   <circle cx="48" cy="104" r="5" fill="#fff" opacity=".85"/>
+   <path d="M48 92 C40 70 30 64 22 62 M58 90 C56 70 50 60 44 54" stroke="#151515" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <path d="M80 142 l-6 18 M100 145 l-2 20 M120 144 l4 18" stroke="#151515" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <!-- Flower -->
+  <symbol id="flower" viewBox="0 0 200 200">
+   <g transform="translate(100 100)">
+    <g fill="#F6EFE1"><ellipse rx="22" ry="62" cy="-48"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(45)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(90)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(135)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(180)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(225)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(270)"/><ellipse rx="22" ry="62" cy="-48" transform="rotate(315)"/></g>
+    <circle r="30" fill="url(#honey)"/>
+   </g>
+  </symbol>
+  <symbol id="hexlogo" viewBox="0 0 24 24"><path d="M12 2l8.7 5v10L12 22l-8.7-5V7z" fill="#E3A72F"/><path d="M12 8l3.5 2v4L12 16l-3.5-2v-4z" fill="#14301D"/></symbol>
+ </defs>
+</svg>
+
+<!-- 1. COVER -->
+<section class="slide dark" style="padding:0">
+ <svg class="hexbg" style="opacity:.10" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <svg style="position:absolute;right:-180px;top:-120px" width="1300" height="1300"><circle cx="650" cy="650" r="650" fill="url(#glow)"/></svg>
+ <!-- honeycomb cluster -->
+ <svg style="position:absolute;right:110px;top:150px" width="820" height="780" viewBox="0 0 820 780">
+  <g stroke="#14301D" stroke-width="10">
+   <path d="M410 70 l120 69v139l-120 69-120-69V139z" fill="url(#honey)"/>
+   <path d="M290 278 l120 69v139l-120 69-120-69V347z" fill="#E3A72F" opacity=".92"/>
+   <path d="M530 278 l120 69v139l-120 69-120-69V347z" fill="url(#honey)"/>
+   <path d="M410 486 l120 69v139l-120 69-120-69V555z" fill="#C98B1C"/>
+   <path d="M650 70 l120 69v139l-120 69-120-69V139z" fill="none" stroke="#E3A72F" stroke-opacity=".5" stroke-width="4"/>
+   <path d="M170 70 l120 69v139l-120 69-120-69V139z" fill="none" stroke="#E3A72F" stroke-opacity=".35" stroke-width="4"/>
+   <path d="M650 486 l120 69v139l-120 69-120-69V555z" fill="none" stroke="#E3A72F" stroke-opacity=".35" stroke-width="4"/>
+   <path d="M170 486 l120 69v139l-120 69-120-69V555z" fill="#2E6B40" stroke-width="10"/>
+  </g>
+ </svg>
+ <svg style="position:absolute;right:560px;top:90px;transform:rotate(-12deg)" width="300" height="300"><use href="#bee"/></svg>
+ <svg style="position:absolute;right:80px;bottom:60px;opacity:.95" width="230" height="230"><use href="#flower"/></svg>
+ <div style="position:absolute;left:130px;top:250px;max-width:900px">
+  <div class="kicker">Світова еко-гра</div>
+  <div style="font-size:190px;font-weight:800;letter-spacing:-.05em;line-height:.92">Hive<br><span style="color:var(--h)">League</span></div>
+  <div style="font-size:44px;font-weight:600;line-height:1.25;margin-top:50px;max-width:820px">Рятуй бджіл.<br>Грай разом зі світом.</div>
+ </div>
+ <div class="brand" style="left:130px;bottom:70px;opacity:.6">PITCH DECK · 2026</div>
+</section>
+
+<!-- 2. PROBLEM -->
+<section class="slide cream">
+ <div class="kicker">Проблема</div>
+ <h1>Без запилювачів світ <em>втрачає їжу</em></h1>
+ <div class="row" style="margin-top:110px;gap:60px">
+  <div style="flex:1;border-top:4px solid var(--ink);padding-top:36px">
+   <div style="font-size:170px;font-weight:800;letter-spacing:-.05em;line-height:1">75%</div>
+   <div style="font-size:30px;font-weight:600;margin-top:22px;line-height:1.35">провідних продовольчих культур світу залежать від запилювачів</div>
+  </div>
+  <div style="flex:1.25;border-top:4px solid var(--hd);padding-top:36px">
+   <div style="font-size:170px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--hd)">$577<span style="font-size:80px"> млрд</span></div>
+   <div style="font-size:30px;font-weight:600;margin-top:22px;line-height:1.35">на рік — верхня оцінка вартості врожаю, що залежить від запилення ($235–577 млрд)</div>
+  </div>
+  <div style="flex:1;border-top:4px solid var(--g3);padding-top:36px">
+   <div style="font-size:170px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--g3)">1 з 10</div>
+   <div style="font-size:30px;font-weight:600;margin-top:22px;line-height:1.35">видів диких бджіл Європи під загрозою зникнення</div>
+  </div>
+ </div>
+ <div class="src">Джерела: IPBES, Thematic Assessment of Pollinators, Pollination and Food Production (2016); IUCN European Red List of Bees (2025–2026: 172 з ~1 900 видів).</div>
+ <div class="num">02</div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="slide dark">
+ <svg class="hexbg" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <svg style="position:absolute;left:-300px;bottom:-500px" width="1200" height="1200"><circle cx="600" cy="600" r="600" fill="url(#glow)"/></svg>
+ <div style="position:relative">
+  <div class="kicker">Рішення</div>
+  <div style="font-size:120px;font-weight:800;letter-spacing:-.045em;line-height:1.02;margin-top:30px">Справжній вулик.<br>Справжні екосправи.<br><span style="color:var(--h)">Світова ліга.</span></div>
+  <div class="sub" style="margin-top:60px;font-size:36px;max-width:1250px">Hive League — гра, де команди з усього світу разом утримують живі вулики й змагаються за реальні справи для природи.</div>
+ </div>
+ <svg style="position:absolute;right:140px;top:120px;transform:rotate(14deg)" width="320" height="320"><use href="#bee"/></svg>
+ <div class="num">03</div>
+</section>
+
+<!-- 4. HOW IT WORKS -->
+<section class="slide cream">
+ <div class="kicker">Як це працює</div>
+ <h1>Чотири кроки від екрана <em>до природи</em></h1>
+ <div class="row" style="margin-top:100px;gap:32px">
+  <div class="step" style="flex:1;background:#fff;border-radius:36px;padding:50px 44px;height:470px;position:relative">
+   <div style="font-size:22px;font-weight:800;color:var(--hd)">01</div>
+   <svg class="ico" style="margin:34px 0;color:var(--g)" viewBox="0 0 48 48"><path d="M24 4l17 10v20L24 44 7 34V14z"/><path d="M24 4v20l17 10"/><path d="M24 24L7 34" opacity=".0"/></svg>
+   <div style="font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1">Купи частку вулика</div>
+   <div style="font-size:26px;color:var(--mut);margin-top:18px;line-height:1.4"><b style="color:var(--hd)">≈$10</b> — 1/25 вулика за $200–250</div>
+  </div>
+  <div style="flex:1;background:#fff;border-radius:36px;padding:50px 44px;height:470px">
+   <div style="font-size:22px;font-weight:800;color:var(--hd)">02</div>
+   <svg class="ico" style="margin:34px 0;color:var(--g)" viewBox="0 0 48 48"><circle cx="17" cy="16" r="6"/><circle cx="33" cy="16" r="6"/><path d="M5 40c0-7 5-12 12-12s12 5 12 12"/><path d="M27 29c2-1 4-1 6-1 7 0 11 5 11 12"/></svg>
+   <div style="font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1">Збери команду</div>
+   <div style="font-size:26px;color:var(--mut);margin-top:18px;line-height:1.4">Дай вулику ім'я, характер і герб</div>
+  </div>
+  <div style="flex:1;background:#fff;border-radius:36px;padding:50px 44px;height:470px">
+   <div style="font-size:22px;font-weight:800;color:var(--hd)">03</div>
+   <svg class="ico" style="margin:34px 0;color:var(--g)" viewBox="0 0 48 48"><path d="M24 44V22"/><path d="M24 26c-10 0-16-6-16-16 10 0 16 6 16 16z"/><path d="M24 22c0-8 5-13 14-13 0 9-5 14-14 13z"/></svg>
+   <div style="font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1">Роби екосправи</div>
+   <div style="font-size:26px;color:var(--mut);margin-top:18px;line-height:1.4">Фото-підтвердження → бали «нектар»</div>
+  </div>
+  <div style="flex:1;background:var(--g);color:var(--c);border-radius:36px;padding:50px 44px;height:470px">
+   <div style="font-size:22px;font-weight:800;color:var(--h)">04</div>
+   <svg class="ico" style="margin:34px 0;color:var(--h)" viewBox="0 0 48 48"><path d="M15 6h18v12a9 9 0 0 1-18 0z"/><path d="M15 10H7c0 7 4 10 8 10M33 10h8c0 7-4 10-8 10"/><path d="M24 27v9M16 42h16"/></svg>
+   <div style="font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.1">Вигравай лігу</div>
+   <div style="font-size:26px;color:#C9C3B2;margin-top:18px;line-height:1.4">Львів vs Мюнхен. Каліфорнія vs Парагвай.</div>
+  </div>
+ </div>
+ <div class="num">04</div>
+</section>
+
+<!-- 5. REAL DATA -->
+<section class="slide black">
+ <svg class="hexbg" style="opacity:.05" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <div style="position:relative;width:700px">
+  <div class="kicker">Реальні дані</div>
+  <h1 style="font-size:88px">Твій вулик живе <em>в реальному часі</em></h1>
+  <div style="margin-top:70px;display:flex;flex-direction:column;gap:34px">
+   <div style="display:flex;gap:26px;align-items:center"><svg class="ico" style="width:58px;height:58px;color:var(--h)" viewBox="0 0 48 48"><path d="M6 40h36"/><path d="M10 40l4-22h20l4 22"/><circle cx="24" cy="11" r="5"/></svg><div style="font-size:32px;font-weight:700">Розумні ваги — медозбір щодня</div></div>
+   <div style="display:flex;gap:26px;align-items:center"><svg class="ico" style="width:58px;height:58px;color:var(--h)" viewBox="0 0 48 48"><rect x="5" y="13" width="28" height="22" rx="4"/><path d="M33 21l10-6v18l-10-6"/></svg><div style="font-size:32px;font-weight:700">Камера біля льотка 24/7</div></div>
+   <div style="display:flex;gap:26px;align-items:center"><svg class="ico" style="width:58px;height:58px;color:var(--h)" viewBox="0 0 48 48"><path d="M6 40V28M18 40V18M30 40V24M42 40V8"/></svg><div style="font-size:32px;font-weight:700">Живий світовий рейтинг</div></div>
+  </div>
+ </div>
+ <!-- dashboard mock -->
+ <div style="position:absolute;right:120px;top:120px;width:960px;height:820px;background:#18201A;border:1px solid #2C3A2F;border-radius:40px;padding:48px;box-shadow:0 40px 120px rgba(0,0,0,.5)">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+   <div><div style="font-size:20px;color:#8F9A8E;font-weight:700;letter-spacing:.12em">ВУЛИК #0427 · ЛЬВІВ</div><div style="font-size:44px;font-weight:800;margin-top:8px">«Медова Соломія»</div></div>
+   <div style="display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;color:#7CD48F"><span style="width:14px;height:14px;border-radius:50%;background:#7CD48F;display:inline-block"></span>LIVE</div>
+  </div>
+  <div style="display:flex;gap:22px;margin-top:38px">
+   <div style="flex:1;background:#0E120F;border-radius:22px;padding:24px 26px"><div style="font-size:18px;color:#8F9A8E;font-weight:700">ВАГА</div><div style="font-size:52px;font-weight:800;color:var(--h)">42.6<span style="font-size:24px"> кг</span></div><div style="font-size:18px;color:#7CD48F;font-weight:700">+1.4 кг за добу</div></div>
+   <div style="flex:1;background:#0E120F;border-radius:22px;padding:24px 26px"><div style="font-size:18px;color:#8F9A8E;font-weight:700">ПОГОДА</div><div style="font-size:52px;font-weight:800">23°</div><div style="font-size:18px;color:#8F9A8E;font-weight:700">сонячно · вітер 2 м/с</div></div>
+   <div style="flex:1;background:#0E120F;border-radius:22px;padding:24px 26px"><div style="font-size:18px;color:#8F9A8E;font-weight:700">НЕКТАР КОМАНДИ</div><div style="font-size:52px;font-weight:800">8 340</div><div style="font-size:18px;color:#7CD48F;font-weight:700">#12 у світі</div></div>
+  </div>
+  <svg width="864" height="210" style="margin-top:30px" viewBox="0 0 864 210">
+   <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3A72F" stop-opacity=".45"/><stop offset="1" stop-color="#E3A72F" stop-opacity="0"/></linearGradient></defs>
+   <g stroke="#2C3A2F" stroke-width="1"><line x1="0" y1="50" x2="864" y2="50"/><line x1="0" y1="110" x2="864" y2="110"/><line x1="0" y1="170" x2="864" y2="170"/></g>
+   <path d="M0 180 C60 175 100 168 150 160 S240 150 290 132 S380 120 430 98 S520 92 570 74 S680 60 730 44 S820 30 864 22 L864 210 L0 210Z" fill="url(#area)"/>
+   <path d="M0 180 C60 175 100 168 150 160 S240 150 290 132 S380 120 430 98 S520 92 570 74 S680 60 730 44 S820 30 864 22" fill="none" stroke="#E3A72F" stroke-width="5"/>
+   <circle cx="864" cy="22" r="9" fill="#F3C969"/>
+  </svg>
+  <div style="font-size:18px;color:#8F9A8E;font-weight:700;margin-top:6px">Вага вулика за 30 днів (приклад інтерфейсу)</div>
+  <div style="margin-top:26px;display:flex;flex-direction:column;gap:12px;font-size:24px;font-weight:700">
+   <div style="display:flex;justify-content:space-between;background:#0E120F;border-radius:16px;padding:14px 22px"><span><b style="color:var(--h)">1</b>&nbsp;&nbsp;DE · München Summer</span><span>11 920</span></div>
+   <div style="display:flex;justify-content:space-between;background:#2A2412;border:1px solid #5A4718;border-radius:16px;padding:14px 22px"><span><b style="color:var(--h)">2</b>&nbsp;&nbsp;UA · Медова Соломія</span><span>11 870</span></div>
+  </div>
+ </div>
+ <div class="num">05</div>
+</section>
+
+<!-- 6. ECO TASKS -->
+<section class="slide cream">
+ <div class="kicker">Екозавдання</div>
+ <h1>Реальні справи = <em>бали «нектар»</em></h1>
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:80px">
+  <!-- card template -->
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><path d="M24 44V24"/><path d="M24 24c-8 0-13-5-13-13 8 0 13 5 13 13zM24 24c0-8 5-13 13-13 0 8-5 13-13 13z"/><path d="M12 44h24"/></svg><div class="tn">Посадити медоноси</div><div class="tp">50</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><path d="M24 6c8 10 13 17 13 23a13 13 0 0 1-26 0c0-6 5-13 13-23z"/><path d="M18 31a6 6 0 0 0 6 6"/></svg><div class="tn">Поїлка для бджіл</div><div class="tp">20</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><path d="M24 4l12 18H28l10 14H10l10-14h-8z"/><path d="M24 36v8"/></svg><div class="tn">Прибрати парк</div><div class="tp">40</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><path d="M8 14h32M18 14V8h12v6M12 14l3 28h18l3-28"/><path d="M20 22v13M28 22v13"/></svg><div class="tn">Сортувати сміття тиждень</div><div class="tp">30</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><rect x="14" y="10" width="20" height="34" rx="3"/><path d="M20 4h8v6"/><path d="M26 18l-5 9h6l-5 9"/></svg><div class="tn">Здати батарейки</div><div class="tp">15</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><circle cx="14" cy="18" r="4"/><circle cx="24" cy="12" r="4"/><circle cx="34" cy="18" r="4"/><path d="M24 24c-7 0-12 7-12 12 0 4 4 6 7 5s3-2 5-2 3 1 5 2 7-1 7-5c0-5-5-12-12-12z"/></svg><div class="tn">Допомогти притулку</div><div class="tp">60</div></div>
+  <div class="t"><svg class="ico" viewBox="0 0 48 48"><path d="M6 20L24 6l18 14"/><rect x="11" y="20" width="26" height="22"/><circle cx="18" cy="28" r="2.5"/><circle cx="24" cy="34" r="2.5"/><circle cx="30" cy="28" r="2.5"/></svg><div class="tn">Будиночок для диких бджіл</div><div class="tp">70</div></div>
+  <div class="t" style="background:var(--g);color:var(--c)"><svg class="ico" style="color:var(--h)" viewBox="0 0 48 48"><circle cx="12" cy="14" r="5"/><circle cx="36" cy="14" r="5"/><circle cx="24" cy="10" r="5"/><path d="M4 38c0-6 4-10 8-10M44 38c0-6-4-10-8-10M14 42c0-8 4-13 10-13s10 5 10 13"/></svg><div class="tn">Організувати толоку</div><div class="tp" style="color:var(--h)">100</div></div>
+ </div>
+ <style>
+  .t{background:#fff;border-radius:30px;padding:36px 38px;height:270px;position:relative;color:var(--g)}
+  .t .ico{width:62px;height:62px}
+  .tn{font-size:29px;font-weight:800;letter-spacing:-.01em;line-height:1.15;margin-top:22px;color:inherit;max-width:240px}
+  .tp{position:absolute;right:34px;top:30px;font-size:54px;font-weight:800;color:var(--hd);letter-spacing:-.03em}
+ </style>
+ <div class="num">06</div>
+</section>
+
+<!-- 7. REWARDS -->
+<section class="slide dark">
+ <svg class="hexbg" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <div style="position:relative">
+  <div class="kicker">Нагороди</div>
+  <h1>Нектар перетворюється <em>на нові вулики</em></h1>
+ </div>
+ <div style="position:relative;display:flex;gap:36px;margin-top:90px;align-items:stretch">
+  <div style="flex:1;border:2px solid #3B5E45;border-radius:36px;padding:48px">
+   <svg class="ico" style="color:var(--h)" viewBox="0 0 48 48"><circle cx="24" cy="18" r="12"/><path d="M17 28l-4 16 11-6 11 6-4-16"/></svg>
+   <div style="font-size:40px;font-weight:800;margin-top:30px">Цифрові</div>
+   <div style="font-size:26px;color:#C9C3B2;margin-top:14px;line-height:1.4">Значки, скіни вулика, статуси ліги</div>
+  </div>
+  <div style="flex:1;border:2px solid #3B5E45;border-radius:36px;padding:48px">
+   <svg class="ico" style="color:var(--h)" viewBox="0 0 48 48"><path d="M14 10h20v6H14z"/><path d="M12 16h24l-2 26H14z"/><path d="M18 26h12"/></svg>
+   <div style="font-size:40px;font-weight:800;margin-top:30px">Реальні</div>
+   <div style="font-size:26px;color:#C9C3B2;margin-top:14px;line-height:1.4">Мед свого вулика, мерч, екскурсії на пасіку</div>
+  </div>
+  <div style="flex:1.5;background:var(--h);color:var(--ink);border-radius:36px;padding:48px;position:relative;overflow:hidden">
+   <div style="font-size:22px;font-weight:800;letter-spacing:.18em">ГОЛОВНА НАГОРОДА</div>
+   <div style="font-size:150px;font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:24px">1 000</div>
+   <div style="font-size:36px;font-weight:800;margin-top:6px">балів = частка в новому вулику</div>
+   <svg style="position:absolute;right:-30px;bottom:-40px;opacity:.9" width="220" height="220"><use href="#bee"/></svg>
+  </div>
+ </div>
+ <div class="num">07</div>
+</section>
+
+<!-- 8. CORPORATE -->
+<section class="slide cream">
+ <div style="position:absolute;right:0;top:0;width:760px;height:1080px;background:var(--g);overflow:hidden">
+  <svg class="hexbg" style="opacity:.14" width="760" height="1080"><rect width="760" height="1080" fill="url(#hex)"/></svg>
+  <div style="position:absolute;left:90px;top:200px;width:580px;background:var(--c);border-radius:36px;padding:48px;box-shadow:0 30px 80px rgba(0,0,0,.35)">
+   <div style="font-size:20px;font-weight:800;letter-spacing:.14em;color:var(--hd)">ESG-ЗВІТ · Q3</div>
+   <div style="font-size:36px;font-weight:800;margin-top:12px;color:var(--g)">Командний вулик «Ваша компанія»</div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px">
+    <div><div style="font-size:64px;font-weight:800;color:var(--g)">5</div><div style="font-size:20px;color:var(--mut);font-weight:700">вуликів</div></div>
+    <div><div style="font-size:64px;font-weight:800;color:var(--g)">140</div><div style="font-size:20px;color:var(--mut);font-weight:700">працівників у грі</div></div>
+    <div><div style="font-size:64px;font-weight:800;color:var(--hd)">1 260</div><div style="font-size:20px;color:var(--mut);font-weight:700">екосправ</div></div>
+    <div><div style="font-size:64px;font-weight:800;color:var(--hd)">380</div><div style="font-size:20px;color:var(--mut);font-weight:700">м² медоносів</div></div>
+   </div>
+   <div style="font-size:16px;color:var(--mut);margin-top:26px">Ілюстративний приклад звіту</div>
+  </div>
+ </div>
+ <div style="width:900px">
+  <div class="kicker">Для корпорацій</div>
+  <h1 style="font-size:88px">Біорізноманіття, яке <em>видно у звіті</em></h1>
+  <div style="margin-top:70px;display:flex;flex-direction:column;gap:36px;font-size:32px;font-weight:700">
+   <div style="display:flex;gap:24px;align-items:center"><span class="pill">ESG</span>Вимірювані дані для звітності</div>
+   <div style="display:flex;gap:24px;align-items:center"><span class="pill" style="background:var(--g);color:var(--c)">HR</span>Командні вулики для працівників</div>
+   <div style="display:flex;gap:24px;align-items:center"><span class="pill" style="background:var(--ink);color:var(--c)">PR</span>Бренд у світовій лізі</div>
+  </div>
+  <div style="margin-top:80px;font-size:26px;color:var(--mut);font-weight:700">Пакети від</div>
+  <div style="font-size:110px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--g)">$2 000<span style="font-size:44px;color:var(--mut)"> / рік</span></div>
+ </div>
+ <div class="num" style="color:var(--c)">08</div>
+</section>
+
+<!-- 9. BUSINESS MODEL -->
+<section class="slide cream">
+ <div class="kicker">Бізнес-модель</div>
+ <h1>Шість джерел <em>доходу</em></h1>
+ <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:80px">
+  <div class="b" style="background:var(--g);color:var(--c)"><div class="bn" style="color:var(--h)">30%</div><div class="bt">з кожної частки вулика</div></div>
+  <div class="b"><div class="bn">$3–5</div><div class="bt">підписка на місяць</div></div>
+  <div class="b"><div class="bn">$2 000+</div><div class="bt">корпоративний пакет на рік</div></div>
+  <div class="b"><svg class="ico" viewBox="0 0 48 48"><path d="M8 20l16-14 16 14"/><path d="M14 18v24h20V18"/><path d="M20 42V30h8v12"/></svg><div class="bt">Спонсори екозавдань</div></div>
+  <div class="b"><svg class="ico" viewBox="0 0 48 48"><path d="M8 14h32l-3 28H11z"/><path d="M17 20v-6a7 7 0 0 1 14 0v6"/></svg><div class="bt">Магазин: мед і мерч</div></div>
+  <div class="b"><svg class="ico" viewBox="0 0 48 48"><path d="M12 4h18l8 8v32H12z"/><path d="M30 4v8h8M18 24h14M18 31h14M18 38h8"/></svg><div class="bt">Гранти на екологію</div></div>
+ </div>
+ <style>
+  .b{background:#fff;border-radius:30px;padding:40px 44px;height:250px;color:var(--g);display:flex;flex-direction:column;justify-content:space-between}
+  .bn{font-size:96px;font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--g)}
+  .bt{font-size:30px;font-weight:700;line-height:1.2}
+  .b .ico{width:64px;height:64px;color:var(--hd)}
+ </style>
+ <div class="num">09</div>
+</section>
+
+<!-- 10. BEEKEEPERS -->
+<section class="slide dark">
+ <svg class="hexbg" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <div style="position:relative">
+  <div class="kicker">Мережа пасічників</div>
+  <h1>Пасічник — <em>наш партнер</em></h1>
+ </div>
+ <div style="position:relative;display:flex;gap:80px;margin-top:90px">
+  <div style="flex:1;display:flex;flex-direction:column;gap:44px">
+   <div style="display:flex;gap:30px;align-items:flex-start"><div style="font-size:84px;font-weight:800;color:var(--h);letter-spacing:-.04em;line-height:1;width:230px;flex-shrink:0">70%</div><div style="font-size:32px;font-weight:700;line-height:1.3;padding-top:8px">від продажу часток — пасічнику на утримання вулика</div></div>
+   <div style="display:flex;gap:30px;align-items:flex-start"><div style="font-size:84px;font-weight:800;color:var(--h);letter-spacing:-.04em;line-height:1;width:230px;flex-shrink:0">$0</div><div style="font-size:32px;font-weight:700;line-height:1.3;padding-top:8px">розумні ваги й камера — від платформи</div></div>
+   <div style="display:flex;gap:30px;align-items:flex-start"><div style="font-size:84px;font-weight:800;color:var(--h);letter-spacing:-.04em;line-height:1;width:230px;flex-shrink:0">+</div><div style="font-size:32px;font-weight:700;line-height:1.3;padding-top:8px">продаж меду гравцям через наш магазин</div></div>
+  </div>
+  <div style="width:640px;background:var(--c);color:var(--ink);border-radius:36px;padding:50px">
+   <div style="font-size:20px;font-weight:800;letter-spacing:.14em;color:var(--hd)">ПРИКЛАД · ОЦІНКА</div>
+   <div style="font-size:34px;font-weight:800;margin-top:14px;color:var(--g)">Пасіка на 20 вуликів</div>
+   <div style="font-size:26px;color:var(--mut);margin-top:26px;line-height:1.6">20 × $225 × 70%</div>
+   <div style="font-size:120px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--g);margin-top:8px">$3 150</div>
+   <div style="font-size:24px;color:var(--mut);font-weight:700;margin-top:14px">на сезон + дохід від меду</div>
+  </div>
+ </div>
+ <div class="num">10</div>
+</section>
+
+<!-- 11. ROADMAP -->
+<section class="slide cream">
+ <div class="kicker">Дорожня карта</div>
+ <h1>Від Львова <em>до мільйонів гравців</em></h1>
+ <div style="position:relative;margin-top:110px;height:560px">
+  <div style="position:absolute;left:0;right:0;top:118px;height:6px;background:linear-gradient(90deg,var(--g) 0%,var(--g3) 45%,var(--h) 100%);border-radius:3px"></div>
+  <div style="position:absolute;left:0;right:0;top:428px;height:6px;background:linear-gradient(90deg,var(--h) 0%,var(--hd) 100%);border-radius:3px"></div>
+  <div class="rm" style="top:0">
+   <div class="r"><div class="rl">Етап 1</div><div class="dot"></div><div class="rt">Прототип</div></div>
+   <div class="r"><div class="rl">Етап 2</div><div class="dot"></div><div class="rt">Команда</div></div>
+   <div class="r"><div class="rl">Етап 3</div><div class="dot big"></div><div class="rt">Пілот у Львові</div></div>
+   <div class="r"><div class="rl">Етап 4</div><div class="dot"></div><div class="rt">Гранти</div></div>
+   <div class="r"><div class="rl">Етап 5</div><div class="dot"></div><div class="rt">Перший корп. клієнт</div></div>
+  </div>
+  <div class="rm" style="top:310px">
+   <div class="r"><div class="rl">Етап 6</div><div class="dot h"></div><div class="rt">3–5 країн</div></div>
+   <div class="r"><div class="rl">Етап 7</div><div class="dot h big"></div><div class="rt">Seed $1–3 млн</div></div>
+   <div class="r"><div class="rl">Етап 8</div><div class="dot h"></div><div class="rt">Великі корпорації</div></div>
+   <div class="r"><div class="rl">Етап 9</div><div class="dot h"></div><div class="rt">Мільйони гравців</div></div>
+   <div class="r"><div class="rl">Етап 10</div><div class="dot h big" style="background:var(--ink);border-color:var(--h)"></div><div class="rt">Вихід (Exit)</div></div>
+  </div>
+ </div>
+ <style>
+  .rm{position:absolute;left:0;right:0;display:flex;justify-content:space-between}
+  .r{width:300px;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .rl{font-size:20px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);height:70px}
+  .dot{width:44px;height:44px;border-radius:50%;background:var(--g);border:8px solid var(--c);box-shadow:0 0 0 4px var(--g);margin-top:0}
+  .dot.h{background:var(--h);box-shadow:0 0 0 4px var(--h)}
+  .dot.big{width:60px;height:60px;margin-top:-8px}
+  .rt{font-size:32px;font-weight:800;margin-top:30px;color:var(--g);line-height:1.15;letter-spacing:-.01em}
+ </style>
+ <div class="num">11</div>
+</section>
+
+<!-- 12. GOALS -->
+<section class="slide black">
+ <svg class="hexbg" style="opacity:.05" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start">
+  <div>
+   <div class="kicker">Цілі та цифри</div>
+   <h1>Куди ми <em>ростемо</em></h1>
+  </div>
+  <div style="border:2px solid var(--h);color:var(--h);border-radius:999px;padding:14px 28px;font-size:22px;font-weight:800;letter-spacing:.06em;margin-top:20px">ГІПОТЕТИЧНІ ЦІЛІ · ОЦІНКА КОМАНДИ</div>
+ </div>
+ <div style="position:relative;display:flex;gap:30px;margin-top:80px">
+  <div class="gcol"><div class="gy">Рік 1 · Пілот</div><div class="gn">50</div><div class="gl">вуликів у Львові</div><div class="gn s">1 500</div><div class="gl">гравців</div><div class="gn s">2</div><div class="gl">корпоративні клієнти</div></div>
+  <div class="gcol"><div class="gy">Рік 3 · Мережа</div><div class="gn">2 000</div><div class="gl">вуликів у 5 країнах</div><div class="gn s">60 000</div><div class="gl">гравців</div><div class="gn s">≈$1 млн</div><div class="gl">річного доходу</div></div>
+  <div class="gcol" style="background:var(--h);color:var(--ink);border-color:var(--h)"><div class="gy" style="color:var(--ink)">Рік 5 · Світ</div><div class="gn" style="color:var(--ink)">20 000</div><div class="gl" style="color:#3A2C0C">вуликів у 25+ країнах</div><div class="gn s" style="color:var(--ink)">1 млн</div><div class="gl" style="color:#3A2C0C">гравців</div><div class="gn s" style="color:var(--ink)">500 млн</div><div class="gl" style="color:#3A2C0C">бджіл під захистом*</div></div>
+ </div>
+ <div style="position:relative;font-size:17px;color:#8F9A8E;margin-top:30px">Усі цифри — цілі, а не результати. Дохід року 3: частки (30%) + підписки (~30% гравців × $4) + ~50 корп. пакетів. *≈25 000 бджіл на вулик у середньому за сезон — оцінка.</div>
+ <style>
+  .gcol{flex:1;border:2px solid #2C3A2F;border-radius:36px;padding:44px 48px;background:#141A15}
+  .gy{font-size:22px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--h)}
+  .gn{font-size:110px;font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:26px}
+  .gn.s{font-size:58px;margin-top:26px}
+  .gl{font-size:24px;font-weight:700;color:#A9A391;margin-top:6px}
+ </style>
+ <div class="num">12</div>
+</section>
+
+<!-- 13. FINAL -->
+<section class="slide dark" style="padding:0">
+ <svg class="hexbg" style="opacity:.10" width="1920" height="1080"><rect width="1920" height="1080" fill="url(#hex)"/></svg>
+ <svg style="position:absolute;left:-200px;top:-300px" width="1300" height="1300"><circle cx="650" cy="650" r="650" fill="url(#glow)"/></svg>
+ <div style="position:absolute;left:130px;top:150px;width:900px">
+  <div class="kicker">Приєднуйся</div>
+  <div style="font-size:130px;font-weight:800;letter-spacing:-.05em;line-height:.98">Станьмо<br>одним <span style="color:var(--h)">вуликом</span></div>
+  <div style="font-size:34px;font-weight:600;color:#C9C3B2;margin-top:44px;line-height:1.4">Шукаємо інвесторів, корпоративних партнерів і пасічників для пілоту у Львові.</div>
+  <svg style="margin-top:50px;transform:rotate(-10deg)" width="190" height="190"><use href="#bee"/></svg>
+ </div>
+ <div style="position:absolute;right:130px;top:150px;width:640px;height:780px;background:var(--c);color:var(--ink);border-radius:40px;padding:56px">
+  <div style="display:flex;align-items:center;gap:14px;font-size:30px;font-weight:800;color:var(--g)"><svg width="40" height="40"><use href="#hexlogo"/></svg>Hive League</div>
+  <div class="ct"><div class="cl">Ім'я · посада</div><div class="cv"></div></div>
+  <div class="ct"><div class="cl">Email</div><div class="cv"></div></div>
+  <div class="ct"><div class="cl">Телефон</div><div class="cv"></div></div>
+  <div class="ct"><div class="cl">Сайт</div><div class="cv"></div></div>
+  <div style="position:absolute;right:56px;bottom:44px;width:150px;height:150px;border:3px dashed #B9B09A;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#B9B09A">QR</div>
+ </div>
+ <style>
+  .ct{margin-top:30px}
+  .cl{font-size:18px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--hd)}
+  .cv{height:44px;border-bottom:2px solid #D8CFB9}
+ </style>
+</section>
+
+</body>
+</html>
