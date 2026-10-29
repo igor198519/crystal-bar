@@ -18,6 +18,60 @@
 .shine.shine-solo{display:flex;justify-content:center;padding:clamp(48px,8vw,96px) var(--gutter)}
 .shine-solo video{max-width:380px;width:100%}
 @media (max-width:760px){.shine-solo video{max-width:300px}}
+
+/* ===== service pages: packages, menu, sizes, faq ===== */
+.view .subhero > *{min-width:0}
+.view .subhero{grid-template-columns:1.25fr .75fr}
+.view .subhero h1{font-size:clamp(28px,3.4vw,48px);letter-spacing:.08em;overflow-wrap:normal}
+@media (max-width:860px){.view .subhero{grid-template-columns:1fr}}
+.art{width:100%}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pkg{border:1px solid var(--line);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.pkg.main{border-color:var(--champagne)}
+.pkg .label{color:var(--champagne)}
+.pkg h3{font-family:var(--f-display);font-weight:200;font-size:clamp(22px,2.4vw,30px);letter-spacing:.14em;text-transform:uppercase;margin:0;line-height:1.2}
+.pkg p{margin:0;color:var(--muted);font-size:16px}
+.pkg ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.pkg li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.pkg li span{color:var(--muted);text-align:right}
+.pkg .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:900px){.pkgs{grid-template-columns:1fr}}
+
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.menu h3{font-family:var(--f-display);font-weight:400;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--champagne);margin:0 0 8px;padding-bottom:14px;border-bottom:1px solid var(--foil)}
+.menu dl{margin:0}
+.menu dt{font-family:var(--f-display);font-weight:300;font-size:16px;letter-spacing:.18em;text-transform:uppercase;margin-top:20px}
+.menu dd{margin:4px 0 0;color:var(--muted);font-size:15px}
+.menu-note{margin-top:40px;color:var(--muted);font-size:15px;max-width:44em}
+@media (max-width:860px){.menu{grid-template-columns:1fr}}
+
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.size{border:1px solid var(--line);padding:clamp(24px,3vw,36px);min-width:0}
+.size.main{border-color:var(--champagne)}
+.size .n{font-family:var(--f-display);font-weight:200;font-size:clamp(56px,7vw,88px);line-height:1;font-variant-numeric:tabular-nums}
+.size .n small{font-size:.24em;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-left:8px}
+.size ul{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--line)}
+.size li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.size li span{color:var(--muted)}
+.size li b{font-weight:400;color:var(--foil)}
+@media (max-width:860px){.sizes{grid-template-columns:1fr}}
+
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+.scen > div{border-top:1px solid var(--foil);padding-top:22px;min-width:0}
+.scen h3{font-family:var(--f-display);font-weight:300;font-size:16px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 10px}
+.scen p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:860px){.scen{grid-template-columns:1fr}}
+
+.extras{display:flex;flex-wrap:wrap;gap:10px}
+.extras span{border:1px solid var(--line);padding:11px 18px;font-family:var(--f-display);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--foil)}
+
+.faq{border-top:1px solid var(--line);max-width:900px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-family:var(--f-display);font-weight:300;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--champagne);font-size:22px;line-height:1;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 24px;color:var(--muted);max-width:46em}
 </style>
 </head>
 <body>
@@ -530,7 +584,7 @@ nav::-webkit-scrollbar{display:none}
       <div>
         <div class="label">Crystal Bar · Послуга</div>
         <h1 class="display" style="margin-top:22px">Коктейль-бар<span class="accent">Виїзний бар для вашої події</span></h1>
-        <p class="lead">Бармени Crystal Bar готують коктейлі просто на вашій події. Карту напоїв складаємо разом з вами під формат, кількість гостей і настрій вечора.</p>
+        <p class="lead">Бармени Crystal Bar готують коктейлі просто на вашій події: класика, ігристі і безалкогольні. Формат бару і карту складаємо під кількість гостей і настрій вечора.</p>
         <div class="cta" style="display:flex;flex-wrap:wrap;gap:16px">
           <button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button>
         </div>
@@ -548,22 +602,175 @@ nav::-webkit-scrollbar{display:none}
     </div>
     <div class="facts">
       <div><b>Під ключ</b><span>Барна стійка, посуд, лід, бармени</span></div>
-      <div><b>Карта</b><span>Складаємо під вашу подію</span></div>
+      <div><b>Карта</b><span>Готова або авторська під подію</span></div>
       <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
       <div><b>Захід України</b><span>Львів і області</span></div>
     </div>
   </div>
-  <section>
+  <section id="cocktail-formats">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Формати бару</h2>
+        <p>Три базові формати під різний масштаб події. Точну вартість рахуємо під кількість гостей, тривалість і карту коктейлів.</p>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <div class="label">Для фуршету і welcome</div>
+          <h3>Welcome-бар</h3>
+          <p>Короткий формат на зустріч гостей або фуршет перед банкетом.</p>
+          <ul>
+            <li>Бармен<span>1</span></li>
+            <li>Коктейлі в карті<span>2–3</span></li>
+            <li>Тривалість<span>до 2 годин</span></li>
+            <li>Гостей<span>до 50</span></li>
+          </ul>
+          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+        </div>
+        <div class="pkg main">
+          <div class="label">Найчастіше обирають</div>
+          <h3>Класичний бар</h3>
+          <p>Повноцінний бар на весь вечір з класикою, ігристими коктейлями і безалкогольною картою.</p>
+          <ul>
+            <li>Бармени<span>1–2</span></li>
+            <li>Коктейлі в карті<span>5–6 + безалкогольні</span></li>
+            <li>Тривалість<span>4–5 годин</span></li>
+            <li>Гостей<span>50–120</span></li>
+          </ul>
+          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+        </div>
+        <div class="pkg">
+          <div class="label">Для великих подій</div>
+          <h3>Авторський бар</h3>
+          <p>Карта, яку створюємо спеціально під вашу подію, з дегустацією до заходу.</p>
+          <ul>
+            <li>Бармени<span>2 і більше</span></li>
+            <li>Коктейлі в карті<span>авторська карта</span></li>
+            <li>Дегустація<span>до події</span></li>
+            <li>Гостей<span>від 120</span></li>
+          </ul>
+          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cocktail-menu" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Коктейльна карта</h2>
+        <p>Приклад карти. Можна обрати готові коктейлі або попросити нас скласти карту під тематику вашої події.</p>
+      </div>
+      <div class="menu">
+        <div>
+          <h3>Класика</h3>
+          <dl>
+            <dt>Негроні</dt><dd>Джин, кампарі, червоний вермут, апельсин</dd>
+            <dt>Віскі сауер</dt><dd>Бурбон, лимон, цукровий сироп</dd>
+            <dt>Маргарита</dt><dd>Текіла, лайм, апельсиновий лікер, сіль</dd>
+            <dt>Еспресо мартіні</dt><dd>Горілка, кавовий лікер, свіжий еспресо</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Ігристі</h3>
+          <dl>
+            <dt>Апероль Шприц</dt><dd>Апероль, просекко, содова, апельсин</dd>
+            <dt>Френч 75</dt><dd>Джин, лимон, ігристе</dd>
+            <dt>Россіні</dt><dd>Просекко, полуничне пюре</dd>
+            <dt>Х'юго</dt><dd>Просекко, бузиновий сироп, м'ята, лайм</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Безалкогольні</h3>
+          <dl>
+            <dt>Вірджин мохіто</dt><dd>Лайм, м'ята, тростинний цукор, содова</dd>
+            <dt>Ягідний лимонад</dt><dd>Сезонні ягоди, лимон, содова</dd>
+            <dt>Імбирний тонік</dt><dd>Тонік, імбир, розмарин, грейпфрут</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="menu-note">Карту погоджуємо заздалегідь разом із кошторисом. Для подій з дітьми додаємо окрему безалкогольну карту.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Що входить</h2>
+        <p>Привозимо бар повністю готовим до роботи.</p>
+      </div>
+      <div class="items">
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M3 10h22v4H3z"/><path d="M5 14v11M23 14v11"/></svg>
+          <h3>Барна стійка</h3>
+          <p>Чорна стійка в стилі Crystal Bar з підсвіткою.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><circle cx="14" cy="8" r="4"/><path d="M6 26v-4a8 8 0 0 1 16 0v4"/></svg>
+          <h3>Бармени</h3>
+          <p>Досвідчені бармени в строгій чорній формі.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M6 4h16l-1 6a7 7 0 0 1-14 0z"/><path d="M14 17v8M9 25h10"/></svg>
+          <h3>Посуд</h3>
+          <p>Кришталеві келихи під кожен коктейль.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M5 9l4-4 4 4-4 4zM15 13l4-4 4 4-4 4zM8 19l4-4 4 4-4 4z"/></svg>
+          <h3>Лід і інгредієнти</h3>
+          <p>Кубики, колотий лід, свіжі цитрусові, сиропи і гарніри.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 22h20M7 22V10l7-5 7 5v12"/></svg>
+          <h3>Монтаж і демонтаж</h3>
+          <p>Приїжджаємо заздалегідь і збираємо бар до приходу гостей.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 6h20v16H4z"/><path d="M9 14h10"/></svg>
+          <h3>Брендування</h3>
+          <p>За потреби оформлюємо стійку під ваш бренд або подію.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Додатково</h2>
+        <p>Опції, які можна додати до будь-якого формату.</p>
+      </div>
+      <div class="extras">
+        <span>Бармен-шоу</span><span>Майстер-клас для гостей</span><span>Брендований лід</span><span>Просекко-зона з краном</span><span>Гірка з шампанського</span><span>Безалкогольна карта для дітей</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
     <div class="wrap">
       <div class="head">
         <h2 class="display">Як це працює</h2>
-        <p>Розкажіть про подію, і ми запропонуємо карту коктейлів та формат бару.</p>
+        <p>Від заявки до останнього коктейлю.</p>
       </div>
       <div class="steps">
         <div class="step"><h3>Заявка</h3><p>Дата, кількість гостей, тематика і локація. Якщо щось ще невідомо, так і вкажіть.</p></div>
-        <div class="step"><h3>Карта</h3><p>Підбираємо коктейлі під ваш смак і формат події.</p></div>
-        <div class="step"><h3>Кошторис</h3><p>Надсилаємо розрахунок під вашу кількість гостей.</p></div>
+        <div class="step"><h3>Карта і кошторис</h3><p>Пропонуємо формат бару і карту коктейлів, надсилаємо розрахунок.</p></div>
+        <div class="step"><h3>Дегустація</h3><p>За бажанням пробуєте коктейлі до події і вносите правки.</p></div>
         <div class="step"><h3>Подія</h3><p>Привозимо бар, працюємо весь вечір, після події все прибираємо.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Питання</h2>
+        <p>Те, що найчастіше питають перед бронюванням.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Скільки коктейлів потрібно на гостя?</summary><p>Ми рахуємо кількість під тривалість події і формат. Точну цифру закладаємо в кошторис, щоб коктейлів вистачило на весь вечір.</p></details>
+        <details><summary>Скільки місця потрібно для бару?</summary><p>Невеликий майданчик під стійку і доступ до електрики. Точні розміри підкажемо, коли дізнаємося локацію.</p></details>
+        <details><summary>За скільки часу ви приїжджаєте?</summary><p>Зазвичай за 1–2 години до початку, щоб спокійно зібрати бар і підготувати лід та інгредієнти.</p></details>
+        <details><summary>Чи працюєте за межами Львова?</summary><p>Так, виїжджаємо по всій Західній Україні. Доставку рахуємо окремо разом із кошторисом.</p></details>
       </div>
       <div style="margin-top:56px;text-align:center"><button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button></div>
     </div>
@@ -588,12 +795,114 @@ nav::-webkit-scrollbar{display:none}
     </div>
     <div class="facts">
       <div><b>Кришталь</b><span>Ті самі гранені купе, що й у просекко-зоні</span></div>
-      <div><b>Розмір</b><span>Кількість ярусів під ваших гостей</span></div>
+      <div><b>Розмір</b><span>Від 30 до 91 келиха</span></div>
       <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
       <div><b>Поєднання</b><span>Можна разом із просекко-зоною</span></div>
     </div>
   </div>
   <section>
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Розміри гірки</h2>
+        <p>Розмір підбираємо під кількість гостей, які отримають келих з гірки. Кількість ігристого вказана орієнтовно.</p>
+      </div>
+      <div class="sizes">
+        <div class="size">
+          <div class="n">4<small>яруси</small></div>
+          <ul>
+            <li><span>Келихів</span><b>30</b></li>
+            <li><span>Ігристого</span><b>~6–7 пляшок</b></li>
+            <li><span>Гостей</span><b>до 30</b></li>
+          </ul>
+        </div>
+        <div class="size main">
+          <div class="n">5<small>ярусів</small></div>
+          <ul>
+            <li><span>Келихів</span><b>55</b></li>
+            <li><span>Ігристого</span><b>~11–12 пляшок</b></li>
+            <li><span>Гостей</span><b>30–60</b></li>
+          </ul>
+        </div>
+        <div class="size">
+          <div class="n">6<small>ярусів</small></div>
+          <ul>
+            <li><span>Келихів</span><b>91</b></li>
+            <li><span>Ігристого</span><b>~18–20 пляшок</b></li>
+            <li><span>Гостей</span><b>60–100</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Коли гірка працює найкраще</h2>
+        <p>Гірка збирає навколо себе всіх гостей, тому її варто планувати як окремий момент програми.</p>
+      </div>
+      <div class="scen">
+        <div><h3>Зустріч гостей</h3><p>Гірка стоїть на вході, і кожен гість отримує келих ігристого з піраміди.</p></div>
+        <div><h3>Момент вечора</h3><p>Наречені або іменинник наливають першу пляшку під оплески, а бармен продовжує наповнення.</p></div>
+        <div><h3>Корпоративний тост</h3><p>Керівник відкриває гірку, і вся команда піднімає келихи одночасно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Що входить</h2>
+        <p>Ви отримуєте готову гірку і людину, яка за нею стежить.</p>
+      </div>
+      <div class="items">
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M6 4h16l-1 6a7 7 0 0 1-14 0z"/><path d="M14 17v8M9 25h10"/></svg>
+          <h3>Кришталеві купе</h3>
+          <p>Гранені келихи, ті самі, що й у просекко-зоні.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M3 10h22v4H3z"/><path d="M5 14v11M23 14v11"/></svg>
+          <h3>Стійка основа</h3>
+          <p>Рівний стіл під гірку з чорним оформленням.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><circle cx="14" cy="8" r="4"/><path d="M6 26v-4a8 8 0 0 1 16 0v4"/></svg>
+          <h3>Бармен</h3>
+          <p>Збирає гірку, допомагає з наливанням і подає келихи гостям.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 22h20M7 22V10l7-5 7 5v12"/></svg>
+          <h3>Монтаж і прибирання</h3>
+          <p>Збираємо до початку програми, після моменту все прибираємо.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M10 3h8v6l3 4v12H7V13l3-4z"/></svg>
+          <h3>Ігристе</h3>
+          <p>Привозимо своє або працюємо з вашим, як домовимося.</p>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 28 28"><path d="M4 6h20v16H4z"/><path d="M9 14h10"/></svg>
+          <h3>Оформлення</h3>
+          <p>Декор келихів і основи під стиль вашої події.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Додатково</h2>
+        <p>Щоб момент запам'ятався ще більше.</p>
+      </div>
+      <div class="extras">
+        <span>Холодні вогні</span><span>Важкий дим для декору</span><span>Підсвітка основи</span><span>Ягоди в келихах</span><span>Безалкогольне ігристе</span><span>Просекко-зона з краном</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
     <div class="wrap">
       <div class="head">
         <h2 class="display">Як це працює</h2>
@@ -604,6 +913,21 @@ nav::-webkit-scrollbar{display:none}
         <div class="step"><h3>Розмір</h3><p>Підбираємо кількість ярусів і келихів.</p></div>
         <div class="step"><h3>Монтаж</h3><p>Збираємо гірку на стійкій основі до початку події.</p></div>
         <div class="step"><h3>Момент</h3><p>Наливаємо ігристе в потрібну хвилину, гості отримують келихи.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Питання</h2>
+        <p>Те, що найчастіше питають перед бронюванням.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Чи це безпечно?</summary><p>Гірку збираємо на рівній стійкій основі, а бармен увесь час поруч. Ставимо її так, щоб гості не зачепили конструкцію.</p></details>
+        <details><summary>Скільки триває наливання?</summary><p>Сам момент займає кілька хвилин. Ми узгоджуємо його з ведучим, щоб він припав на потрібну точку програми.</p></details>
+        <details><summary>Можна безалкогольне ігристе?</summary><p>Так. Для дітей і гостей, які не п'ють алкоголь, наливаємо безалкогольне ігристе в окремі келихи.</p></details>
+        <details><summary>Можна разом із просекко-зоною?</summary><p>Так. Гірка може стати моментом вечора, а просекко-зона працюватиме весь час до і після нього.</p></details>
       </div>
       <div style="margin-top:56px;text-align:center"><button class="btn" type="button" data-request="Гірка з шампанського">Залишити заявку</button></div>
     </div>
