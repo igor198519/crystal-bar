@@ -35,6 +35,10 @@
 .pkg li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
 .pkg li span{color:var(--muted);text-align:right}
 .pkg .btn{margin-top:auto;align-self:flex-start}
+.pkg .from,.size .from{font-family:var(--f-display);font-weight:300;font-size:clamp(26px,2.6vw,34px);letter-spacing:.04em;font-variant-numeric:tabular-nums;color:var(--foil)}
+.pkg .from small,.size .from small{font-size:.42em;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.size .from{margin-top:20px}
+.price-note{margin-top:28px;color:var(--muted);font-size:14px;max-width:46em}
 @media (max-width:900px){.pkgs{grid-template-columns:1fr}}
 
 .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
@@ -564,13 +568,13 @@ nav::-webkit-scrollbar{display:none}
           <div class="label">Послуга</div>
           <h3>Коктейль-бар</h3>
           <p>Виїзний бар з барменами і коктейльною картою під вашу подію.</p>
-          <span class="go">Детальніше →</span>
+          <span class="go">Від 19 900 грн · Детальніше →</span>
         </a>
         <a class="other" href="#tower">
           <div class="label">Послуга</div>
           <h3>Гірка з шампанського</h3>
           <p>Піраміда з келихів, у яку ігристе наливають згори на очах у гостей.</p>
-          <span class="go">Детальніше →</span>
+          <span class="go">Від 9 900 грн · Детальніше →</span>
         </a>
       </div>
     </div>
@@ -603,7 +607,7 @@ nav::-webkit-scrollbar{display:none}
     <div class="facts">
       <div><b>Під ключ</b><span>Барна стійка, посуд, лід, бармени</span></div>
       <div><b>Карта</b><span>Готова або авторська під подію</span></div>
-      <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
+      <div><b>Від 19 900 грн</b><span>Welcome-бар до 50 гостей</span></div>
       <div><b>Захід України</b><span>Львів і області</span></div>
     </div>
   </div>
@@ -617,6 +621,7 @@ nav::-webkit-scrollbar{display:none}
         <div class="pkg">
           <div class="label">Для фуршету і welcome</div>
           <h3>Welcome-бар</h3>
+          <div class="from"><small>від</small>19 900 грн</div>
           <p>Короткий формат на зустріч гостей або фуршет перед банкетом.</p>
           <ul>
             <li>Бармен<span>1</span></li>
@@ -624,11 +629,12 @@ nav::-webkit-scrollbar{display:none}
             <li>Тривалість<span>до 2 годин</span></li>
             <li>Гостей<span>до 50</span></li>
           </ul>
-          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+          <button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button>
         </div>
         <div class="pkg main">
           <div class="label">Найчастіше обирають</div>
           <h3>Класичний бар</h3>
+          <div class="from"><small>від</small>39 900 грн</div>
           <p>Повноцінний бар на весь вечір з класикою, ігристими коктейлями і безалкогольною картою.</p>
           <ul>
             <li>Бармени<span>1–2</span></li>
@@ -636,11 +642,12 @@ nav::-webkit-scrollbar{display:none}
             <li>Тривалість<span>4–5 годин</span></li>
             <li>Гостей<span>50–120</span></li>
           </ul>
-          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+          <button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button>
         </div>
         <div class="pkg">
           <div class="label">Для великих подій</div>
           <h3>Авторський бар</h3>
+          <div class="from"><small>від</small>69 900 грн</div>
           <p>Карта, яку створюємо спеціально під вашу подію, з дегустацією до заходу.</p>
           <ul>
             <li>Бармени<span>2 і більше</span></li>
@@ -648,9 +655,10 @@ nav::-webkit-scrollbar{display:none}
             <li>Дегустація<span>до події</span></li>
             <li>Гостей<span>від 120</span></li>
           </ul>
-          <button class="btn" type="button" data-request="Коктейль-бар">Дізнатися ціну</button>
+          <button class="btn" type="button" data-request="Коктейль-бар">Залишити заявку</button>
         </div>
       </div>
+      <p class="price-note">Ціни орієнтовні, для Львова. У вартість входять коктейлі, бармени, посуд, лід і монтаж. Точну суму розраховуємо під вашу кількість гостей і карту.</p>
     </div>
   </section>
 
@@ -796,7 +804,7 @@ nav::-webkit-scrollbar{display:none}
     <div class="facts">
       <div><b>Кришталь</b><span>Ті самі гранені купе, що й у просекко-зоні</span></div>
       <div><b>Розмір</b><span>Від 30 до 91 келиха</span></div>
-      <div><b>Вартість</b><span>Рахуємо індивідуально</span></div>
+      <div><b>Від 9 900 грн</b><span>Гірка на 30 келихів з ігристим</span></div>
       <div><b>Поєднання</b><span>Можна разом із просекко-зоною</span></div>
     </div>
   </div>
@@ -804,11 +812,12 @@ nav::-webkit-scrollbar{display:none}
     <div class="wrap">
       <div class="head">
         <h2 class="display">Розміри гірки</h2>
-        <p>Розмір підбираємо під кількість гостей, які отримають келих з гірки. Кількість ігристого вказана орієнтовно.</p>
+        <p>Розмір підбираємо під кількість гостей, які отримають келих з гірки. Ціни орієнтовні, з ігристим, барменом і монтажем у Львові.</p>
       </div>
       <div class="sizes">
         <div class="size">
           <div class="n">4<small>яруси</small></div>
+          <div class="from"><small>від</small>9 900 грн</div>
           <ul>
             <li><span>Келихів</span><b>30</b></li>
             <li><span>Ігристого</span><b>~6–7 пляшок</b></li>
@@ -817,6 +826,7 @@ nav::-webkit-scrollbar{display:none}
         </div>
         <div class="size main">
           <div class="n">5<small>ярусів</small></div>
+          <div class="from"><small>від</small>14 900 грн</div>
           <ul>
             <li><span>Келихів</span><b>55</b></li>
             <li><span>Ігристого</span><b>~11–12 пляшок</b></li>
@@ -825,6 +835,7 @@ nav::-webkit-scrollbar{display:none}
         </div>
         <div class="size">
           <div class="n">6<small>ярусів</small></div>
+          <div class="from"><small>від</small>21 900 грн</div>
           <ul>
             <li><span>Келихів</span><b>91</b></li>
             <li><span>Ігристого</span><b>~18–20 пляшок</b></li>
