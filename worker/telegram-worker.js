@@ -2,12 +2,18 @@
 // У налаштуваннях Cloudflare Worker потрібно додати дві змінні:
 //   BOT_TOKEN — токен бота від @BotFather (тип Secret)
 //   CHAT_ID   — ваш числовий ID у Telegram
-const ALLOWED_ORIGIN = 'https://crystalbar.lviv.ua';
+const ALLOWED_ORIGINS = [
+  'https://crystalbar.lviv.ua',
+  'https://www.crystalbar.lviv.ua',
+  'https://crystal-bar.pages.dev',
+];
 
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get('Origin') || '';
     const cors = {
-      'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+      'Access-Control-Allow-Origin': ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+      'Vary': 'Origin',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
