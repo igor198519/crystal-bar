@@ -2,7 +2,7 @@
 // У налаштуваннях Cloudflare Worker потрібно додати дві змінні:
 //   BOT_TOKEN — токен бота від @BotFather (тип Secret)
 //   CHAT_ID   — ваш числовий ID у Telegram
-const ALLOWED_ORIGIN = 'https://igor198519.github.io';
+const ALLOWED_ORIGIN = 'https://crystalbar.lviv.ua';
 
 export default {
   async fetch(request, env) {
