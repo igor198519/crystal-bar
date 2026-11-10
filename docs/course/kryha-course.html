@@ -10,7 +10,7 @@
   :root {
     --ink: #26231f; --muted: #6a6259; --cream: #f7f2ea; --sand: #ece3d4;
     --night: #141312; --flame: #d98a3d; --flame-soft: #f3c98e; --line: #ddd2c0;
-    --warn: #b4472b; --warn-bg: #f8e6de; --ok-bg: #e8f0e2;
+    --warn: #b4472b; --warn-bg: #f8e6de; --ok: #3f6b2f; --ok-bg: #e8f0e2;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Manrope', Arial, sans-serif;
   }
@@ -21,71 +21,88 @@
   body { margin: 0; font: 400 9.8pt/1.5 var(--sans); color: var(--ink); background: #fff; }
   h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.1; margin: 0; }
   h2 { font-size: 26pt; margin-bottom: 3mm; }
-  h3 { font-size: 15pt; margin: 5mm 0 2mm; }
-  h4 { font-size: 10.4pt; margin: 5mm 0 1.5mm; font-weight: 700; }
-  p { margin: 0 0 2.6mm; }
+  h3 { font-size: 14.5pt; margin: 5mm 0 2mm; }
+  p { margin: 0 0 2.4mm; }
   ul, ol { margin: 0 0 3mm; padding-left: 5.5mm; }
-  li { margin-bottom: 1.3mm; }
+  li { margin-bottom: 1.2mm; }
   b, strong { font-weight: 700; }
   em { color: var(--flame); font-style: italic; }
-
-  .chapter { break-before: page; }
+  .page { break-before: page; }
   .kicker { font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--flame); font-weight: 700; margin-bottom: 2mm; }
-  .lead { font-size: 11pt; color: var(--muted); max-width: 150mm; margin-bottom: 4mm; }
+  .lead { font-size: 11pt; color: var(--muted); max-width: 155mm; margin-bottom: 4mm; }
+  .note { font-size: 8.6pt; color: var(--muted); }
 
-  /* Обкладинка */
   .cover { height: 297mm; background: radial-gradient(circle at 70% 38%, rgba(217,138,61,.45), rgba(217,138,61,.08) 32%, transparent 55%), var(--night); color: var(--cream); padding: 28mm 22mm; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
   .cover .brand { font-family: var(--serif); font-size: 20pt; letter-spacing: .3em; }
   .cover .brand span { color: var(--flame); }
-  .cover h1 { font-size: 50pt; line-height: 1.02; max-width: 150mm; }
+  .cover .tag { display: inline-block; font-size: 8.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--flame-soft); margin-bottom: 4mm; }
+  .cover h1 { font-size: 46pt; line-height: 1.02; max-width: 135mm; }
   .cover h1 em { color: var(--flame-soft); }
-  .cover p { color: rgba(247,242,234,.72); font-size: 12pt; max-width: 125mm; }
+  .cover p { color: rgba(247,242,234,.72); font-size: 12pt; max-width: 125mm; margin-top: 4mm; }
   .cover .meta { display: flex; gap: 10mm; font-size: 9pt; color: rgba(247,242,234,.6); border-top: 1px solid rgba(247,242,234,.2); padding-top: 5mm; }
-  .cover svg { position: absolute; right: 18mm; top: 62mm; width: 78mm; }
+  .cover .meta b { color: var(--cream); font-weight: 600; }
+  .cover svg { position: absolute; right: 16mm; top: 34mm; width: 68mm; }
 
-  /* Зміст */
-  .toc { list-style: none; padding: 0; margin: 6mm 0 0; counter-reset: c; }
-  .toc li { display: flex; gap: 5mm; padding: 3mm 0; border-bottom: 1px solid var(--line); font-size: 11.5pt; }
-  .toc li::before { counter-increment: c; content: counter(c, decimal-leading-zero); font-family: var(--serif); font-style: italic; color: var(--flame); width: 9mm; }
-  .toc small { margin-left: auto; color: var(--muted); }
+  .module { break-before: page; background: var(--night); color: var(--cream); border-radius: 4mm; padding: 9mm 10mm; margin-bottom: 6mm; position: relative; overflow: hidden; }
+  .module::after { content: ''; position: absolute; right: -30mm; top: -30mm; width: 90mm; height: 90mm; background: radial-gradient(circle, rgba(217,138,61,.35), transparent 65%); }
+  .module .kicker { color: var(--flame-soft); }
+  .module h2 { font-size: 28pt; margin-bottom: 2mm; }
+  .module p { color: rgba(247,242,234,.72); margin: 0; max-width: 140mm; position: relative; z-index: 1; }
+  .module ul { margin: 3mm 0 0; color: rgba(247,242,234,.85); position: relative; z-index: 1; }
 
-  /* Блоки */
+  .lesson { margin-top: 10mm; }
+  .module + .lesson { margin-top: 0; }
+  .lesson-head, .goal, .label { break-after: avoid; }
+  .lesson-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 1.5px solid var(--ink); padding-bottom: 2mm; margin-bottom: 3mm; }
+  .lesson-head .num { font-family: var(--serif); font-style: italic; font-size: 30pt; color: var(--flame); line-height: 1; }
+  .lesson-head h2 { font-size: 22pt; margin: 0; flex: 1; }
+  .lesson-head .dur { font-size: 8.5pt; color: var(--muted); white-space: nowrap; }
+  .goal { background: var(--cream); border-radius: 3mm; padding: 3mm 5mm; margin-bottom: 3mm; }
+  .goal b { color: var(--flame); font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; margin-right: 2mm; }
+
+  .label { font-size: 8pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.5mm; }
+  .label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
   .box { border-radius: 3mm; padding: 3.5mm 5mm; margin: 3mm 0; break-inside: avoid; }
-  .box p:last-child, .box ul:last-child { margin-bottom: 0; }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
   .box-title { font-weight: 700; font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.5mm; }
-  .warn { background: var(--warn-bg); }
-  .warn .box-title { color: var(--warn); }
-  .tip { background: var(--sand); }
-  .tip .box-title { color: #8a5a22; }
-  .ok { background: var(--ok-bg); }
-  .ok .box-title { color: #3f6b2f; }
+  .warn { background: var(--warn-bg); } .warn .box-title { color: var(--warn); }
+  .tip { background: var(--sand); } .tip .box-title { color: #8a5a22; }
+  .ok { background: var(--ok-bg); } .ok .box-title { color: var(--ok); }
+  .hw { border: 1.5px solid var(--ink); }
+  .quiz { border: 1.5px dashed var(--flame); }
+  .quiz .box-title { color: var(--flame); }
 
-  /* Кроки */
-  .steps { list-style: none; padding: 0; counter-reset: s; margin: 4mm 0; }
-  .steps > li { position: relative; padding: 0 0 3mm 13mm; margin: 0 0 3mm; border-bottom: 1px solid var(--line); break-inside: avoid; }
+  .steps { list-style: none; padding: 0; counter-reset: s; margin: 3mm 0; }
+  .steps > li { position: relative; padding: 0 0 2.6mm 13mm; margin: 0 0 2.6mm; border-bottom: 1px solid var(--line); break-inside: avoid; }
   .steps > li::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: 0; width: 9mm; height: 9mm; border-radius: 50%; background: var(--night); color: var(--flame-soft); font-family: var(--serif); font-size: 14pt; display: grid; place-items: center; }
-  .steps > li > b:first-child { display: inline; font-size: 11.2pt; }
-  .steps .time { display: inline-block; margin-bottom: 1mm; font-size: 8pt; font-weight: 700; color: #8a5a22; background: var(--sand); border-radius: 2mm; padding: .4mm 2mm; margin-left: 2mm; vertical-align: 1px; }
+  .steps > li > b:first-child { font-size: 11pt; }
+  .steps .time { display: inline-block; font-size: 8pt; font-weight: 700; color: #8a5a22; background: var(--sand); border-radius: 2mm; padding: .4mm 2mm; margin: 0 0 1mm 2mm; vertical-align: 1px; }
 
-  table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.4pt; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 9.2pt; break-inside: avoid; }
   th { text-align: left; font-weight: 700; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1.5px solid var(--ink); padding: 2mm 2.5mm; }
   td { border-bottom: 1px solid var(--line); padding: 1.8mm 2.5mm; vertical-align: top; }
-  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
   .log td { height: 12mm; }
-
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
-  .figure { background: var(--cream); border-radius: 3mm; padding: 5mm; margin: 4mm 0; break-inside: avoid; text-align: center; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .figure { background: var(--cream); border-radius: 3mm; padding: 5mm; margin: 3mm 0; break-inside: avoid; text-align: center; }
   .figure figcaption { font-size: 8.5pt; color: var(--muted); margin-top: 2mm; }
   .check { list-style: none; padding: 0; }
   .check li { padding-left: 7mm; position: relative; }
-  .check li::before { content: ''; position: absolute; left: 0; top: 1.2mm; width: 3.4mm; height: 3.4mm; border: 1.3px solid var(--ink); border-radius: .8mm; }
-  .compare td:first-child { font-weight: 600; width: 34%; }
-  .note { font-size: 8.6pt; color: var(--muted); }
+  .check li::before { content: ''; position: absolute; left: 0; top: 1.1mm; width: 3.4mm; height: 3.4mm; border: 1.3px solid var(--ink); border-radius: .8mm; }
+  .program td:first-child { width: 14mm; font-family: var(--serif); font-style: italic; color: var(--flame); font-size: 12pt; }
+  .program tr.mod td { background: var(--cream); font-weight: 700; }
+  .program tr.mod td:first-child { font-family: var(--sans); font-style: normal; color: var(--ink); font-size: 9pt; }
+  .outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 5mm; list-style: none; padding: 0; }
+  .outcomes li { padding: 2.6mm 4mm; background: var(--cream); border-radius: 2.5mm; margin: 0; }
+  .answers li { margin-bottom: 1.4mm; }
+  .answers h3 { font-size: 12.5pt; margin: 3.5mm 0 1.5mm; }
+  .lines { border-bottom: 1px solid var(--line); height: 8mm; }
 </style>
 </head>
 <body>
 
-<!-- ============ ОБКЛАДИНКА ============ -->
+<!-- ================= ОБКЛАДИНКА ================= -->
 <section class="cover">
   <div class="brand">КРИГ<span>А</span></div>
   <svg viewBox="0 0 300 330" aria-hidden="true">
@@ -103,107 +120,141 @@
     <path d="M150 40 C162 62 166 80 160 96 C156 104 144 104 140 96 C134 80 138 62 150 40 Z" fill="url(#fl)"/>
   </svg>
   <div>
+    <span class="tag">Навчальний курс · з нуля</span>
     <h1>Крижані свічки з <em>гелевого воску</em></h1>
-    <p>Практичний курс мінівиробництва: холодний метод з брикету, гарячий метод з розтопленням, гноти, тести горіння, безпека і собівартість.</p>
+    <p>Від першого шматка воску до власної колекції: холодний метод без нагріву, гарячий метод, гібрид, гноти, тести горіння і безпека.</p>
   </div>
-  <div class="meta"><span>Видання 1 · листопад 2026</span><span>Для внутрішнього навчання</span></div>
+  <div class="meta"><span><b>6 модулів</b> · 16 уроків</span><span><b>2–3 тижні</b> з практикою</span><span><b>Фінальний проєкт</b>: колекція з 3 свічок</span></div>
 </section>
 
-<!-- ============ ЗМІСТ ============ -->
-<section class="chapter">
-  <div class="kicker">Зміст</div>
-  <h2>Що всередині</h2>
-  <ol class="toc">
-    <li>Як читати цей курс і що важливо знати перед стартом</li>
-    <li>Гелевий віск: що це і який купувати</li>
-    <li>Безпека — прочитати до першої свічки</li>
-    <li>Обладнання і матеріали</li>
-    <li>Гніт: вибір, підготовка, розмір</li>
-    <li>Будова свічки без склянки</li>
-    <li>Метод А. Холодний: ріжемо брикет і формуємо</li>
-    <li>Метод Б. Гарячий: розтоплення і формування</li>
-    <li>Метод В. Гібрид: «колотий лід» у прозорому гелі</li>
-    <li>Ефекти: бульбашки, тріщини, колір, аромат</li>
-    <li>Тест горіння: протокол</li>
-    <li>Проблеми і як їх виправити</li>
-    <li>Доведення, пакування і маркування</li>
-    <li>Собівартість і технологічна карта партії</li>
-    <li>Додаток: журнал тестів</li>
-  </ol>
-</section>
+<!-- ================= ПРО КУРС ================= -->
+<section class="page">
+  <div class="kicker">Про курс</div>
+  <h2>Ласкаво просимо</h2>
+  <p class="lead">Цей курс навчить вас робити прозорі свічки, схожі на шматок льоду: без форм і молдів, кожну — унікальну. Ви почнете з найпростішого холодного методу, коли свічку формують з брикету воску без жодного нагріву, а закінчите власною колекцією, перевіреною тестом горіння.</p>
 
-<!-- ============ 1 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 1</div>
-  <h2>Перед стартом</h2>
-  <p class="lead">Курс зібраний з загальних правил роботи з гелевим воском і досвіду свічкарів. Точні температури, розміри гнотів і час горіння залежать від конкретного гелю і гнота, тому кожну цифру тут вважайте <b>стартовою точкою</b>, яку ви підтверджуєте своїм тестом.</p>
+  <h3>Для кого цей курс</h3>
+  <ul>
+    <li>Для початківців — досвід свічкарства не потрібен.</li>
+    <li>Для тих, хто вже робить соєві чи парафінові свічки і хоче додати гелеві.</li>
+    <li>Для тих, хто думає про власне мінівиробництво і продаж.</li>
+  </ul>
 
-  <h3>Три правила, на яких тримається все</h3>
+  <h3>Після курсу ви вмітимете</h3>
+  <ul class="outcomes">
+    <li>Обирати гелевий віск і читати його паспорт</li>
+    <li>Безпечно організувати робоче місце</li>
+    <li>Підбирати і готувати гніт під розмір свічки</li>
+    <li>Робити свічку з брикету <b>без нагріву</b></li>
+    <li>Розтоплювати гель і керувати бульбашками</li>
+    <li>Створювати ефект «колотого льоду»</li>
+    <li>Проводити тест горіння і читати результат</li>
+    <li>Рахувати собівартість і пакувати свічки</li>
+  </ul>
+
+  <h3>Як проходити курс</h3>
   <ol>
-    <li><b>Паспорт гелю важливіший за цей курс.</b> Попросіть у постачальника технічний лист (TDS) і паспорт безпеки (SDS/MSDS). Звідти беріть температуру плавлення, заливки і температуру спалаху.</li>
-    <li><b>Жодна нова форма не йде в продаж без повного тесту горіння.</b> Свічка без склянки сама тримає розплавлений віск, і якщо стінка тонка — гель витече.</li>
-    <li><b>Записуйте все.</b> Вага, гніт, температура, метод, результат тесту. Через місяць це стане вашою технологією, яку можна передати помічнику.</li>
+    <li><b>Ідіть по порядку.</b> Кожен урок спирається на попередній. Модулі 1–2 — обов'язкова база.</li>
+    <li><b>Робіть руками.</b> У кожному уроці є практика і домашнє завдання. Гель відчувається лише в руках.</li>
+    <li><b>Ведіть журнал.</b> Записуйте вагу, гніт, температури і результати. Бланки — в додатках.</li>
+    <li><b>Перевіряйте себе.</b> Наприкінці уроку — 2–3 питання. Відповіді в кінці курсу.</li>
   </ol>
 
-  <h3>Два основні методи — коротко</h3>
-  <table class="compare">
-    <tr><th></th><th>А. Холодний (з брикету)</th><th>Б. Гарячий (розтоплення)</th></tr>
-    <tr><td>Суть</td><td>Ріжемо і рвемо готовий брикет, складаємо й формуємо свічку руками</td><td>Розтоплюємо гель, відливаємо заготовку, потім формуємо</td></tr>
-    <tr><td>Нагрів</td><td>Немає (опційно — фен для глянцю)</td><td>Так, 90–110 °C*</td></tr>
-    <tr><td>Час на 1 свічку</td><td>10–20 хв</td><td>20–40 хв + охолодження</td></tr>
-    <tr><td>Прозорість</td><td>Висока в моноліті, стики видно</td><td>Найвища, моноліт</td></tr>
-    <tr><td>Ризики</td><td>Повітря у стиках, нерівне горіння</td><td>Опіки, перегрів і займання гелю</td></tr>
-    <tr><td>Для кого</td><td>Старт, тести форм, швидкі партії</td><td>Стабільне виробництво, складні форми</td></tr>
-  </table>
-  <p class="note">* Звіряйте з паспортом свого гелю.</p>
+  <p><b>Кожен урок</b> складається з блоків: мета → теорія → практика з часом на кожен крок → типові помилки → домашнє завдання → самоперевірка.</p>
 
-  <div class="box tip"><div class="box-title">Порада</div>
-    <p>Почніть з холодного методу: це найшвидший спосіб зрозуміти, як поводиться гель, і зробити перші 10–20 свічок для фото і тестів. Гарячий метод додайте, коли захочете більше прозорості і стабільної форми.</p>
+  <div class="box warn"><div class="box-title">Важливо перед стартом</div>
+    <p>Температури, розміри гнотів і час горіння в курсі — це <b>орієнтири</b>. Різні гелі і гноти поводяться по-різному, тому звіряйтеся з паспортом свого гелю і підтверджуйте все тестом горіння (урок 12).</p>
   </div>
 </section>
 
-<!-- ============ 2 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 2</div>
-  <h2>Гелевий віск</h2>
-  <p class="lead">Гелевий віск — це мінеральна олія, загущена полімером до стану прозорої «гуми». На вигляд він як лід, на дотик — пружний і трохи липкий.</p>
+<!-- ================= ПРОГРАМА ================= -->
+<section class="page">
+  <div class="kicker">Програма</div>
+  <h2>Програма курсу</h2>
+  <table class="program">
+    <tr class="mod"><td>М1</td><td>Основи</td><td></td></tr>
+    <tr><td>01</td><td>Гелевий віск: як він влаштований</td><td class="num">30 хв</td></tr>
+    <tr><td>02</td><td>Безпека в майстерні</td><td class="num">30 хв</td></tr>
+    <tr><td>03</td><td>Інструменти і матеріали</td><td class="num">40 хв</td></tr>
+    <tr class="mod"><td>М2</td><td>Гніт і будова свічки</td><td></td></tr>
+    <tr><td>04</td><td>Гніт: вибір і підготовка</td><td class="num">45 хв</td></tr>
+    <tr><td>05</td><td>Будова свічки без склянки</td><td class="num">30 хв</td></tr>
+    <tr class="mod"><td>М3</td><td>Холодний метод — без нагріву</td><td></td></tr>
+    <tr><td>06</td><td>Перша свічка з брикету: моноліт</td><td class="num">1 год + 24 год</td></tr>
+    <tr><td>07</td><td>Ефект «колотого льоду» і глянець</td><td class="num">1 год</td></tr>
+    <tr><td>08</td><td>Свічка з уламків</td><td class="num">1 год + 24 год</td></tr>
+    <tr class="mod"><td>М4</td><td>Гарячий метод</td><td></td></tr>
+    <tr><td>09</td><td>Розтоплення гелю і температури</td><td class="num">1 год</td></tr>
+    <tr><td>10</td><td>Заливка: прозоро чи з бульбашками</td><td class="num">1,5 год + 6 год</td></tr>
+    <tr><td>11</td><td>Гібрид: лід у льоду</td><td class="num">1,5 год + 6 год</td></tr>
+    <tr class="mod"><td>М5</td><td>Якість і дизайн</td><td></td></tr>
+    <tr><td>12</td><td>Тест горіння</td><td class="num">2–5 днів</td></tr>
+    <tr><td>13</td><td>Колір, аромат і вкраплення</td><td class="num">40 хв</td></tr>
+    <tr><td>14</td><td>Проблеми і як їх виправити</td><td class="num">30 хв</td></tr>
+    <tr class="mod"><td>М6</td><td>Від хобі до продажу</td><td></td></tr>
+    <tr><td>15</td><td>Доведення, пакування, маркування</td><td class="num">40 хв</td></tr>
+    <tr><td>16</td><td>Собівартість і ціна</td><td class="num">40 хв</td></tr>
+    <tr class="mod"><td>★</td><td>Фінальний проєкт: колекція з 3 свічок</td><td class="num">1 тиждень</td></tr>
+  </table>
+</section>
 
-  <h3>Щільність: беріть тільки HD</h3>
+<!-- ================= МОДУЛЬ 1 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 1</div>
+  <h2>Основи</h2>
+  <p>Знайомимося з матеріалом, готуємо безпечне робоче місце і збираємо інструменти. Без цього модуля не переходьте до практики.</p>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">01</span><h2>Гелевий віск: як він влаштований</h2><span class="dur">30 хв</span></div>
+  <div class="goal"><b>Мета</b> Розуміти, який гель купувати, і знати його властивості.</div>
+
+  <div class="label">Теорія</div>
+  <p>Гелевий віск — це мінеральна олія, загущена полімером до стану прозорої пружної «гуми». Він виглядає як лід, на дотик пружний і трохи липкий. Буває трьох щільностей:</p>
   <table>
     <tr><th>Тип</th><th>Як поводиться</th><th>Для чого</th></tr>
-    <tr><td><b>LD</b> — низька щільність</td><td>М'який, тече, не тримає форму</td><td>Тільки в склянці</td></tr>
-    <tr><td><b>MD</b> — середня</td><td>Тримає форму погано, добре тримає вкраплення</td><td>Склянки з декором</td></tr>
-    <tr><td><b>HD</b> — висока щільність</td><td>Пружний, тримає форму, можна різати</td><td><b>Свічки без склянки — наш варіант</b></td></tr>
+    <tr><td><b>LD</b> — низька</td><td>М'який, тече, не тримає форму</td><td>Тільки в склянці</td></tr>
+    <tr><td><b>MD</b> — середня</td><td>Тримає форму погано</td><td>Склянки з декором</td></tr>
+    <tr><td><b>HD</b> — висока</td><td>Пружний, тримає форму, ріжеться</td><td><b>Свічки без склянки — наш варіант</b></td></tr>
   </table>
-
-  <h3>Що спитати в постачальника</h3>
-  <ul class="check">
-    <li>Щільність (потрібна HD / High Density / «для формових свічок»)</li>
-    <li>Температура плавлення і рекомендована температура заливки</li>
-    <li>Температура спалаху (flash point) — має бути вказана в паспорті безпеки</li>
-    <li>Чи можна робити з нього свічки без ємності (freestanding / pillar)</li>
-    <li>Які гноти постачальник рекомендує під цей гель</li>
-    <li>Чи сумісний гель з ароматами і барвниками (якщо плануєте)</li>
-  </ul>
-
-  <h3>Властивості, які треба враховувати</h3>
   <ul>
-    <li><b>«Пітніє».</b> На поверхні може з'являтися масляна плівка, особливо в теплі. Тому свічка завжди стоїть на підставці, а в упаковці — на підкладці.</li>
-    <li><b>Горить гарячіше за парафін</b> і повільніше витрачається. Гніт потрібен менший, ніж для парафінової свічки того ж розміру.</li>
-    <li><b>Липне до всього.</b> Пил, волосся, ворсинки миттєво прилипають і видно їх крізь прозорий гель. Чистота робочого місця — половина якості.</li>
-    <li><b>Має легкий запах</b> мінеральної олії. Чим якісніший гель, тим слабше.</li>
-    <li><b>Пам'ятає форму.</b> Сильно стиснутий шматок частково «відпружинює» назад протягом години-двох.</li>
+    <li><b>«Пітніє»</b> — на поверхні може з'являтися масляна плівка, особливо в теплі. Тому свічка завжди стоїть на підставці.</li>
+    <li><b>Горить гарячіше за парафін</b> і повільніше витрачається — гніт потрібен менший.</li>
+    <li><b>Липне до всього</b> — пил і ворсинки видно крізь прозорий гель.</li>
+    <li><b>Має легкий запах</b> мінеральної олії.</li>
+    <li><b>Пам'ятає форму</b> — сильно стиснутий шматок частково «відпружинює» за 1–2 години.</li>
   </ul>
+  <p><b>Паспорт гелю.</b> Попросіть у постачальника технічний лист (TDS) і паспорт безпеки (SDS). Звідти — температура плавлення, заливки і <b>температура спалаху</b>.</p>
 
-  <h3>Зберігання</h3>
-  <p>Брикети — у закритому пакеті або контейнері, в темному місці при 15–25 °C. Відрізаний шматок одразу загортайте в харчову плівку, інакше на зрізі збереться пил.</p>
+  <div class="label">Практика</div>
+  <ol class="steps">
+    <li><b>Познайомтеся з гелем руками</b><span class="time">10 хв</span><br>
+      Відріжте шматок 3×3 см. Стисніть, розтягніть, розірвіть. Порівняйте розрив і рівний зріз ножем. Покладіть на папір на годину — чи лишилася масляна пляма?</li>
+    <li><b>Перевірте липкість</b><span class="time">5 хв</span><br>
+      Притисніть два свіжі зрізи один до одного на 20 секунд. Чи злиплися? Це знадобиться в уроці 8.</li>
+  </ol>
+
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <ul>
+      <li>Знайдіть 2–3 постачальників гелю HD і порівняйте ціну за кг.</li>
+      <li>Попросіть у кожного TDS і SDS. Випишіть температуру плавлення, заливки і спалаху.</li>
+    </ul>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Гель якої щільності потрібен для свічки без склянки?</li>
+      <li>Чому гелева свічка завжди має стояти на підставці?</li>
+      <li>Де шукати температуру спалаху свого гелю?</li>
+    </ol>
+  </div>
 </section>
 
-<!-- ============ 3 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 3</div>
-  <h2>Безпека</h2>
-  <p class="lead">Гелевий віск — це олія. Перегріта олія може спалахнути, а гаряча — липне до шкіри і довго тримає тепло. Ці правила — не формальність.</p>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">02</span><h2>Безпека в майстерні</h2><span class="dur">30 хв</span></div>
+  <div class="goal"><b>Мета</b> Підготувати безпечне робоче місце і знати, що робити, якщо щось пішло не так.</div>
+
+  <div class="label">Теорія</div>
+  <p>Гелевий віск — це олія. Перегріта олія може спалахнути, а гаряча липне до шкіри і довго тримає тепло. Холодний метод майже безпечний, гарячий — вимагає дисципліни.</p>
 
   <div class="box warn"><div class="box-title">Якщо гель загорівся в каструлі</div>
     <ol>
@@ -214,129 +265,143 @@
     </ol>
   </div>
 
-  <h3>Робоче місце</h3>
-  <ul class="check">
-    <li>Вогнегасне покривало і порошковий або вуглекислотний вогнегасник у межах витягнутої руки</li>
-    <li>Металева кришка, що щільно закриває каструлю</li>
-    <li>Провітрюване приміщення, витяжка увімкнена</li>
-    <li>Жодних дітей і тварин у робочій зоні</li>
-    <li>Ніякої води поруч з гарячим гелем — навіть крапля у розплаві «стріляє»</li>
-  </ul>
+  <p><b>П'ять правил нагріву:</b></p>
+  <ol>
+    <li>Тільки з термометром, який весь час у гелі.</li>
+    <li>Робочий діапазон — до 110 °C. <b>Вище 120 °C — ніколи.</b></li>
+    <li>Не відходьте від плити навіть на хвилину.</li>
+    <li>Жодної води поруч з гарячим гелем — крапля у розплаві «стріляє».</li>
+    <li>Плита з регулюванням (індукція, електрика), не відкритий вогонь.</li>
+  </ol>
+  <p><b>Захист:</b> нітрилові рукавички для холодної роботи; термостійкі (силікон поверх бавовняних) — для гарячої; окуляри; одяг з бавовни з рукавами.</p>
+  <p><b>Опік гарячим гелем:</b> прохолодна проточна вода 15–20 хвилин. Застиглий гель силою не віддирайте. Великий опік — до лікаря.</p>
 
-  <h3>Нагрів</h3>
-  <ul>
-    <li><b>Тільки з термометром.</b> Тримайте термометр у гелі весь час нагріву.</li>
-    <li><b>Робочий діапазон — до 110 °C.</b> Вище 120 °C не нагрівайте ніколи: гель жовтіє, димить і наближається до точки спалаху.</li>
-    <li><b>Не відходьте від плити</b> навіть на хвилину.</li>
-    <li>Плита з регулюванням: індукційна або електрична. Відкритий вогонь газової плити — небажаний.</li>
-    <li>Водяна баня безпечніша, але не дасть більше 100 °C — для деяких HD-гелів цього мало.</li>
-  </ul>
+  <div class="label">Практика</div>
+  <p>Підготуйте робоче місце за чек-листом (додаток 1).</p>
 
-  <h3>Захист</h3>
-  <ul>
-    <li>Нітрилові рукавички для холодної роботи — щоб не лишати відбитків і жиру на гелі.</li>
-    <li>Термостійкі рукавички (силікон поверх бавовняних) для гарячої.</li>
-    <li>Окуляри при роботі з розплавом.</li>
-    <li>Одяг з бавовни, з закритими рукавами.</li>
-  </ul>
-
-  <div class="box tip"><div class="box-title">Опік гарячим гелем</div>
-    <p>Охолоджуйте прохолодною проточною водою 15–20 хвилин. Застиглий гель зі шкіри силою не віддирайте. При великому опіку — до лікаря.</p>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зберіть робоче місце за чек-листом і сфотографуйте його. Відмітьте, чого бракує, і докупіть до уроку 9.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Що робити першим, якщо гель загорівся в каструлі?</li>
+      <li>Яку температуру гелю не можна перевищувати ніколи?</li>
+      <li>Чому вода поруч з гарячим гелем небезпечна?</li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 4 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 4</div>
-  <h2>Обладнання і матеріали</h2>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">03</span><h2>Інструменти і матеріали</h2><span class="dur">40 хв</span></div>
+  <div class="goal"><b>Мета</b> Зібрати набір для холодного методу і знати, що докупити для гарячого.</div>
 
   <div class="two">
     <div>
-      <h3>Для холодного методу</h3>
+      <div class="label">Холодний метод</div>
       <ul class="check">
         <li>Гелевий віск HD у брикетах</li>
         <li>Довгий тонкий ніж без зубців</li>
-        <li>Струна для сиру або сталевий дріт з ручками — для рівних зрізів</li>
-        <li>Обробна дошка з гладкою поверхнею (скло, пластик)</li>
-        <li>Довга сталева голка / шило з вушком 15–20 см</li>
-        <li>Гноти, вощені (праймовані), з металевими основами</li>
+        <li>Струна для сиру — для рівних зрізів</li>
+        <li>Гладка дошка (скло або пластик)</li>
+        <li>Довга сталева голка з вушком 15–20 см</li>
+        <li>Гноти вощені, з металевими основами</li>
         <li>Нітрилові рукавички, безворсові серветки</li>
-        <li>Кухонні ваги з точністю до 1 г</li>
-        <li>Лінійка, маркер</li>
-        <li>Харчова плівка</li>
+        <li>Ваги до 1 г, лінійка, маркер, плівка, плоскогубці</li>
         <li>Опційно: будівельний фен</li>
       </ul>
     </div>
     <div>
-      <h3>Додатково для гарячого</h3>
+      <div class="label">Додатково для гарячого</div>
       <ul class="check">
         <li>Плитка з регулюванням або плавильник з терморегулятором</li>
-        <li>Сталева каструля з товстим дном і носиком (не алюміній, не емаль зі сколами)</li>
-        <li>Цифровий термометр зі щупом (до 200 °C)</li>
+        <li>Сталева каструля з товстим дном і носиком</li>
+        <li>Цифровий термометр зі щупом до 200 °C</li>
         <li>Силіконова лопатка</li>
-        <li>Деко або лоток з силіконовим килимком</li>
-        <li>Силіконові миски / форми для заготовок</li>
-        <li>Термостійкі рукавички, окуляри</li>
+        <li>Деко з бортиками і силіконовий килимок</li>
+        <li>Силіконові миски або форми</li>
         <li>Тримачі гнотів (прищепки, палички)</li>
-        <li>Металева кришка, вогнегасне покривало, вогнегасник</li>
+        <li>Термостійкі рукавички, окуляри, кришка, покривало</li>
       </ul>
     </div>
   </div>
 
-  <h3>Стартовий бюджет (орієнтир)</h3>
   <table>
-    <tr><th>Позиція</th><th>Кількість</th><th class="num">Сума, ₴</th></tr>
-    <tr><td>Гелевий віск HD, 350 ₴/кг</td><td>10 кг</td><td class="num">3 500</td></tr>
-    <tr><td>Гноти з основами, різні розміри для тестів</td><td>100–150 шт.</td><td class="num">500–900</td></tr>
-    <tr><td>Ножі, струна, голки, дошка</td><td>набір</td><td class="num">600–1 000</td></tr>
-    <tr><td>Плитка / плавильник + каструля + термометр</td><td>набір</td><td class="num">2 500–5 000</td></tr>
-    <tr><td>Фен будівельний</td><td>1</td><td class="num">700–1 200</td></tr>
-    <tr><td>Захист і пожежна безпека</td><td>набір</td><td class="num">800–1 500</td></tr>
-    <tr><td><b>Разом</b></td><td></td><td class="num"><b>≈ 8 600–13 100</b></td></tr>
-  </table>
-  <p class="note">Без пакування і підставок. Ціни — орієнтовні, крім гелю.</p>
-</section>
-
-<!-- ============ 5 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 5</div>
-  <h2>Гніт</h2>
-  <p class="lead">Гніт — головна причина і успіху, і проблем гелевої свічки. Завеликий — високе полум'я, перегрів, кіптява і ризик пробити стінку. Замалий — свічка «тоне» у власному воску і гасне.</p>
-
-  <h3>Який гніт брати</h3>
-  <ul>
-    <li><b>Бавовняний, праймований (вощений)</b> — жорсткий, тримає вертикаль, його легко протягнути крізь гель. Беріть серії, які постачальник рекомендує для гелю.</li>
-    <li><b>Праймування — парафіном, не гелем.</b> Гніт, просочений гелем, часто горить нестабільно і «з'їдається». Якщо купуєте не вощений — обмакніть у розплавлений парафін і випряміть.</li>
-    <li><b>З металевою основою</b> (тримач на дні). Вона допомагає свічці згаснути, коли воску лишається мало.</li>
-    <li>Гноти з цинковим осердям часто використовують у гелі, бо вони прямі і стабільні. Але їх теж треба тестувати.</li>
-  </ul>
-
-  <h3>Як підібрати розмір</h3>
-  <ol>
-    <li>Візьміть таблицю постачальника гнотів для <b>парафінових формових</b> свічок і знайдіть розмір під ваш діаметр.</li>
-    <li>Для гелю почніть з розміру <b>на 1–2 кроки менше</b>.</li>
-    <li>Зробіть 3 тестові свічки з трьома сусідніми розмірами гнота.</li>
-    <li>Обирайте той, що дає <b>полум'я 1,5–2,5 см</b>, без кіптяви, і рівну «ямку» розплаву, яка не доходить до зовнішньої стінки.</li>
-  </ol>
-
-  <table>
-    <tr><th>Свічка</th><th>Діаметр</th><th>Гнотів</th><th>Стартовий крок</th></tr>
-    <tr><td>Кубик, ≈ 130 г</td><td>5–6 см</td><td>1</td><td>Найменший розмір серії, далі +1</td></tr>
-    <tr><td>Брила, ≈ 350 г</td><td>7–8 см</td><td>1</td><td>На 1–2 кроки менше «парафінового»</td></tr>
-    <tr><td>Айсберг, ≈ 800 г</td><td>10–12 см</td><td>1–2</td><td>2 гноти на відстані ≥ 5 см між ними</td></tr>
+    <tr><th>Стартовий бюджет (орієнтир)</th><th class="num">₴</th></tr>
+    <tr><td>Гель HD, 5 кг × 350 ₴/кг — вистачить на весь курс</td><td class="num">1 750</td></tr>
+    <tr><td>Гноти, кілька розмірів, 50–100 шт.</td><td class="num">300–700</td></tr>
+    <tr><td>Інструменти для холодного методу, фен, захист</td><td class="num">2 300–4 100</td></tr>
+    <tr><td>Для гарячого методу: плитка, каструля, термометр</td><td class="num">2 500–5 000</td></tr>
   </table>
 
-  <div class="box tip"><div class="box-title">Важливо</div>
-    <p>Свічки неправильної форми горять нерівно: тонка сторона прогрівається швидше. Тому гніт ставте <b>в центр найтовщої частини</b>, а не в геометричний центр.</p>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зберіть набір для холодного методу (ліва колонка — гарячий набір знадобиться лише з уроку 9). Заведіть журнал (зошит або таблиця) — перші записи будуть в уроці 4.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Навіщо струна для сиру, якщо є ніж?</li>
+      <li>Чому рукавички — нітрилові, а серветки — безворсові?</li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 6 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 6</div>
-  <h2>Будова свічки без склянки</h2>
-  <p class="lead">Свічка без склянки сама собі ємність. Розплав завжди з'являється навколо гнота, а зовнішня стінка має лишатися твердою весь час горіння.</p>
+<!-- ================= МОДУЛЬ 2 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 2</div>
+  <h2>Гніт і будова свічки</h2>
+  <p>Гніт і форма вирішують, чи буде свічка горіти красиво і безпечно, чи потече вже за годину. Це найважливіший модуль курсу.</p>
+</section>
 
+<section class="lesson">
+  <div class="lesson-head"><span class="num">04</span><h2>Гніт: вибір і підготовка</h2><span class="dur">45 хв</span></div>
+  <div class="goal"><b>Мета</b> Обрати тип гнота, підготувати його і знати, як підібрати розмір.</div>
+
+  <div class="label">Теорія</div>
+  <p>Завеликий гніт — високе полум'я, кіптява, перегрів і ризик пробити стінку. Замалий — свічка «тоне» у власному воску і гасне.</p>
+  <ul>
+    <li><b>Бавовняний, праймований (вощений)</b> — жорсткий, прямий, легко протягується крізь гель. Беріть серії, які постачальник рекомендує для гелю.</li>
+    <li><b>Праймування — парафіном, не гелем.</b> Гніт, просочений гелем, часто горить нестабільно.</li>
+    <li><b>З металевою основою</b> — допомагає свічці згаснути, коли воску лишається мало.</li>
+    <li>Гноти з цинковим осердям часто використовують для гелю — вони прямі і стабільні, але теж потребують тесту.</li>
+  </ul>
+  <p><b>Як підібрати розмір:</b> у таблиці виробника гнотів для парафінових формових свічок знайдіть розмір під свій діаметр і почніть з розміру <b>на 1–2 кроки менше</b>. Остаточно розмір визначає тільки тест (урок 12).</p>
+  <table>
+    <tr><th>Свічка</th><th>Діаметр</th><th>Гнотів</th><th>Старт</th></tr>
+    <tr><td>Маленька, ≈ 130 г</td><td>5–6 см</td><td>1</td><td>Найменший розмір серії</td></tr>
+    <tr><td>Середня, ≈ 350 г</td><td>7–8 см</td><td>1</td><td>На 1–2 кроки менше «парафінового»</td></tr>
+    <tr><td>Велика, ≈ 800 г</td><td>10–12 см</td><td>1–2</td><td>2 гноти на відстані ≥ 5 см</td></tr>
+  </table>
+
+  <div class="label">Практика: праймування гнота</div>
+  <ol class="steps">
+    <li><b>Розтопіть трохи парафіну</b><span class="time">10 хв</span><br>На водяній бані, 70–80 °C. Якщо гноти вже вощені — пропустіть цю практику.</li>
+    <li><b>Занурте гніт</b><span class="time">1 хв</span><br>На 30–60 секунд, поки не перестануть виходити бульбашки повітря.</li>
+    <li><b>Випряміть і висушіть</b><span class="time">5 хв</span><br>Натягніть між пальцями (у рукавичках) і покладіть рівно на пергамент. Через 5 хвилин гніт стане жорстким.</li>
+  </ol>
+
+  <div class="box warn"><div class="box-title">Типові помилки</div>
+    <ul>
+      <li>Брати гніт «як для парафіну» — полум'я буде завеликим.</li>
+      <li>Ставити гніт у геометричний центр неправильної свічки. Ставте в центр <b>найтовщої</b> частини.</li>
+    </ul>
+  </div>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Підготуйте по 3 гноти трьох сусідніх розмірів. Запишіть у журнал серію і розміри — вони знадобляться в уроках 6 і 12.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чим праймувати гніт для гелевої свічки?</li>
+      <li>Гніт для гелю більший чи менший, ніж для парафіну того ж розміру?</li>
+      <li>Куди ставити гніт у свічці неправильної форми?</li>
+    </ol>
+  </div>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">05</span><h2>Будова свічки без склянки</h2><span class="dur">30 хв</span></div>
+  <div class="goal"><b>Мета</b> Проєктувати форму, яка горить рівно і не протікає.</div>
+
+  <div class="label">Теорія</div>
+  <p>Свічка без склянки — сама собі ємність. Розплав утворюється навколо гнота, а зовнішня стінка має лишатися твердою весь час горіння.</p>
   <figure class="figure">
     <svg viewBox="0 0 520 260" width="100%" style="max-width:150mm">
       <rect x="120" y="70" width="280" height="160" rx="18" fill="#eef4f6" stroke="#9fb3ba" stroke-width="2"/>
@@ -347,347 +412,593 @@
       <line x1="120" y1="250" x2="190" y2="250" stroke="#b4472b" stroke-width="1.5"/>
       <text x="155" y="246" text-anchor="middle" font-size="12" fill="#b4472b" font-family="Manrope">≥ 2,5–3 см</text>
       <line x1="120" y1="244" x2="120" y2="256" stroke="#b4472b"/><line x1="190" y1="244" x2="190" y2="256" stroke="#b4472b"/>
-      <text x="420" y="60" font-size="12" fill="#26231f" font-family="Manrope">полум'я 1,5–2,5 см</text>
+      <text x="420" y="40" font-size="12" fill="#26231f" font-family="Manrope">полум'я 1,5–2,5 см</text>
+      <line x1="415" y1="36" x2="272" y2="28" stroke="#6a6259"/>
       <text x="420" y="100" font-size="12" fill="#26231f" font-family="Manrope">ямка розплаву</text>
       <line x1="415" y1="96" x2="320" y2="82" stroke="#6a6259"/>
       <text x="420" y="160" font-size="12" fill="#26231f" font-family="Manrope">тверда стінка</text>
       <line x1="415" y1="156" x2="398" y2="156" stroke="#6a6259"/>
       <text x="420" y="225" font-size="12" fill="#26231f" font-family="Manrope">основа гнота</text>
       <line x1="415" y1="222" x2="275" y2="228" stroke="#6a6259"/>
-      <text x="20" y="160" font-size="12" fill="#26231f" font-family="Manrope">висота ≤ 1,5 × ширини</text>
     </svg>
-    <figcaption>Розріз свічки «Брила»: розплав утворюється в центрі, стінка лишається твердою</figcaption>
+    <figcaption>Розріз свічки: розплав у центрі, стінка лишається твердою</figcaption>
   </figure>
-
-  <h3>Правила форми</h3>
   <table>
     <tr><th>Параметр</th><th>Правило</th><th>Чому</th></tr>
-    <tr><td>Від гнота до зовнішньої стінки</td><td>≥ 2,5–3 см у найтоншому місці</td><td>Розплав не доходить до краю і не витікає</td></tr>
-    <tr><td>Ширина на 1 гніт</td><td>≥ 6–7 см</td><td>Інакше стінки прогріваються наскрізь</td></tr>
-    <tr><td>Висота</td><td>≤ 1,5 ширини</td><td>Стійкість, рівне горіння</td></tr>
-    <tr><td>Дно</td><td>Рівне, щонайменше 70% площі контакту</td><td>Не хитається на підставці</td></tr>
-    <tr><td>Верх біля гнота</td><td>Рівна площадка Ø 2–3 см</td><td>Полум'я стоїть вертикально, не лиже «гребінь»</td></tr>
-    <tr><td>Гострі виступи</td><td>Не вище рівня гнота біля полум'я</td><td>Тонкі виступи плавляться і стікають</td></tr>
+    <tr><td>Від гнота до стінки</td><td>≥ 2,5–3 см у найтоншому місці</td><td>Розплав не доходить до краю</td></tr>
+    <tr><td>Ширина на 1 гніт</td><td>≥ 6–7 см</td><td>Стінки не прогріваються наскрізь</td></tr>
+    <tr><td>Висота</td><td>≤ 1,5 ширини</td><td>Стійкість і рівне горіння</td></tr>
+    <tr><td>Дно</td><td>Рівне, ≥ 70% площі контакту</td><td>Не хитається</td></tr>
+    <tr><td>Верх біля гнота</td><td>Рівна площадка Ø 2–3 см</td><td>Полум'я стоїть вертикально</td></tr>
+    <tr><td>Виступи</td><td>Не вище гнота біля полум'я</td><td>Тонкі виступи плавляться і стікають</td></tr>
   </table>
 
-  <div class="box warn"><div class="box-title">Чого не робити</div>
-    <ul>
-      <li>Не робіть «тонких бурульок» і стінок товщиною менше 2,5 см — вони проплавляться.</li>
-      <li>Не ставте гніт ближче до краю «для краси».</li>
-      <li>Не вкладайте всередину нічого горючого (сухоцвіти, папір, дерево).</li>
-    </ul>
+  <div class="label">Практика</div>
+  <p>Намалюйте в натуральну величину ескізи трьох свічок — маленької, середньої і великої — вид зверху і збоку. Позначте гніт і заміряйте відстань від нього до найближчого краю.</p>
+
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Доведіть ескізи так, щоб усі три відповідали таблиці правил. Це ваші перші моделі для модуля 3.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Яка мінімальна відстань від гнота до зовнішньої стінки?</li>
+      <li>Навіщо рівна площадка навколо гнота?</li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 7 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 7</div>
-  <h2>Метод А. Холодний</h2>
-  <p class="lead">Без розтоплення: ріжемо брикет, рвемо його руками для «колотих» граней, протягуємо гніт і формуємо свічку. Підходить для старту, тестів і швидких партій.</p>
+<!-- ================= МОДУЛЬ 3 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 3</div>
+  <h2>Холодний метод — без нагріву</h2>
+  <p>Ріжемо брикет і одразу формуємо свічку руками. Без плити і каструлі — найшвидший спосіб зробити першу свічку і відчути матеріал.</p>
+  <ul>
+    <li>Урок 6 — моноліт з одного шматка</li>
+    <li>Урок 7 — ефект «колотого льоду» і глянець</li>
+    <li>Урок 8 — свічка з уламків</li>
+  </ul>
+</section>
 
-  <h3>Два варіанти</h3>
-  <div class="two">
-    <div class="box ok"><div class="box-title">А1. Моноліт (рекомендовано)</div>
-      <p>Свічку вирізають і формують з <b>одного цілого шматка</b>. Немає стиків — горить найрівніше. Ідеально для Кубика і Брили.</p>
-    </div>
-    <div class="box tip"><div class="box-title">А2. Складання з уламків</div>
-      <p>Ядро з гнотом — один шматок, навколо нього притискають уламки для «крижаного» вигляду. Ефектніше, але потрібна обережність зі стиками.</p>
-    </div>
-  </div>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">06</span><h2>Перша свічка з брикету: моноліт</h2><span class="dur">1 год + 24 год</span></div>
+  <div class="goal"><b>Мета</b> Зробити першу свічку з одного цілого шматка гелю, без нагріву.</div>
 
-  <h3>А1. Моноліт: крок за кроком</h3>
+  <div class="label">Теорія</div>
+  <p>Моноліт — свічка з одного шматка. Немає стиків, тому вона горить найрівніше. Для першої свічки беріть просту «брилу» 7×7×8 см.</p>
+  <p><b>Розрахунок ваги:</b> гель важить приблизно 0,85–0,9 г на см³. Брила 7×7×8 см ≈ 390 см³ ≈ 340 г. Додайте 10–15% на обробку.</p>
+
+  <div class="label">Практика</div>
   <ol class="steps">
     <li><b>Підготуйте місце</b><span class="time">5 хв</span><br>
-      Протріть стіл і дошку безворсовою серветкою зі спиртом, дайте висохнути. Одягніть нітрилові рукавички. Приберіть все, що може дати пил і ворс: светри, рушники, паперові серветки.</li>
-    <li><b>Розрахуйте розмір заготовки</b><span class="time">2 хв</span><br>
-      Гель важить приблизно 0,85–0,9 г на см³. Для Брили на 350 г потрібен шматок близько 7 × 7 × 8 см. Додайте 10–15% на обробку: формуючи, ви знімете частину гелю.</li>
+      Протріть стіл і дошку безворсовою серветкою зі спиртом, дайте висохнути. Одягніть нітрилові рукавички. Приберіть усе, що дає пил і ворс.</li>
+    <li><b>Розмітьте брикет</b><span class="time">2 хв</span><br>
+      Маркером на плівці брикету позначте шматок трохи більший за потрібний розмір.</li>
     <li><b>Відріжте заготовку</b><span class="time">2 хв</span><br>
-      Розмітьте брикет маркером на плівці. Ріжте одним рухом: струною — для рівного зрізу, ножем — тягнучи лезо на себе, без «пиляння». Ніж має бути <b>сухим і чистим</b>: олія чи вода на лезі залишиться всередині свічки.</li>
-    <li><b>Зважте</b><span class="time">1 хв</span><br>
-      Зважте заготовку і запишіть вагу в журнал. Стабільна вага — стабільний час горіння і собівартість.</li>
-    <li><b>Сформуйте «колоті» грані</b><span class="time">5–8 хв</span><br>
-      Ріжте ножем неглибокі надрізи 3–5 мм по ребрах і краях, а потім відривайте смужки пальцями — розрив дає нерівну «скляну» поверхню, як у колотого льоду. Чергуйте: ріжте рівні площини, рвіть ребра. Не знімайте більше 1 см зі сторони, де буде найтонша стінка.</li>
+      Струною — одним рівним рухом, або ножем — тягнучи лезо на себе, без «пиляння». Ніж має бути <b>сухим і чистим</b>: олія чи вода на лезі залишиться всередині свічки.</li>
+    <li><b>Зважте і запишіть</b><span class="time">1 хв</span><br>
+      Вага заготовки — перший рядок у журналі.</li>
+    <li><b>Сформуйте грані</b><span class="time">5–10 хв</span><br>
+      Ножем зріжіть кути і ребра під різними кутами, щоб куб перестав бути кубом. Не знімайте більше 1 см зі сторони, яка буде найтоншою. «Колоті» грані — в уроці 7.</li>
     <li><b>Зробіть площадку під гніт</b><span class="time">1 хв</span><br>
-      Зверху в найтовщому місці зріжте рівну площадку діаметром 2–3 см. Позначте центр голкою.</li>
-    <li><b>Протягніть гніт</b><span class="time">2 хв</span><br>
-      Протягніть праймований гніт у вушко довгої голки. Встромляйте голку строго вертикально від мітки зверху до дна і витягайте знизу, протягуючи гніт крізь свічку. Перевірте, що гніт прямий, — подивіться на свічку збоку на світло.</li>
-    <li><b>Закріпіть основу</b><span class="time">2 хв</span><br>
-      Знизу навколо гнота виріжте неглибоку ямку під металеву основу (5–6 мм). Надягніть основу на гніт, затисніть плоскогубцями, втисніть у ямку. Закрийте тонкою пластинкою гелю і притисніть — вона прилипне.</li>
+      Зверху в найтовщому місці зріжте рівну площадку Ø 2–3 см. Позначте центр голкою.</li>
+    <li><b>Протягніть гніт</b><span class="time">3 хв</span><br>
+      Вставте гніт у вушко довгої голки. Встромляйте голку строго вертикально від мітки до дна і протягніть гніт крізь свічку. Подивіться збоку на світло — гніт має бути прямим.</li>
+    <li><b>Закріпіть основу</b><span class="time">3 хв</span><br>
+      Знизу навколо гнота виріжте ямку 5–6 мм. Надягніть металеву основу, затисніть плоскогубцями, втисніть у ямку. Закрийте тонкою пластинкою гелю і притисніть — вона прилипне.</li>
     <li><b>Вирівняйте дно</b><span class="time">2 хв</span><br>
-      Зріжте дно струною в одній площині. Поставте свічку на скло і перевірте, що вона не хитається.</li>
+      Зріжте дно струною в одній площині. Поставте на скло — свічка не має хитатися.</li>
     <li><b>Обріжте гніт</b><span class="time">1 хв</span><br>
       Залиште 5–7 мм над поверхнею.</li>
-    <li><b>Дайте свічці «відпочити»</b><span class="time">12–24 год</span><br>
-      Поставте на чисту плівку, накрийте коробкою від пилу. За цей час гель «відпружинює» після обробки, а канал гнота щільно затягується.</li>
+    <li><b>Дайте відпочити</b><span class="time">24 год</span><br>
+      Поставте на чисту плівку і накрийте коробкою від пилу. За добу гель «відпружинить», а канал гнота щільно затягнеться.</li>
   </ol>
 
-  <h3>А2. Складання з уламків</h3>
-  <ol class="steps">
-    <li><b>Зробіть ядро з гнотом</b><br>
-      Виконайте кроки 1–8 з методу А1 для меншого шматка — це буде центр свічки, щонайменше 4–5 см завширшки.</li>
-    <li><b>Наламайте уламки</b><br>
-      З іншого шматка рвіть руками пластини 1,5–3 см завтовшки з нерівними краями.</li>
-    <li><b>Притискайте уламки до ядра</b><br>
-      Свіжий зріз гелю липкий. Прикладайте уламок свіжим зрізом до ядра і сильно притискайте 15–20 секунд, «вичавлюючи» повітря від центру до краю. Повітря в стиках видно як срібні плями — частина з них дає красивий ефект «тріщин», але великих пухирів не має бути.</li>
-    <li><b>Зберіть до потрібної ширини</b><br>
-      Пам'ятайте: від гнота до зовнішнього краю — щонайменше 2,5–3 см суцільного гелю. Зовнішні уламки не мають виступати вище площадки гнота.</li>
-    <li><b>Обтягніть свічку плівкою на 2–4 год</b><br>
-      Щільно обмотайте харчовою плівкою — так стики «злипнуться» краще. Потім зніміть плівку, вирівняйте дно і дайте відпочити 24 год.</li>
-  </ol>
-
-  <div class="box warn"><div class="box-title">Обмеження холодного методу</div>
+  <div class="box warn"><div class="box-title">Типові помилки</div>
     <ul>
-      <li>Стики в холодному методі не зварюються, а лише злипаються. Під час горіння розплав може затекти в стик, дійти до краю і просочитися назовні. Тому в А2 зовнішній шар біля верху має бути суцільним, а кожна нова збірка — пройти повний тест.</li>
-      <li>Великі пухирі повітря біля гнота можуть дати тріск і «стрибки» полум'я. Біля гнота — тільки суцільний гель.</li>
+      <li>Мокрий або масний ніж — плями всередині свічки.</li>
+      <li>Голка пішла під кутом — гніт кривий, свічка горітиме на один бік.</li>
+      <li>Робота без рукавичок — відбитки пальців на поверхні.</li>
     </ul>
   </div>
-
-  <h3>Глянець без розтоплення (опційно)</h3>
-  <p>Свіжий розрив гелю має красиву нерівну, але трохи матову поверхню. Щоб вона заблищала, як лід, пройдіться <b>будівельним феном</b> на відстані 10–15 см швидкими рухами 2–4 секунди на ділянку. Поверхня ледь оплавиться і стане склоподібною, а форма не зміниться. Не грійте одне місце довго і не грійте біля гнота.</p>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зробіть <b>3 моноліти</b> однієї форми з трьома розмірами гнота з уроку 4. Підпишіть кожен (наклейка на дно) і сфотографуйте при денному світлі. Вони підуть на тест в уроці 12.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Скільки приблизно важить шматок гелю 6×6×6 см?</li>
+      <li>Навіщо свічці відпочивати 24 години?</li>
+      <li>Чому ніж має бути сухим?</li>
+    </ol>
+  </div>
 </section>
 
-<!-- ============ 8 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 8</div>
-  <h2>Метод Б. Гарячий</h2>
-  <p class="lead">Розтоплюємо гель, відливаємо заготовку потрібного розміру з контрольованими бульбашками, а потім формуємо так само, як у холодному методі. Свічка — суцільний моноліт без стиків.</p>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">07</span><h2>Ефект «колотого льоду» і глянець</h2><span class="dur">1 год</span></div>
+  <div class="goal"><b>Мета</b> Перетворити рівну заготовку на свічку, яка виглядає як справжній шматок льоду.</div>
 
-  <h3>Температури (орієнтир, звіряйте з паспортом)</h3>
+  <div class="label">Теорія</div>
+  <p>Зріз ножем дає рівну площину, а <b>розрив руками</b> — нерівну «скляну» поверхню, як у колотого льоду. Гарна свічка поєднує обидва: кілька чистих площин і живі розірвані ребра.</p>
+
+  <div class="label">Практика</div>
+  <ol class="steps">
+    <li><b>Розмітьте «характер»</b><span class="time">2 хв</span><br>
+      Вирішіть, де будуть рівні грані, а де — «сколи». Сторону з найтоншою стінкою не чіпайте.</li>
+    <li><b>Надріз і відрив</b><span class="time">10 хв</span><br>
+      Зробіть ножем надріз 3–5 мм уздовж ребра. Візьміть край пальцями і відірвіть смужку — повільно, під кутом. Повторюйте по ребрах і кутах.</li>
+    <li><b>Тріщини</b><span class="time">5 хв</span><br>
+      Неглибокий надріз 3–5 мм усередину грані і легке розведення країв виглядає як тріщина в льоду. Не ближче 2,5 см до гнота.</li>
+    <li><b>Глянець феном (без розтоплення)</b><span class="time">3 хв</span><br>
+      Будівельний фен на відстані 10–15 см, швидкі рухи по 2–4 секунди на ділянку. Поверхня ледь оплавиться і заблищить, форма не зміниться. Біля гнота не грійте.</li>
+    <li><b>Огляд</b><span class="time">2 хв</span><br>
+      Подивіться на свічку проти світла лампи. Чи читається «лід»? Чи немає пилу?</li>
+  </ol>
+
+  <div class="box warn"><div class="box-title">Типові помилки</div>
+    <ul>
+      <li>Фен затримали на одному місці — грань оплила і «потекла».</li>
+      <li>Зірвали забагато з тонкого боку — стінка стала тоншою за 2,5 см.</li>
+    </ul>
+  </div>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зробіть 2 свічки з «колотими» гранями: одну без глянцю, другу з глянцем. Сфотографуйте поруч у темряві з запаленою свічкою позаду.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чим відрізняється поверхня зрізу і розриву?</li>
+      <li>На якій відстані і скільки часу тримати фен?</li>
+    </ol>
+  </div>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">08</span><h2>Свічка з уламків</h2><span class="dur">1 год + 24 год</span></div>
+  <div class="goal"><b>Мета</b> Зібрати ефектну свічку з окремих шматків і розуміти обмеження цього способу.</div>
+
+  <div class="label">Теорія</div>
+  <p>Свіжі зрізи гелю липкі і злипаються, якщо їх сильно притиснути. Так можна зібрати свічку з уламків навколо ядра з гнотом. Але стики при цьому <b>злипаються, а не зварюються</b> — це важливо для безпеки.</p>
+
+  <div class="label">Практика</div>
+  <ol class="steps">
+    <li><b>Зробіть ядро з гнотом</b><span class="time">10 хв</span><br>
+      Моноліт шириною 4–5 см з гнотом і основою — як в уроці 6, кроки 1–8.</li>
+    <li><b>Наламайте уламки</b><span class="time">10 хв</span><br>
+      Рвіть руками пластини 1,5–3 см завтовшки з нерівними краями.</li>
+    <li><b>Притискайте до ядра</b><span class="time">15 хв</span><br>
+      Прикладайте уламок свіжим зрізом до ядра і притискайте 15–20 секунд, витискаючи повітря від центру до краю.</li>
+    <li><b>Контролюйте товщину</b><br>
+      Від гнота до зовнішнього краю — щонайменше 2,5–3 см суцільного гелю. Уламки не мають виступати вище площадки гнота.</li>
+    <li><b>Обтягніть плівкою</b><span class="time">2–4 год</span><br>
+      Щільно обмотайте харчовою плівкою — стики злипнуться краще. Потім зніміть, вирівняйте дно, дайте відпочити 24 год.</li>
+  </ol>
+
+  <div class="box warn"><div class="box-title">Обмеження методу</div>
+    <ul>
+      <li>Під час горіння розплав може затекти в стик, дійти до краю і просочитися назовні. Біля верху зовнішній шар має бути суцільним.</li>
+      <li>Пухирі повітря біля гнота дають тріск і «стрибки» полум'я. Біля гнота — тільки суцільний гель.</li>
+      <li>Кожна така свічка проходить повний тест (урок 12). Надійніший спосіб отримати ефект уламків — гібрид (урок 11).</li>
+    </ul>
+  </div>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зберіть 1 свічку з уламків. Позначте на фото стики, де видно повітря. Відкладіть її на тест в уроці 12.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чим стик у холодному методі відрізняється від стику в гібриді?</li>
+      <li>Які зони свічки мають бути тільки з суцільного гелю?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 4 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 4</div>
+  <h2>Гарячий метод</h2>
+  <p>Розтоплюємо гель, керуємо прозорістю і бульбашками, відливаємо заготовки і поєднуємо холодні уламки з гарячим гелем. Перечитайте урок 2 перед стартом.</p>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">09</span><h2>Розтоплення гелю і температури</h2><span class="dur">1 год</span></div>
+  <div class="goal"><b>Мета</b> Безпечно розтопити гель і довести його до потрібної температури.</div>
+
+  <div class="label">Теорія</div>
   <table>
-    <tr><th>Етап</th><th>Температура</th><th>Що відбувається</th></tr>
-    <tr><td>Повне розплавлення HD-гелю</td><td class="num">≈ 90–105 °C</td><td>Гель стає рідким, як густий сироп</td></tr>
-    <tr><td>Заливка «прозоро»</td><td class="num">≈ 100–110 °C</td><td>Бульбашки встигають вийти, гель найпрозоріший</td></tr>
-    <tr><td>Заливка «з бульбашками»</td><td class="num">≈ 85–95 °C</td><td>Бульбашки застигають всередині — ефект льоду</td></tr>
-    <tr><td>Межа, яку не перетинаємо</td><td class="num">120 °C</td><td>Жовтіння, дим, ризик займання</td></tr>
+    <tr><th>Етап</th><th>Температура*</th><th>Що відбувається</th></tr>
+    <tr><td>Повне розплавлення HD</td><td class="num">≈ 90–105 °C</td><td>Гель рідкий, як густий сироп</td></tr>
+    <tr><td>Заливка «прозоро»</td><td class="num">≈ 100–110 °C</td><td>Бульбашки встигають вийти</td></tr>
+    <tr><td>Заливка «з бульбашками»</td><td class="num">≈ 85–95 °C</td><td>Бульбашки застигають всередині</td></tr>
+    <tr><td>Межа</td><td class="num">120 °C</td><td>Жовтіння, дим, ризик займання</td></tr>
   </table>
+  <p class="note">* Орієнтир. Звіряйте з паспортом свого гелю.</p>
+  <p>Водяна баня безпечніша, але не дасть більше 100 °C — для деяких HD-гелів цього мало. Тому частіше гріють на малому вогні з термометром або в плавильнику з терморегулятором.</p>
 
-  <h3>Крок за кроком</h3>
+  <div class="label">Практика</div>
   <ol class="steps">
-    <li><b>Підготовка</b><span class="time">10 хв</span><br>
-      Кришка, покривало, вогнегасник — поруч. Деко з силіконовим килимком або силіконові миски чисті й сухі. Для прозорої заливки прогрійте форму в духовці до 60–70 °C — так менше «смуг» і бульбашок на дні.</li>
-    <li><b>Наріжте гель кубиками 2–3 см</b><span class="time">3 хв</span><br>
-      Дрібні шматки плавляться швидше і рівномірніше — менше шансів локального перегріву на дні.</li>
-    <li><b>Нагрівайте повільно</b><span class="time">20–40 хв</span><br>
-      Каструля на малому або середньому вогні, термометр у гелі. Помішуйте силіконовою лопаткою повільно, по дну, щоб не підгоряло. Не форсуйте нагрів: «швидко» = локальний перегрів.</li>
-    <li><b>Доведіть до температури заливки</b><span class="time">5 хв</span><br>
-      Для прозорої заготовки — 100–110 °C, для «бульбашок» — дайте трохи охолонути до 85–95 °C і повільно перемішайте, щоб замісити повітря.</li>
-    <li><b>Залийте заготовку</b><span class="time">2 хв</span><br>
-      Варіант 1: <b>пласт</b> 6–9 см на деку з бортиками — потім наріжете кілька свічок. Варіант 2: <b>силіконова миска</b> під одну свічку — отримаєте заокруглену брилу. Лийте з невеликої висоти по стінці для прозорості, або з висоти 10–15 см для бульбашок.</li>
-    <li><b>Приберіть зайві бульбашки зверху</b><span class="time">1 хв</span><br>
-      Через 1–2 хвилини після заливки пройдіться феном по поверхні — бульбашки зверху лопнуть.</li>
-    <li><b>Охолодження</b><span class="time">3–6 год</span><br>
-      Залиште при кімнатній температурі, без протягів. <b>Не ставте в холодильник</b> — різке охолодження дає мутність і тріщини.</li>
-    <li><b>Витягніть і сформуйте</b><span class="time">10–15 хв</span><br>
-      Далі — як у методі А1, кроки 2–10: нарізати, «наколоти» грані, протягнути гніт, закріпити основу, вирівняти дно.</li>
-    <li><b>Глянець феном</b><span class="time">2–3 хв</span><br>
-      Оплавте поверхню швидкими рухами. На гарячому методі глянець особливо ефектний.</li>
-    <li><b>Відпочинок</b><span class="time">24 год</span><br>
-      Перед тестом або продажем дайте свічці постояти добу.</li>
+    <li><b>Безпека на місці</b><span class="time">3 хв</span><br>Кришка, покривало, вогнегасник — у межах руки. Посуд і лопатка сухі.</li>
+    <li><b>Наріжте гель кубиками 2–3 см</b><span class="time">3 хв</span><br>Дрібні шматки плавляться рівніше — менше локального перегріву.</li>
+    <li><b>Нагрівайте повільно</b><span class="time">20–40 хв</span><br>Малий або середній вогонь, термометр у гелі. Повільно помішуйте по дну. «Швидко» = перегрів на дні.</li>
+    <li><b>Спостерігайте</b><br>Запишіть, при якій температурі гель став повністю рідким. Це ваша робоча точка для цього гелю.</li>
+    <li><b>Охолодіть у каструлі</b><br>Для першого разу нічого не відливайте: вимкніть нагрів, накрийте кришкою і дайте застигнути. Головне в цьому уроці — контроль температури.</li>
   </ol>
 
-  <h3>Варіант: гніт під час заливки</h3>
-  <p>Для однієї свічки в силіконовій мисці можна поставити гніт заздалегідь: основу приклеїти до дна краплею гарячого гелю, гніт тримати вертикально прищепкою або паличкою поперек миски. Плюс — ідеально прямий гніт і жодного каналу. Мінус — складніше потім формувати грані, бо гніт заважає ножу.</p>
-
-  <div class="box tip"><div class="box-title">Залишки і брак</div>
-    <p>Обрізки і невдалі свічки без кіптяви можна знову розтопити. Відфільтруйте розплав через металеве ситечко від пилу і старих гнотів. Повторне розтоплення трохи знижує прозорість, тому такі заготовки використовуйте для тестів або «уламків».</p>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Розтопіть 500 г гелю. Запишіть час до повного розплавлення і температуру. Сфотографуйте термометр у розплаві.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чому гель ріжуть на дрібні шматки перед нагрівом?</li>
+      <li>При якій орієнтовній температурі заливають «прозоро»?</li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 9 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 9</div>
-  <h2>Метод В. Гібрид</h2>
-  <p class="lead">«Колотий лід» у прозорому гелі: холодні уламки складаємо в тимчасову форму і заливаємо гарячим гелем. Всередині видно грані й «тріщини», а свічка — суцільна, без порожніх стиків.</p>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">10</span><h2>Заливка: прозоро чи з бульбашками</h2><span class="dur">1,5 год + 6 год</span></div>
+  <div class="goal"><b>Мета</b> Відлити заготовку з задуманим ефектом і сформувати з неї свічку.</div>
 
-  <ol class="steps">
-    <li><b>Наламайте уламки</b><br>
-      Холодним методом зробіть уламки 1,5–3 см з нерівними гранями. Вони можуть бути з обрізків.</li>
-    <li><b>Підготуйте форму і гніт</b><br>
-      Силіконова миска або квадратна силіконова форма. Гніт з основою по центру, закріплений паличкою зверху.</li>
-    <li><b>Укладіть уламки</b><br>
-      Розкладіть уламки по формі, лишаючи навколо гнота вільне кільце 1,5–2 см — там буде суцільний гель.</li>
-    <li><b>Залийте гелем 95–105 °C</b><br>
-      Лийте повільно по центру і в проміжки. Гарячий гель трохи оплавить грані уламків і зварить їх у моноліт. Гарячіша заливка — грані стають м'якшими і менш помітними; прохолодніша — грані чіткіші, але більше повітря.</li>
-    <li><b>Охолодження і доведення</b><br>
-      Охолоджуйте 4–6 год, витягніть, підрівняйте дно, оплавте поверхню феном, дайте відпочити добу.</li>
-  </ol>
-
-  <div class="box ok"><div class="box-title">Чим хороший гібрид</div>
-    <p>Дає найбільш «льодовий» вигляд з внутрішніми гранями, як на дорогих свічках, і при цьому стики заповнені гелем, а не повітрям. Добрий метод для Айсберга і для утилізації обрізків.</p>
-  </div>
-</section>
-
-<!-- ============ 10 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 10</div>
-  <h2>Ефекти</h2>
-
-  <h3>Бульбашки</h3>
+  <div class="label">Теорія</div>
   <table>
     <tr><th>Хочу</th><th>Як</th></tr>
-    <tr><td>Кришталево прозоро</td><td>Заливка 100–110 °C, прогріта форма, лити по стінці, повільне охолодження, фен по поверхні</td></tr>
-    <tr><td>Дрібні бульбашки «як у льоду»</td><td>Заливка 85–95 °C, перед заливкою повільно перемішати 20–30 с, лити з висоти</td></tr>
-    <tr><td>Бульбашки тільки знизу</td><td>Залити перший шар прохолодніше, через 5 хв — другий гарячіше</td></tr>
-    <tr><td>Вертикальні «нитки»</td><td>Біля гнота часто утворюються самі під час заливки — це красиво, не боріться з цим</td></tr>
+    <tr><td>Кришталево прозоро</td><td>100–110 °C, прогріта форма (60–70 °C), лити по стінці, повільне охолодження, фен по поверхні</td></tr>
+    <tr><td>Дрібні бульбашки</td><td>85–95 °C, повільно перемішати 20–30 с, лити з висоти 10–15 см</td></tr>
+    <tr><td>Бульбашки тільки знизу</td><td>Перший шар прохолодніше, через 5 хв другий — гарячіше</td></tr>
   </table>
 
-  <h3>Тріщини і грані</h3>
-  <ul>
-    <li><b>Розрив руками</b> дає нерівні «колоті» площини — головний прийом для льоду.</li>
-    <li><b>Надріз ножем на 3–5 мм</b> всередину і легке розведення країв — виглядає як тріщина в льоду.</li>
-    <li><b>Гібридний метод</b> дає внутрішні грані без порожнеч.</li>
-  </ul>
+  <div class="label">Практика</div>
+  <ol class="steps">
+    <li><b>Підготуйте форми</b><span class="time">10 хв</span><br>Деко з бортиками на силіконовому килимку (пласт на кілька свічок) або силіконова миска (одна свічка). Для прозорої заливки прогрійте форму в духовці.</li>
+    <li><b>Розтопіть і доведіть до температури</b><span class="time">30 хв</span><br>Як в уроці 9.</li>
+    <li><b>Залийте</b><span class="time">2 хв</span><br>Пласт 6–9 см заввишки або миска. Лийте по стінці (прозоро) або з висоти (бульбашки).</li>
+    <li><b>Приберіть бульбашки зверху</b><span class="time">1 хв</span><br>Через 1–2 хвилини пройдіться феном по поверхні.</li>
+    <li><b>Охолодження</b><span class="time">3–6 год</span><br>Кімнатна температура, без протягів. <b>Не в холодильник</b> — буде муть і тріщини.</li>
+    <li><b>Сформуйте свічку</b><span class="time">15 хв</span><br>Як в уроках 6–7: грані, гніт, основа, дно, глянець.</li>
+  </ol>
 
-  <h3>Колір</h3>
-  <p>Тільки барвники, призначені для гелю (рідкі, на олійній основі). Дозування — буквально 1 крапля на 300–500 г для ледь помітного блакитного, димчастого чи бурштинового відтінку. Пігменти і барвники для парафіну у гелі часто дають муть або осад.</p>
-
-  <h3>Аромат (для майбутньої лінійки)</h3>
-  <div class="box warn"><div class="box-title">Тільки після окремих тестів</div>
-    <ul>
-      <li>Тільки аромати, сумісні з гелем, з високою температурою спалаху (уточнюйте в паспорті аромату).</li>
-      <li>Зазвичай не більше 3–5% від ваги гелю, якщо постачальник не вказує інше.</li>
-      <li>Аромат додають при нижчій температурі розплаву, перед заливкою.</li>
-      <li>Аромат змінює прозорість і горіння: потрібен новий підбір гнота і новий тест.</li>
-      <li>Ароматизована свічка для ЄС потребує окремого маркування з алергенами (CLP).</li>
-    </ul>
+  <div class="box tip"><div class="box-title">Варіант: гніт під час заливки</div>
+    <p>У мисці для однієї свічки гніт можна поставити заздалегідь: основу приклеїти до дна краплею гарячого гелю, гніт тримати прищепкою на паличці поперек миски. Гніт ідеально прямий, але грані формувати складніше.</p>
   </div>
-
-  <h3>Вкраплення</h3>
-  <p>Лише негорючі: скляні намистини, камінці, мушлі — і не ближче 2,5 см до гнота. <b>Сухоцвіти, ягоди, папір, дерево — не можна</b>: вони займаються, коли розплав до них доходить.</p>
+  <div class="box tip"><div class="box-title">Обрізки</div>
+    <p>Обрізки без кіптяви можна розтопити знову, процідивши через металеве ситечко. Прозорість трохи падає — використовуйте їх для тестів і уламків.</p>
+  </div>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Відлийте дві заготовки: «прозору» і «з бульбашками». Сформуйте з кожної свічку і сфотографуйте поруч на темному фоні.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чому заготовку не можна охолоджувати в холодильнику?</li>
+      <li>Як отримати бульбашки тільки в нижній частині свічки?</li>
+    </ol>
+  </div>
 </section>
 
-<!-- ============ 11 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 11</div>
-  <h2>Тест горіння</h2>
-  <p class="lead">Кожна нова комбінація «гель + гніт + розмір + форма + метод» проходить тест. Без цього свічка не йде в продаж.</p>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">11</span><h2>Гібрид: лід у льоду</h2><span class="dur">1,5 год + 6 год</span></div>
+  <div class="goal"><b>Мета</b> Поєднати холодні уламки і гарячий гель: свічка з внутрішніми гранями і без порожнеч.</div>
 
-  <h3>Як проводити</h3>
+  <div class="label">Теорія</div>
+  <p>Гарячий гель трохи оплавляє грані холодних уламків і «зварює» їх у моноліт. Всередині видно грані й тріщини, як у справжньому льоду, а стики заповнені гелем, а не повітрям. Це найефектніший і водночас надійний спосіб.</p>
+
+  <div class="label">Практика</div>
   <ol class="steps">
-    <li><b>Умови</b><br>
-      Кімната без протягів, 20–24 °C. Свічка на негорючій підставці. Поруч таймер, лінійка, журнал. Свічка відпочивала після виготовлення щонайменше 24 год.</li>
-    <li><b>Перше горіння — 3 години</b><br>
-      Через 15 хв, 1 год, 2 год і 3 год заміряйте: висоту полум'я, діаметр і глибину ямки розплаву, відстань від краю ямки до зовнішньої стінки, кіптяву, тріск, «пітніння» стінки.</li>
-    <li><b>Загасіть і дайте охолонути</b><br>
-      Мінімум 2 години. Огляньте стінки: чи не з'явились мокрі плями чи патьоки.</li>
-    <li><b>Цикли до кінця</b><br>
-      Повторюйте сеанси по 3–4 години, поки свічка не догорить. Записуйте загальний час.</li>
-    <li><b>Висновок</b><br>
-      Свічка проходить тест, якщо виконані всі критерії нижче.</li>
+    <li><b>Наламайте уламки</b><span class="time">10 хв</span><br>Шматки 1,5–3 см з нерівними гранями. Підійдуть обрізки з попередніх уроків.</li>
+    <li><b>Підготуйте форму і гніт</b><span class="time">5 хв</span><br>Силіконова миска або квадратна форма, гніт з основою по центру, закріплений паличкою.</li>
+    <li><b>Укладіть уламки</b><span class="time">5 хв</span><br>Навколо гнота залиште вільне кільце 1,5–2 см — там буде суцільний гель.</li>
+    <li><b>Залийте гелем 95–105 °C</b><span class="time">3 хв</span><br>Повільно, по центру і в проміжки. Гарячіше — грані м'якші і менш помітні; прохолодніше — грані чіткіші, але більше повітря.</li>
+    <li><b>Охолодіть і доведіть</b><span class="time">4–6 год</span><br>Витягніть, підрівняйте дно, оплавте поверхню феном, дайте відпочити добу.</li>
+  </ol>
+
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зробіть 2 гібридні свічки з різною температурою заливки (наприклад, 95 і 105 °C). Порівняйте, як видно грані, і запишіть висновок у журнал.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чому гібрид надійніший за свічку з уламків холодним методом?</li>
+      <li>Що станеться з гранями, якщо заливати гарячіше?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= МОДУЛЬ 5 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 5</div>
+  <h2>Якість і дизайн</h2>
+  <p>Перевіряємо свічки тестом горіння, додаємо колір і вчимося знаходити причину будь-якої проблеми.</p>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">12</span><h2>Тест горіння</h2><span class="dur">2–5 днів</span></div>
+  <div class="goal"><b>Мета</b> Перевірити свічку від першого запалювання до кінця і вирішити, чи можна її дарувати або продавати.</div>
+
+  <div class="label">Теорія</div>
+  <p>Кожна нова комбінація «гель + гніт + розмір + форма + метод» проходить тест. Свічка, що не пройшла тест, не йде ні в подарунок, ні в продаж.</p>
+
+  <div class="label">Практика</div>
+  <ol class="steps">
+    <li><b>Умови</b><br>Кімната без протягів, 20–24 °C. Свічка на негорючій підставці, відпочивала ≥ 24 год. Поруч таймер, лінійка, журнал (додаток 2).</li>
+    <li><b>Перший сеанс — 3 години</b><br>На 15 хв, 1, 2 і 3 год заміряйте висоту полум'я, діаметр і глибину ямки, відстань від краю ямки до стінки. Відмічайте кіптяву, тріск, мокрі плями.</li>
+    <li><b>Пауза 2 години</b><br>Загасіть, дайте охолонути. Огляньте стінки і дно.</li>
+    <li><b>Сеанси до кінця</b><br>По 3–4 години, поки свічка не догорить. Запишіть загальний час.</li>
+    <li><b>Висновок</b><br>Порівняйте з критеріями нижче. Оберіть найкращий розмір гнота з трьох свічок уроку 6.</li>
   </ol>
 
   <h3>Критерії «пройшла тест»</h3>
   <ul class="check">
-    <li>Полум'я 1,5–2,5 см, рівне, без постійного мерехтіння</li>
-    <li>Немає чорної кіптяви, немає «грибка» на гноті через 1 годину</li>
+    <li>Полум'я 1,5–2,5 см, рівне</li>
+    <li>Немає чорної кіптяви і «грибка» на гноті</li>
     <li>Немає тріску і викидів</li>
-    <li>Від краю розплаву до зовнішньої стінки весь час ≥ 1 см твердого гелю</li>
+    <li>Від краю розплаву до стінки весь час ≥ 1 см твердого гелю</li>
     <li>Гель не тече і не просочується назовні</li>
     <li>Свічка гасне сама або лишається ≥ 1 см воску над основою гнота</li>
-    <li>Стінки не нагріваються так, що їх неприємно торкнутися через 3 години горіння</li>
   </ul>
 
-  <div class="box tip"><div class="box-title">Звідки береться час горіння для сайту</div>
-    <p>Беріть середній загальний час з 3 тестових свічок однієї моделі і округлюйте вниз. Це і є «≈ __ год» у картці товару.</p>
+  <div class="box tip"><div class="box-title">Час горіння для опису</div>
+    <p>Беріть середній час 3 свічок однієї моделі і округлюйте вниз — це чесна цифра для покупця.</p>
+  </div>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Протестуйте 3 моноліти з уроку 6 і свічку з уламків з уроку 8. Заповніть журнал для кожної. Визначте свій «робочий» гніт для середньої свічки.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Яка висота полум'я вважається нормальною?</li>
+      <li>Скільки твердого гелю має лишатися між розплавом і стінкою?</li>
+      <li>Як визначити час горіння для опису товару?</li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 12 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 12</div>
-  <h2>Проблеми і рішення</h2>
-  <table>
-    <tr><th>Проблема</th><th>Ймовірна причина</th><th>Що робити</th></tr>
-    <tr><td>Полум'я високе, кіптява</td><td>Гніт завеликий; гніт задовгий</td><td>Розмір меншим кроком; обрізати до 5 мм</td></tr>
-    <tr><td>Полум'я маленьке, гасне</td><td>Гніт замалий; гніт просочений гелем</td><td>Розмір більшим кроком; праймувати парафіном</td></tr>
-    <tr><td>Розплав дійшов до краю, тече</td><td>Тонка стінка; гніт не в центрі; гніт завеликий</td><td>Товщі стінки ≥ 2,5–3 см; центрувати по товщині; менший гніт</td></tr>
-    <tr><td>Тріск, «стрибки» полум'я</td><td>Повітря біля гнота; волога; вкраплення</td><td>Біля гнота — суцільний гель; сухі інструменти; прибрати вкраплення</td></tr>
-    <tr><td>Пил і ворсинки всередині</td><td>Брудна поверхня, одяг, серветки</td><td>Рукавички, безворсові серветки, накривати заготовки</td></tr>
-    <tr><td>Мутність</td><td>Різке охолодження; волога; перегрів; несумісний барвник</td><td>Охолоджувати при кімнатній t; сухий посуд; не вище 110 °C</td></tr>
-    <tr><td>Жовтий відтінок</td><td>Перегрів або багаторазове розтоплення</td><td>Контроль t; свіжий гель для прозорих моделей</td></tr>
-    <tr><td>Свічка «пітніє»</td><td>Властивість гелю; тепло; аромат</td><td>Підставка; зберігання в прохолоді; менше аромату</td></tr>
-    <tr><td>Гніт кривий</td><td>Голка пішла під кутом; гель «повів» канал</td><td>Голка довша і жорсткіша; розмітка зверху і знизу</td></tr>
-    <tr><td>Форма «оплила» після обробки</td><td>Гель «відпружинив»</td><td>Давати відпочити 24 год, потім фінальне доведення</td></tr>
-    <tr><td>Срібні плями в стиках (А2)</td><td>Повітря між уламками</td><td>Сильніше притискати; обтягувати плівкою; або метод В</td></tr>
-    <tr><td>Хитається на підставці</td><td>Нерівне дно</td><td>Зріз струною; перевірка на склі</td></tr>
-  </table>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">13</span><h2>Колір, аромат і вкраплення</h2><span class="dur">40 хв</span></div>
+  <div class="goal"><b>Мета</b> Знати, що можна додавати в гелеву свічку, а що — небезпечно.</div>
+
+  <div class="label">Колір</div>
+  <p>Тільки барвники для гелю (рідкі, на олійній основі). Дозування — буквально 1 крапля на 300–500 г для ледь помітного блакитного, димчастого чи бурштинового відтінку. Барвники і пігменти для парафіну в гелі часто дають муть.</p>
+
+  <div class="label">Аромат</div>
+  <div class="box warn"><div class="box-title">Тільки після окремих тестів</div>
+    <ul>
+      <li>Тільки аромати, сумісні з гелем, з високою температурою спалаху (дивіться паспорт аромату).</li>
+      <li>Зазвичай не більше 3–5% від ваги гелю, якщо постачальник не каже інакше.</li>
+      <li>Аромат змінює прозорість і горіння — потрібен новий підбір гнота і новий тест.</li>
+    </ul>
+  </div>
+
+  <div class="label">Вкраплення</div>
+  <p>Лише негорючі: скляні намистини, камінці, мушлі — не ближче 2,5 см до гнота. <b>Сухоцвіти, ягоди, папір, дерево — не можна</b>: вони займаються, коли розплав до них доходить.</p>
+
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Зробіть одну гібридну свічку з ледь помітним кольором (1 крапля). Порівняйте з безбарвною при свічці і при денному світлі.</p>
+  </div>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Чому сухоцвіти не можна класти в гелеву свічку?</li>
+      <li>Що треба зробити після додавання аромату, перш ніж продавати свічку?</li>
+    </ol>
+  </div>
 </section>
 
-<!-- ============ 13 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 13</div>
-  <h2>Доведення і пакування</h2>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">14</span><h2>Проблеми і як їх виправити</h2><span class="dur">30 хв</span></div>
+  <div class="goal"><b>Мета</b> Швидко знаходити причину проблеми за симптомом.</div>
+  <table>
+    <tr><th>Проблема</th><th>Ймовірна причина</th><th>Що робити</th></tr>
+    <tr><td>Полум'я високе, кіптява</td><td>Гніт завеликий або задовгий</td><td>Менший розмір; обрізати до 5 мм</td></tr>
+    <tr><td>Полум'я маленьке, гасне</td><td>Гніт замалий; просочений гелем</td><td>Більший розмір; праймувати парафіном</td></tr>
+    <tr><td>Розплав дійшов до краю, тече</td><td>Тонка стінка; гніт не в центрі товщини</td><td>Стінки ≥ 2,5–3 см; центрувати; менший гніт</td></tr>
+    <tr><td>Тріск, «стрибки» полум'я</td><td>Повітря біля гнота; волога; вкраплення</td><td>Суцільний гель біля гнота; сухі інструменти</td></tr>
+    <tr><td>Пил усередині</td><td>Брудна поверхня, одяг, серветки</td><td>Рукавички, безворсові серветки, накривати</td></tr>
+    <tr><td>Мутність</td><td>Різке охолодження; волога; перегрів</td><td>Кімнатне охолодження; сухий посуд; ≤ 110 °C</td></tr>
+    <tr><td>Жовтий відтінок</td><td>Перегрів, багаторазове розтоплення</td><td>Контроль t; свіжий гель для прозорих</td></tr>
+    <tr><td>Свічка «пітніє»</td><td>Властивість гелю; тепло; аромат</td><td>Підставка; прохолода; менше аромату</td></tr>
+    <tr><td>Гніт кривий</td><td>Голка під кутом</td><td>Довша жорстка голка; мітки зверху і знизу</td></tr>
+    <tr><td>Форма «оплила»</td><td>Гель відпружинив після обробки</td><td>Відпочинок 24 год перед доведенням</td></tr>
+    <tr><td>Срібні плями в стиках</td><td>Повітря між уламками</td><td>Сильніше притискати; або гібрид</td></tr>
+    <tr><td>Хитається</td><td>Нерівне дно</td><td>Зріз струною; перевірка на склі</td></tr>
+  </table>
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Перегляньте всі свої свічки за курс. Для кожної помітної проблеми знайдіть рядок у таблиці і запишіть у журнал, що зміните наступного разу.</p>
+  </div>
+</section>
 
-  <h3>Фінальна перевірка кожної свічки</h3>
+<!-- ================= МОДУЛЬ 6 ================= -->
+<section class="module">
+  <div class="kicker">Модуль 6</div>
+  <h2>Від хобі до продажу</h2>
+  <p>Як довести свічку до стану «можна дарувати і продавати», безпечно упакувати і правильно порахувати ціну.</p>
+</section>
+
+<section class="lesson">
+  <div class="lesson-head"><span class="num">15</span><h2>Доведення, пакування, маркування</h2><span class="dur">40 хв</span></div>
+  <div class="goal"><b>Мета</b> Підготувати свічку до подарунка або відправки поштою.</div>
+
+  <div class="label">Фінальна перевірка</div>
   <ul class="check">
     <li>Гніт прямий, обрізаний до 5–7 мм</li>
     <li>Немає пилу і ворсу всередині й на поверхні</li>
-    <li>Стоїть рівно, не хитається</li>
+    <li>Стоїть рівно</li>
     <li>Вага в межах ±10% від норми моделі</li>
-    <li>Немає великих пухирів біля гнота</li>
-    <li>Поверхня суха, без масляної плівки (протерти безворсовою серветкою)</li>
+    <li>Поверхня суха, без масляної плівки</li>
   </ul>
 
-  <h3>Пакування</h3>
+  <div class="label">Пакування</div>
   <ol>
-    <li>Свічку — на круглу підкладку з пергаменту або на підставку, якщо вона в комплекті.</li>
-    <li>Обгорнути тонким пергаментом (не папером з ворсом і не плівкою «в притул» — залишить сліди).</li>
-    <li>Коробка з щільним наповнювачем, щоб свічка не рухалась. Тест: струсніть закриту коробку — нічого не має стукати.</li>
-    <li>Картка з інструкцією безпеки і доглядом всередину.</li>
-    <li>Влітку — не залишати посилки на сонці; попередити покупця.</li>
+    <li>Свічка — на підставку або круглу підкладку з пергаменту.</li>
+    <li>Обгорнути пергаментом (не ворсистим папером).</li>
+    <li>Коробка з щільним наповнювачем. Струсніть — нічого не має стукати.</li>
+    <li>Картка з правилами безпеки і доглядом.</li>
+    <li>Влітку — не залишати посилку на сонці.</li>
   </ol>
 
-  <h3>Маркування і інструкція</h3>
-  <p>На коробці або наліпці на дні свічки:</p>
+  <div class="label">Маркування</div>
   <ul>
-    <li>Назва бренду і моделі, вага, контакти виробника.</li>
-    <li>Піктограми безпеки за EN 15494: «не залишати без нагляду», «подалі від дітей і тварин», «подалі від займистих предметів», «не ставити близько одна до одної».</li>
-    <li>Текст: «Завжди ставте свічку на негорючу підставку. Гелевий віск може залишати масляний слід. Не паліть довше 3–4 годин поспіль. Обрізайте гніт до 5 мм. Загасіть, коли стінки стали тонкими або лишилося 1 см воску».</li>
+    <li>Назва, вага, контакти майстра.</li>
+    <li>Піктограми безпеки за стандартом EN 15494: «не залишати без нагляду», «подалі від дітей і тварин», «подалі від займистих предметів».</li>
+    <li>Текст: «Завжди ставте на негорючу підставку. Гелевий віск може залишати масляний слід. Не паліть довше 3–4 годин поспіль. Обрізайте гніт до 5 мм. Загасіть, коли стінки стали тонкими або лишилося 1 см воску».</li>
   </ul>
+
+  <div class="box hw"><div class="box-title">Домашнє завдання</div>
+    <p>Створіть картку-інструкцію для своїх свічок і упакуйте одну свічку «як для покупця». Зробіть фото розпакування.</p>
+  </div>
 </section>
 
-<!-- ============ 14 ============ -->
-<section class="chapter">
-  <div class="kicker">Розділ 14</div>
-  <h2>Собівартість і технологічна карта</h2>
+<section class="lesson">
+  <div class="lesson-head"><span class="num">16</span><h2>Собівартість і ціна</h2><span class="dur">40 хв</span></div>
+  <div class="goal"><b>Мета</b> Порахувати собівартість своєї свічки і поставити ціну, яка приносить прибуток.</div>
 
-  <h3>Собівартість (гель 350 ₴/кг)</h3>
+  <div class="label">Теорія</div>
+  <p>Собівартість = гель (з запасом на обробку) + гніт і основа + пакування + брак (≈ 10%) + підставка, якщо вона в комплекті. Ваш час — окремо, як оплата праці.</p>
   <table>
-    <tr><th>Модель</th><th>Гель</th><th class="num">Гель, ₴</th><th class="num">+ гніт, пакування, брак</th><th class="num">Разом без підставки</th></tr>
-    <tr><td>Кубик</td><td>≈ 130–150 г</td><td class="num">46–53</td><td class="num">≈ 60–90</td><td class="num">≈ 110–145</td></tr>
-    <tr><td>Брила</td><td>≈ 350–400 г</td><td class="num">123–140</td><td class="num">≈ 70–110</td><td class="num">≈ 195–250</td></tr>
-    <tr><td>Айсберг</td><td>≈ 800–900 г</td><td class="num">280–315</td><td class="num">≈ 100–150</td><td class="num">≈ 380–465</td></tr>
+    <tr><th>Модель</th><th>Гель</th><th class="num">Гель, ₴*</th><th class="num">Гніт, пакування, брак</th><th class="num">Разом</th></tr>
+    <tr><td>Маленька</td><td>≈ 130–150 г</td><td class="num">46–53</td><td class="num">≈ 60–90</td><td class="num">≈ 110–145</td></tr>
+    <tr><td>Середня</td><td>≈ 350–400 г</td><td class="num">123–140</td><td class="num">≈ 70–110</td><td class="num">≈ 195–250</td></tr>
+    <tr><td>Велика</td><td>≈ 800–900 г</td><td class="num">280–315</td><td class="num">≈ 100–150</td><td class="num">≈ 380–465</td></tr>
   </table>
-  <p class="note">Вага гелю — із запасом 10–15% на обробку. Обрізки повертаються у виробництво через гарячий метод.</p>
+  <p class="note">* При ціні гелю 350 ₴/кг. Без підставки.</p>
+  <p><b>Ціна.</b> Для хендмейд-декору роздрібна ціна зазвичай у 2,5–4 рази вища за собівартість. Подивіться ціни схожих свічок і визначте своє місце: доступно, середньо чи преміально.</p>
 
-  <h3>Технологічна карта партії</h3>
+  <div class="label">Практика</div>
   <table>
-    <tr><th>Поле</th><th>Приклад</th></tr>
-    <tr><td>Партія №, дата</td><td>K-024, 12.11.2026</td></tr>
-    <tr><td>Модель</td><td>Брила</td></tr>
-    <tr><td>Гель: постачальник, партія</td><td>________, брикет 2 кг</td></tr>
-    <tr><td>Метод</td><td>А1 моноліт / Б гарячий / В гібрид</td></tr>
-    <tr><td>Температура заливки (для Б, В)</td><td>___ °C</td></tr>
-    <tr><td>Гніт: серія і розмір</td><td>________</td></tr>
-    <tr><td>Кількість, вага кожної</td><td>8 шт., 345–372 г</td></tr>
-    <tr><td>Браковано і чому</td><td>1 — пил усередині</td></tr>
-    <tr><td>Тест з партії (1 шт.)</td><td>пройдено / ні, загальний час ___ год</td></tr>
-    <tr><td>Виконавець</td><td>________</td></tr>
+    <tr><th>Стаття — для вашої середньої свічки</th><th class="num">₴</th></tr>
+    <tr><td>Гель: ___ г × ___ ₴/кг</td><td></td></tr>
+    <tr><td>Гніт і основа</td><td></td></tr>
+    <tr><td>Підставка</td><td></td></tr>
+    <tr><td>Коробка, наповнювач, картка</td><td></td></tr>
+    <tr><td>Брак 10%</td><td></td></tr>
+    <tr><td><b>Собівартість</b></td><td></td></tr>
+    <tr><td><b>Ціна продажу</b> (× 2,5–4)</td><td></td></tr>
   </table>
-
-  <h3>Продуктивність однієї людини (орієнтир)</h3>
-  <ul>
-    <li>Холодний метод А1: 3–5 свічок на годину після 20–30 штук практики.</li>
-    <li>Гарячий метод: пласт на 6–10 свічок за один розплав; формування — як у холодному.</li>
-    <li>Реально за робочий день: 15–25 свічок, включно з пакуванням.</li>
-  </ul>
+  <div class="box quiz"><div class="box-title">Самоперевірка</div>
+    <ol>
+      <li>Що входить у собівартість, крім гелю?</li>
+      <li>Чому брак закладають у собівартість?</li>
+    </ol>
+  </div>
 </section>
 
-<!-- ============ 15 ============ -->
-<section class="chapter">
-  <div class="kicker">Додаток</div>
-  <h2>Журнал тестів горіння</h2>
-  <p class="note">Роздрукуйте стільки сторінок, скільки потрібно. Одна стрічка — один замір.</p>
+<!-- ================= ФІНАЛЬНИЙ ПРОЄКТ ================= -->
+<section class="page">
+  <div class="kicker">Фінальний проєкт</div>
+  <h2>Ваша перша колекція</h2>
+  <p class="lead">Створіть колекцію з трьох свічок, поєднаних одним задумом: формою, ефектом або кольором. Це підсумок усього курсу.</p>
+
+  <h3>Завдання</h3>
+  <ol>
+    <li>Придумайте назву колекції і три моделі: маленьку, середню і велику.</li>
+    <li>Намалюйте ескізи з розмірами за правилами уроку 5.</li>
+    <li>Виготовте кожну модель. Хоча б одна — холодним методом з брикету, хоча б одна — гібридом.</li>
+    <li>Проведіть повний тест горіння для кожної моделі, заповніть журнали.</li>
+    <li>Порахуйте собівартість і ціну кожної моделі.</li>
+    <li>Упакуйте одну свічку як для покупця.</li>
+    <li>Сфотографуйте колекцію: при денному світлі і в темряві з запаленими свічками.</li>
+  </ol>
+
+  <h3>Критерії оцінки</h3>
+  <table>
+    <tr><th>Критерій</th><th>Що перевіряємо</th><th class="num">Бали</th></tr>
+    <tr><td>Безпека форми</td><td>Відстані від гнота, товщина стінок, рівне дно</td><td class="num">25</td></tr>
+    <tr><td>Тест горіння</td><td>Усі моделі пройшли тест, журнали заповнені</td><td class="num">25</td></tr>
+    <tr><td>Чистота виконання</td><td>Немає пилу, відбитків, кривого гнота</td><td class="num">15</td></tr>
+    <tr><td>Ефект льоду</td><td>Грані, тріщини, бульбашки, глянець</td><td class="num">15</td></tr>
+    <tr><td>Єдність колекції</td><td>Свічки читаються як одна серія</td><td class="num">10</td></tr>
+    <tr><td>Розрахунок і пакування</td><td>Собівартість, ціна, картка безпеки</td><td class="num">10</td></tr>
+    <tr><td colspan="2"><b>Разом</b> · 80+ — відмінно, 60–79 — добре, менше 60 — доопрацювати</td><td class="num"><b>100</b></td></tr>
+  </table>
+
+  <div class="box ok"><div class="box-title">Що далі</div>
+    <p>Модель, що пройшла тест, можна відтворювати: записуйте її «рецепт» (вага, гніт, метод, температура) у технологічну карту (додаток 3) — і кожна наступна свічка буде такою ж надійною.</p>
+  </div>
+</section>
+
+<!-- ================= ВІДПОВІДІ ================= -->
+<section class="page answers">
+  <div class="kicker">Відповіді</div>
+  <h2>Відповіді на самоперевірку</h2>
+  <div class="two">
+    <div>
+      <h3>Урок 1</h3>
+      <ol><li>Висока — HD.</li><li>Гель «пітніє» і лишає масляний слід навіть без горіння.</li><li>У паспорті безпеки (SDS) від постачальника.</li></ol>
+      <h3>Урок 2</h3>
+      <ol><li>Накрити металевою кришкою або покривалом і вимкнути нагрів.</li><li>120 °C.</li><li>Крапля води в гарячій олії миттєво закипає і розбризкує гель; вода на палаючу олію дає вибух полум'я.</li></ol>
+      <h3>Урок 3</h3>
+      <ol><li>Струна дає рівний зріз одним рухом, без «пиляння».</li><li>Щоб не лишати відбитків, жиру і ворсинок, які видно в прозорому гелі.</li></ol>
+      <h3>Урок 4</h3>
+      <ol><li>Парафіном.</li><li>Менший — на 1–2 кроки.</li><li>У центр найтовщої частини.</li></ol>
+      <h3>Урок 5</h3>
+      <ol><li>2,5–3 см у найтоншому місці.</li><li>Щоб полум'я стояло вертикально і не «лизало» виступи.</li></ol>
+      <h3>Урок 6</h3>
+      <ol><li>216 см³ × 0,85–0,9 ≈ 185–195 г.</li><li>Гель «відпружинює» після обробки, а канал гнота затягується.</li><li>Волога чи олія з леза залишиться всередині свічки плямою.</li></ol>
+    </div>
+    <div>
+      <h3>Урок 7</h3>
+      <ol><li>Зріз — рівна площина; розрив — нерівна «скляна» поверхня, як у колотого льоду.</li><li>10–15 см, 2–4 секунди на ділянку.</li></ol>
+      <h3>Урок 8</h3>
+      <ol><li>У холодному стики лише злипаються, у гібриді — зварюються гарячим гелем.</li><li>Зона навколо гнота і зовнішній шар біля верху.</li></ol>
+      <h3>Урок 9</h3>
+      <ol><li>Дрібні шматки плавляться рівніше, без локального перегріву.</li><li>Орієнтовно 100–110 °C (звірте з паспортом).</li></ol>
+      <h3>Урок 10</h3>
+      <ol><li>Різке охолодження дає муть і тріщини.</li><li>Перший шар залити прохолоднішим, через 5 хв другий — гарячішим.</li></ol>
+      <h3>Урок 11</h3>
+      <ol><li>Стики заповнені гелем, а не повітрям, тож розплав не затікає в порожнечі.</li><li>Грані стануть м'якшими і менш помітними.</li></ol>
+      <h3>Урок 12</h3>
+      <ol><li>1,5–2,5 см.</li><li>Щонайменше 1 см.</li><li>Середній час 3 свічок, округлений вниз.</li></ol>
+      <h3>Урок 13</h3>
+      <ol><li>Вони займаються, коли розплав до них доходить.</li><li>Заново підібрати гніт і провести повний тест горіння.</li></ol>
+      <h3>Урок 16</h3>
+      <ol><li>Гніт і основа, пакування, брак, підставка.</li><li>Частина свічок неминуче йде в брак — їхню вартість мають покрити продані.</li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ДОДАТКИ ================= -->
+<section class="page">
+  <div class="kicker">Додаток 1</div>
+  <h2>Чек-лист робочого місця</h2>
+  <div class="two">
+    <div>
+      <h3>Перед кожною роботою</h3>
+      <ul class="check">
+        <li>Стіл і дошка протерті, сухі</li>
+        <li>Немає ворсистих тканин поруч</li>
+        <li>Нітрилові рукавички</li>
+        <li>Інструменти чисті й сухі</li>
+        <li>Журнал і ручка</li>
+        <li>Ваги обнулені</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Додатково для нагріву</h3>
+      <ul class="check">
+        <li>Вогнегасне покривало під рукою</li>
+        <li>Вогнегасник під рукою</li>
+        <li>Металева кришка до каструлі</li>
+        <li>Термометр у гелі</li>
+        <li>Провітрювання, витяжка</li>
+        <li>Жодної води поруч</li>
+        <li>Діти і тварини поза кімнатою</li>
+        <li>Термостійкі рукавички, окуляри</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kicker" style="margin-top:10mm">Додаток 3</div>
+  <h2>Технологічна карта моделі</h2>
+  <table>
+    <tr><th>Поле</th><th>Запис</th></tr>
+    <tr><td>Назва моделі</td><td></td></tr>
+    <tr><td>Метод (моноліт / уламки / гарячий / гібрид)</td><td></td></tr>
+    <tr><td>Гель: постачальник</td><td></td></tr>
+    <tr><td>Вага заготовки / готової свічки</td><td></td></tr>
+    <tr><td>Розміри (Ш × Г × В)</td><td></td></tr>
+    <tr><td>Гніт: серія і розмір</td><td></td></tr>
+    <tr><td>Температура заливки</td><td></td></tr>
+    <tr><td>Колір / ефект</td><td></td></tr>
+    <tr><td>Час горіння (середнє з 3)</td><td></td></tr>
+    <tr><td>Собівартість / ціна</td><td></td></tr>
+  </table>
+</section>
+
+<section class="page">
+  <div class="kicker">Додаток 2</div>
+  <h2>Журнал тесту горіння</h2>
+  <p class="note">Роздрукуйте стільки сторінок, скільки потрібно. Одна свічка — одна сторінка.</p>
   <p><b>Модель:</b> ____________ &nbsp; <b>Метод:</b> ______ &nbsp; <b>Вага:</b> ______ г &nbsp; <b>Гніт:</b> ____________ &nbsp; <b>Дата:</b> ________</p>
   <table class="log">
     <tr><th>Час</th><th>Полум'я, см</th><th>Ямка Ø, см</th><th>Глибина, см</th><th>До стінки, см</th><th>Кіптява / тріск</th><th>Нотатки</th></tr>
@@ -702,7 +1013,9 @@
     <tr><td>Сеанс 6</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     <tr><td>Сеанс 7</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   </table>
-  <p><b>Загальний час горіння:</b> ______ год &nbsp;&nbsp; <b>Результат:</b> пройдено / не пройдено &nbsp;&nbsp; <b>Що змінити:</b> __________________________</p>
+  <p><b>Загальний час горіння:</b> ______ год &nbsp;&nbsp; <b>Результат:</b> пройдено / не пройдено</p>
+  <p><b>Що змінити:</b></p>
+  <div class="lines"></div><div class="lines"></div>
 </section>
 
 </body>
